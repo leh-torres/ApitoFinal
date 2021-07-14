@@ -5,6 +5,7 @@
  */
 package apitofinal;
 
+import dao.DataSource;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -39,7 +40,9 @@ public class ApitoFinal extends Application {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        DataSource banco = new DataSource();
         launch(args);
+        banco.closeDataSource();
     }
     
 }

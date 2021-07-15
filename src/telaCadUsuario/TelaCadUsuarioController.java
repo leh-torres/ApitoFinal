@@ -9,6 +9,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
 /**
  * FXML Controller class
@@ -16,6 +18,17 @@ import javafx.fxml.FXML;
  * @author RonaldoMatos
  */
 public class TelaCadUsuarioController implements Initializable {
+
+    @FXML
+    private TextField txt_nome;
+    @FXML
+    private TextField txt_email;
+    @FXML
+    private TextField txt_senha;
+    @FXML
+    private Button bt_avancar;
+    @FXML
+    private Button bt_conectar;
 
     /**
      * Initializes the controller class.

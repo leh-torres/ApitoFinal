@@ -24,7 +24,7 @@ public class Atleta {
         return id_atleta;
     }
 
-    public void setNome(Stirng nome){
+    public void setNome(String nome){
     
     }
 

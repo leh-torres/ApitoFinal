@@ -8,7 +8,7 @@ public class Competicao {
     private String descricao;
     private String premiacao;
     private Date   data_inicio;
-    private Data   data_terminio;
+    private Date   data_terminio;
     private String situacao;
     private int    qtd_times;
 

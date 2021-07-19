@@ -5,7 +5,11 @@
  */
 package apitofinal;
 
+import classes.Usuario;
+import dao.DataSource;
+import dao.UsuarioDAO;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -47,8 +51,8 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void handleButtonAction(ActionEvent event) {
-        System.out.println("Você clicou no botão!");
-        labelResultado.setText("Entrou!\nEmail: "+ txtlogin.getText() + "\nSenha: "+ txtsenha.getText());
+        
+        
     }
     
     @Override

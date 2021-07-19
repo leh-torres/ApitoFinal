@@ -17,23 +17,23 @@ public class Atleta {
     }
 
     public void setId(int id_atleta){
-    
+        this.id_atleta = id_atleta;
     }
 
     public int getId(){
         return id_atleta;
     }
 
-    public void setNome(Stirng nome){
-    
+    public void setNomeAtleta(String nome_atleta){
+        this.nome_atleta = nome_atleta;
     }
 
     public String getNomeAtleta(){
         return nome_atleta;
     }
 
-    public void setSobrenome(String sobrenome){
-    
+    public void setSobrenomeAtleta(String sobrenome_atleta){
+        this.sobrenome_atleta = sobrenome_atleta;
     }
 
     public String getSobrenomeAtleta(){

@@ -23,14 +23,9 @@ public class Atleta {
     public int getId(){
         return id_atleta;
     }
-
-<<<<<<< HEAD
+    
     public void setNomeAtleta(String nome_atleta){
         this.nome_atleta = nome_atleta;
-=======
-    public void setNome(String nome){
-    
->>>>>>> refs/remotes/origin/master
     }
 
     public String getNomeAtleta(){

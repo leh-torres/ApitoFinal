@@ -11,21 +11,15 @@ import java.sql.SQLException;
  * @author Leticia Torres
  */
 public class DataSource {
-    private String hostname;
-    private int    porta;
-    private String database;
-    private String username;
-    private String password;
+    private static final String hostname = "localhost";
+    private static final int    porta = 3306;
+    private static final String database = "apito_final";
+    private static final String username = "root";
+    private static final String password = "";
     private Connection conexao;
 
     public DataSource(){
         try {
-            hostname = "localhost";
-            porta = 3306;
-            database = "apito_final";
-            username = "root";
-            password = "";
-
             String url = "jdbc:mysql://" + hostname + ":" + porta + "/" + database;
             DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
             conexao = DriverManager.getConnection(url, username, password);

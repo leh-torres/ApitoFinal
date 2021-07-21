@@ -10,6 +10,10 @@ public class Usuario {
     private String senha_user;
     private Blob imagem_user;
 
+    public Usuario(){
+    
+    }
+
     public int getId_user() {
         return id_user;
     }

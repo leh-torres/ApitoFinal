@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author rayla
+ * @author Raylander
  */
 public class UsuarioDAO {
 

@@ -5,6 +5,8 @@
  */
 package telaCadUsuario;
 
+import apitofinal.ApitoFinal;
+import apitofinal.FXMLDocumentController;
 import classes.Usuario;
 import dao.CadastroDAO;
 import dao.DataSource;
@@ -18,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
 /**
@@ -39,15 +42,16 @@ public class TelaCadUsuarioController implements Initializable {
     private Button bt_conectar;
     
     private DataSource dataSource;
-
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }  
+
+    @FXML    
     public void acaoDOBotaoAvancar(ActionEvent event){
         
         try {
@@ -63,8 +67,20 @@ public class TelaCadUsuarioController implements Initializable {
         }
     }
     
+    @FXML  
     public void acaoDOBotaoConectar(ActionEvent event){
-        
-    }
+        ApitoFinal a = new ApitoFinal();
+        fecha();
+        try {
+            a.start(new Stage());
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }  
     
+    public void fecha(){
+        TelaCadUsuario.getStage().close();
+    }
 }
+    
+

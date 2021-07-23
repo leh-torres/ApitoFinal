@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" onContextMenuRequested="#displayImage" onMouseMoved="#displayImage" prefHeight="706.0" prefWidth="1366.0" style="-fx-background-color: #eff0f3;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apitofinal.FXMLDocumentController">
+<AnchorPane id="AnchorPane" onContextMenuRequested="#displayImage" onMouseMoved="#displayImage" prefHeight="706.0" prefWidth="1366.0" style="-fx-background-color: #eff0f3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="apitofinal.FXMLDocumentController">
     <children>
       <Pane layoutX="459.0" layoutY="37.0" prefHeight="549.0" prefWidth="512.0" style="-fx-background-color: white;">
          <children>
@@ -66,12 +66,7 @@
         <Label fx:id="labelResultado" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
       <Pane layoutX="459.0" layoutY="616.0" prefHeight="51.0" prefWidth="512.0" style="-fx-background-color: white;">
          <children>
-            <Label layoutX="61.0" layoutY="10.0" text="Não tem uma conta no Apito Final?">
-               <font>
-                  <Font name="Dubai Regular" size="18.0" />
-               </font>
-            </Label>
-            <Button fx:id="cadastrar" layoutX="320.0" layoutY="2.0" minHeight="18.0" mnemonicParsing="false" onAction="#displayImage" prefHeight="39.0" prefWidth="125.0" style="-fx-background-color: white;" text="Cadastre-se" textAlignment="CENTER" textFill="#ff8e3c" underline="true">
+            <Button fx:id="cadastrar" layoutX="320.0" layoutY="2.0" minHeight="18.0" mnemonicParsing="false" onAction="#acaoBotaoCadastrar" prefHeight="39.0" prefWidth="125.0" style="-fx-background-color: white;" text="Cadastre-se" textAlignment="CENTER" textFill="#ff8e3c" underline="true">
                <font>
                   <Font name="Dubai Medium" size="18.0" />
                </font>
@@ -79,6 +74,11 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <Label layoutX="61.0" layoutY="10.0" text="Não tem uma conta no Apito Final?">
+               <font>
+                  <Font name="Dubai Regular" size="18.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
     </children>

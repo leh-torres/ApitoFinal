@@ -10,6 +10,10 @@ public class Times {
     private int fk_part;
     private int fk_usuario;
     private int fk_atleta;
+    
+    public Times(){
+        
+    }
 
     public int getId_time() {
         return id_time;

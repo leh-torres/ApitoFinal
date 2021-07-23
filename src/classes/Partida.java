@@ -12,6 +12,10 @@ public class Partida {
     private String loacl_part;
     private String placar_part;
     private int fk_comp;
+    
+    public Partida (){
+        
+    }
 
     public int getId_part() {
         return id_part;

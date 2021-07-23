@@ -11,6 +11,10 @@ public class Dados {
     private int escanteio_dados;
     private int laterais_dados;
     private int substituicoes_dados;
+    
+    public Dados(){
+        
+    }
 
     public int getId_dados() {
         return id_dados;

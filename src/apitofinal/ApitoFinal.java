@@ -20,6 +20,9 @@ import javafx.scene.image.ImageView;
  */
 public class ApitoFinal extends Application {
     
+    private static Stage stage; 
+    
+    
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/apitofinal/FXMLDocument.fxml"));
@@ -34,7 +37,16 @@ public class ApitoFinal extends Application {
         
         stage.setScene(scene);
         stage.show();
+        setStage(stage);
     }
+    
+    public static Stage getStage() {
+        return stage;
+    }
+
+    public static void setStage(Stage stage) {
+        ApitoFinal.stage = stage;
+    }    
 
     /**
      * @param args the command line arguments
@@ -44,5 +56,5 @@ public class ApitoFinal extends Application {
         launch(args);
         banco.closeDataSource();
     }
-    
+ 
 }

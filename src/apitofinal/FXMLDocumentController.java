@@ -5,12 +5,15 @@
  */
 package apitofinal;
 
-import classes.Usuario;
 import dao.DataSource;
-import dao.UsuarioDAO;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,6 +22,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import telaCadUsuario.TelaCadUsuario;
+
 
 /**
  *
@@ -41,8 +47,13 @@ public class FXMLDocumentController implements Initializable {
     private Label labelResultado;
     @FXML
     private TextField txtlogin;
+    private String[] args;
     
-    
+    Connection conn = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+   
+    DataSource data = new DataSource();
     
     @FXML
     public void displayImage(){
@@ -50,14 +61,40 @@ public class FXMLDocumentController implements Initializable {
     }
     
     @FXML
-    private void handleButtonAction(ActionEvent event) {
+    public  void handleButtonAction(ActionEvent event) {
         
+        String email;
+        email = txtlogin.getText();
         
+        conn = (Connection) data;
+        
+        String SQL = "SELECT * FROM usuario WHERE email_user=? and senh_user=?";
+        
+        try {
+            
+            
+        } catch (Exception e) {
+        }
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    public void acaoBotaoCadastrar(ActionEvent event) {
+        TelaCadUsuario cad = new TelaCadUsuario();
+        fecha();
+        try {
+            cad.start(new Stage());
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void fecha(){
+        ApitoFinal.getStage().close();
+    }
     
 }

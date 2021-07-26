@@ -43,7 +43,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button entrar;
     @FXML
-    private TextField txtsenha;
+    private TextField pass_senha;
     @FXML
     private Label labelResultado;
     @FXML
@@ -69,11 +69,12 @@ public class FXMLDocumentController implements Initializable {
         try {
             pst = (PreparedStatement)conn.prepareStatement(SQL);
             pst.setString(1, txtlogin.getText());
-            pst.setString(2, txtsenha.getText());
+            pst.setString(2, pass_senha.getText());
             rs = pst.executeQuery();
             
             if(rs.next()){
-                System.out.println("Bem vindo ao sistema");
+                JOptionPane.showMessageDialog(null,"Bem vindo ao sistema");
+                data.closeDataSource();
             }
             else{
                 System.out.println("Erro");

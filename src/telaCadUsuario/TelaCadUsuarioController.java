@@ -7,10 +7,11 @@ package telaCadUsuario;
 
 import apitofinal.ApitoFinal;
 import apitofinal.FXMLDocumentController;
-import classes.Usuario;
-import dao.CadastroDAO;
 import dao.DataSource;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -43,6 +44,11 @@ public class TelaCadUsuarioController implements Initializable {
     
     private DataSource dataSource;
     
+    Connection conn = null;
+    PreparedStatement pst = null;
+    ResultSet rs = null;
+    DataSource data = new DataSource();
+    
     /**
      * Initializes the controller class.
      */
@@ -54,16 +60,24 @@ public class TelaCadUsuarioController implements Initializable {
     @FXML    
     public void acaoDOBotaoAvancar(ActionEvent event){
         
+        conn = data.getConnection();
+        
+        String SQL = "INSERT INTO usuario VALUES (?,?,?,?,?,?)";
         try {
-            Usuario usu = new Usuario();
-            CadastroDAO ca = new CadastroDAO(dataSource);
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setString(1, txt_nome.getText());
+            pst.setString(2, txt_email.getText());
+            pst.setString(2, txt_senha.getText());
+            rs = pst.executeQuery();
             
-            usu.setNome_user(txt_nome.getText());
-            usu.setEmail_user(txt_email.getText());
-            usu.setSenha_user(txt_senha.getText());
-            ca.create(usu);
+            if(rs.next()){
+                System.out.println("Usuario cadastrado");
+            }
+            else{
+                System.out.println("Erro");
+            }
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null,"Erro ao cadastrar usuário");
+            JOptionPane.showMessageDialog(null, ex);
         }
     }
     

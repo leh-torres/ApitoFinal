@@ -10,7 +10,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 import telaCadUsuario.TelaCadUsuario;
 
 
@@ -47,12 +48,11 @@ public class FXMLDocumentController implements Initializable {
     private Label labelResultado;
     @FXML
     private TextField txtlogin;
-    private String[] args;
-    
+
     Connection conn = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
-   
+    
     DataSource data = new DataSource();
     
     @FXML
@@ -63,17 +63,23 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     public  void handleButtonAction(ActionEvent event) {
         
-        String email;
-        email = txtlogin.getText();
+        conn = data.getConnection();
         
-        conn = (Connection) data;
-        
-        String SQL = "SELECT * FROM usuario WHERE email_user=? and senh_user=?";
-        
+        String SQL = "SELECT * FROM usuario WHERE email_user=? and senha_user=?";
         try {
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setString(1, txtlogin.getText());
+            pst.setString(2, txtsenha.getText());
+            rs = pst.executeQuery();
             
-            
-        } catch (Exception e) {
+            if(rs.next()){
+                System.out.println("Bem vindo ao sistema");
+            }
+            else{
+                System.out.println("Erro");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
         }
     }
     

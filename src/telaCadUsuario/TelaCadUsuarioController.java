@@ -43,8 +43,7 @@ public class TelaCadUsuarioController implements Initializable {
     private Button bt_avancar;
     @FXML
     private Button bt_conectar;
-    
-    private DataSource dataSource;
+  
     
     Connection conn = null;
     PreparedStatement pst = null;

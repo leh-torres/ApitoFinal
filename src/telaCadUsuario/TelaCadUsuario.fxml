@@ -13,14 +13,14 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" style="-fx-background-color: #eff0f3;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telaCadUsuario.TelaCadUsuarioController">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" style="-fx-background-color: #eff0f3;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telaCadUsuario.TelaCadUsuarioController">
     <stylesheets>
         <URL value="@telacadusuario.css" />
     </stylesheets>
    <children>
       <Pane layoutX="389.0" layoutY="30.0" prefHeight="569.0" prefWidth="589.0" style="-fx-background-color: white;">
          <children>
-            <Button fx:id="bt_avancar" blendMode="MULTIPLY" layoutX="217.0" layoutY="512.0" onAction="#acaoDOBotaoAvancar" prefHeight="31.0" prefWidth="170.0" style="-fx-background-color: #ff8e3c;" text="Avançar" textFill="WHITE">
+            <Button fx:id="bt_avancar" blendMode="MULTIPLY" layoutX="217.0" layoutY="512.0" onAction="#acaoDOBotaoAvancar" onKeyPressed="#acaoDOBotaoAvancar" prefHeight="31.0" prefWidth="170.0" style="-fx-background-color: #ff8e3c;" text="Avançar" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>

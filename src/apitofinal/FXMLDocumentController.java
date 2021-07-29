@@ -6,6 +6,7 @@
 package apitofinal;
 
 import dao.DataSource;
+import dao.UsuarioDAO;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -23,8 +24,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 import telaCadUsuario.TelaCadUsuario;
+import telaprincipal.TelaPrincipal;
 
 
 /**
@@ -48,12 +49,10 @@ public class FXMLDocumentController implements Initializable {
     private Label labelResultado;
     @FXML
     private TextField txtlogin;
-
-    Connection conn = null;
-    PreparedStatement pst = null;
-    ResultSet rs = null;
     
-    DataSource data = new DataSource();
+    private boolean verifica;
+    
+    UsuarioDAO usu = new UsuarioDAO();
     
     @FXML
     public void displayImage(){
@@ -63,25 +62,17 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     public  void handleButtonAction(ActionEvent event) {
         
-        conn = data.getConnection();
-        
-        String SQL = "SELECT * FROM usuario WHERE email_user=? and senha_user=?";
-        try {
-            pst = (PreparedStatement)conn.prepareStatement(SQL);
-            pst.setString(1, txtlogin.getText());
-            pst.setString(2, pass_senha.getText());
-            rs = pst.executeQuery();
-            
-            if(rs.next()){
-                JOptionPane.showMessageDialog(null,"Bem vindo ao sistema");
-                data.closeDataSource();
-            }
-            else{
-                System.out.println("Erro");
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex);
+        verifica = usu.login(txtlogin.getText(), pass_senha.getText());
+        if(verifica == true){
+            TelaPrincipal tela = new TelaPrincipal();
+            fecha();
+            try {
+            tela.start(new Stage());
+        } catch (Exception ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
+        
     }
     
     @Override

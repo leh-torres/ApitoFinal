@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+    <stylesheets>
+        <URL value="@fxml.css" />
+      <URL value="@selecaocampeonato.css" />
+    </stylesheets>
+   <children>
+      <Label layoutY="-4.0" prefHeight="60.0" prefWidth="1366.0" style="-fx-background-color: #fffffe; -fx-border-color: #C9C9C9;">
+         <padding>
+            <Insets left="30.0" right="30.0" />
+         </padding>
+      </Label>
+      <Label layoutX="49.0" layoutY="-4.0" prefHeight="60.0" prefWidth="195.0" text="Apito Final" textFill="#333333">
+         <font>
+            <Font name="Eras Demi ITC" size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="1136.0" prefHeight="58.0" prefWidth="101.0" text="Zairo Bastos" textFill="#333333">
+         <font>
+            <Font name="Segoe UI" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="155.0" layoutY="88.0" prefHeight="590.0" prefWidth="1056.0" style="-fx-background-color: #fffffe;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="340.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Imagens/ceara.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="580.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Imagens/fortaleza.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="506.0" layoutY="120.0" text="X">
+               <font>
+                  <Font name="Segoe UI Bold" size="52.0" />
+               </font>
+            </Label>
+            <Label layoutX="729.0" layoutY="118.0" text="FEC">
+               <font>
+                  <Font name="Segoe UI Bold" size="55.0" />
+               </font>
+            </Label>
+            <Label layoutX="205.0" layoutY="112.0" text="CSC">
+               <font>
+                  <Font name="System Bold" size="55.0" />
+               </font>
+            </Label>
+            <Label layoutX="487.0" layoutY="211.0" text="Placar">
+               <font>
+                  <Font name="Segoe UI Bold" size="25.0" />
+               </font>
+            </Label>
+            <TextField layoutX="425.0" layoutY="258.0" prefHeight="30.0" prefWidth="60.0">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="2.0" left="10.0" top="2.0" />
+               </padding>
+            </TextField>
+            <TextField layoutX="560.0" layoutY="258.0" prefHeight="30.0" prefWidth="60.0">
+               <padding>
+                  <Insets bottom="2.0" left="10.0" top="2.0" />
+               </padding>
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+            </TextField>
+            <Label alignment="CENTER" layoutX="175.0" layoutY="353.0" text="Cartão amarelo">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="175.0" layoutY="413.0" text="Cartão vermelho">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="620.0" layoutY="413.0" text="Assistência">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="620.0" layoutY="353.0" text="Falta">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField alignment="CENTER" layoutX="327.0" layoutY="353.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="2.0" left="10.0" top="2.0" />
+               </padding></TextField>
+            <TextField alignment="CENTER" layoutX="733.0" layoutY="353.0" prefHeight="25.0" prefWidth="149.0">
+               <padding>
+                  <Insets bottom="2.0" left="10.0" top="2.0" />
+               </padding>
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font></TextField>
+            <Label layoutX="517.0" layoutY="262.0" text="X">
+               <font>
+                  <Font name="Segoe UI Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField alignment="CENTER" layoutX="327.0" layoutY="415.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="2.0" left="10.0" top="2.0" />
+               </padding>
+            </TextField>
+            <TextField alignment="CENTER" layoutX="733.0" layoutY="415.0" prefHeight="25.0" prefWidth="149.0">
+               <padding>
+                  <Insets bottom="2.0" left="10.0" top="2.0" />
+               </padding>
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+            </TextField>
+            <Button layoutX="419.0" layoutY="497.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-color: fe8e3c;" text="Salvar" textFill="#fffffe">
+               <font>
+                  <Font name="Segoe UI Bold" size="22.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

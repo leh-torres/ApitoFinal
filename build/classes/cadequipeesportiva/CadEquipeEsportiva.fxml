@@ -68,16 +68,6 @@
                </font>
             </Button>
             <ImageView fitHeight="182.0" fitWidth="473.0" layoutX="91.0" layoutY="252.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="25.0" fitWidth="31.0" layoutX="52.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../TelaInicial/images/icons8-voltar-90.png" />
-               </image>
-            </ImageView>
-            <Label layoutX="77.0" layoutY="28.0" prefHeight="28.0" prefWidth="73.0" text="Voltar" textFill="#ff8e3c">
-               <font>
-                  <Font name="Segoe UI" size="23.0" />
-               </font>
-            </Label>
          </children>
       </Pane>
    </children>

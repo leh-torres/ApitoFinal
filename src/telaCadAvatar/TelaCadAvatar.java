@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package telaprincipal;
+package telaCadAvatar;
 
+import dao.DataSource;
+import java.net.URL;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -13,15 +16,15 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Zairo Bastos
+ * @author RonaldoMatos
  */
-public class TelaPrincipal extends Application {
+public class TelaCadAvatar extends Application{
     
     private static Stage stage;
-    
+
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("TelaPrincipal.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/telaCadAvatar/telaCadAvatar.fxml"));                
         
         Scene scene = new Scene(root);
         
@@ -29,20 +32,17 @@ public class TelaPrincipal extends Application {
         stage.show();
         setStage(stage);
     }
-
+    
     public static Stage getStage() {
         return stage;
     }
 
     public static void setStage(Stage stage) {
-        TelaPrincipal.stage = stage;
-    }
-
-    /**
-     * @param args the command line arguments
-     */
+        TelaCadAvatar.stage = stage;
+    }   
+    
     public static void main(String[] args) {
-        launch(args);
+        // TODO code application logic here
     }
     
 }

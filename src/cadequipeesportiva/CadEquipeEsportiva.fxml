@@ -73,11 +73,11 @@
                   <Image url="@../TelaInicial/images/icons8-voltar-90.png" />
                </image>
             </ImageView>
-            <Label layoutX="77.0" layoutY="28.0" prefHeight="28.0" prefWidth="73.0" text="Voltar" textFill="#ff8e3c">
+            <Button layoutX="73.0" layoutY="20.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="93.0" style="-fx-background-color: transparent;" text="Voltar" textFill="#ff8e3c">
                <font>
                   <Font name="Segoe UI" size="23.0" />
                </font>
-            </Label>
+            </Button>
          </children>
       </Pane>
    </children>

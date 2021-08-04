@@ -21,6 +21,8 @@ import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
@@ -43,8 +45,7 @@ public class TelaCadUsuarioController implements Initializable {
     private Button bt_avancar;
     @FXML
     private Button bt_conectar;
-    
-    private DataSource dataSource;
+  
     
     Connection conn = null;
     PreparedStatement pst = null;
@@ -58,7 +59,14 @@ public class TelaCadUsuarioController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        pass_senha.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+            try {
+                if (event.getCode() == KeyCode.ENTER) {
+                    cadastrar();
+                }
+            } catch (Exception ex) {
+            }
+        });
     }  
 
     @FXML    
@@ -71,7 +79,7 @@ public class TelaCadUsuarioController implements Initializable {
         trocarTela();
     }  
     
-    public void fecha(){
+    private void fecha(){
         TelaCadUsuario.getStage().close();
     }
     

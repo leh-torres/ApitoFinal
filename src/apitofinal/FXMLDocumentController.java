@@ -5,12 +5,9 @@
  */
 package apitofinal;
 
-import dao.DataSource;
+import dao.CampeonatoDAO;
+import dao.UsuarioDAO;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,9 +19,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
 import telaCadUsuario.TelaCadUsuario;
+import telaprincipal.TelaPrincipal;
 
 
 /**
@@ -48,12 +47,12 @@ public class FXMLDocumentController implements Initializable {
     private Label labelResultado;
     @FXML
     private TextField txtlogin;
-
-    Connection conn = null;
-    PreparedStatement pst = null;
-    ResultSet rs = null;
     
-    DataSource data = new DataSource();
+    private boolean verificaLogin;
+    private boolean verificaCampeonato;
+    
+    UsuarioDAO usu = new UsuarioDAO();
+    CampeonatoDAO cam = new CampeonatoDAO();
     
     @FXML
     public void displayImage(){
@@ -62,32 +61,44 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     public  void handleButtonAction(ActionEvent event) {
+        verificaLogin = usu.login(txtlogin.getText(), pass_senha.getText());
+        verificaCampeonato = cam.verificaCampeonato();
         
-        conn = data.getConnection();
-        
-        String SQL = "SELECT * FROM usuario WHERE email_user=? and senha_user=?";
-        try {
-            pst = (PreparedStatement)conn.prepareStatement(SQL);
-            pst.setString(1, txtlogin.getText());
-            pst.setString(2, pass_senha.getText());
-            rs = pst.executeQuery();
-            
-            if(rs.next()){
-                JOptionPane.showMessageDialog(null,"Bem vindo ao sistema");
-                data.closeDataSource();
+        if(verificaLogin == true){
+            if(verificaCampeonato == true){
+                TelaPrincipal tela = new TelaPrincipal();
+                fecha();
+
+                try {
+                tela.start(new Stage());
+            } catch (Exception ex) {
+                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            else{
-                System.out.println("Erro");
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex);
+        } 
         }
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        pass_senha.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+            try {
+                if (event.getCode() == KeyCode.ENTER) {
+                    verificaLogin = usu.login(txtlogin.getText(), pass_senha.getText());
+            if(verificaLogin == true){
+                TelaPrincipal tela = new TelaPrincipal();
+                fecha();
+                try {
+                tela.start(new Stage());
+            } catch (Exception ex) {
+                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            }
+                }
+            } catch (Exception ex) {
+            }
+        });
+    }
+ 
 
     @FXML
     public void acaoBotaoCadastrar(ActionEvent event) {
@@ -100,7 +111,7 @@ public class FXMLDocumentController implements Initializable {
         }
     }
     
-    public void fecha(){
+    private void fecha(){
         ApitoFinal.getStage().close();
     }
     

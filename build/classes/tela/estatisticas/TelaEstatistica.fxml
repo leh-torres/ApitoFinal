@@ -34,7 +34,11 @@
       </Label>
       <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
+<<<<<<< HEAD
             <Image url="@../../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
+=======
+            <Image url="@../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
+>>>>>>> 5430c2e0387e2b50181cb7793f430cd795493347
          </image>
       </ImageView>
       <Pane layoutX="155.0" layoutY="88.0" prefHeight="590.0" prefWidth="1056.0" style="-fx-background-color: #fffffe;">
@@ -85,34 +89,58 @@
                   <Font name="Segoe UI" size="18.0" />
                </font>
             </TextField>
+<<<<<<< HEAD
             <Label alignment="CENTER" layoutX="92.0" layoutY="324.0" text="Cartão amarelo">
+=======
+            <Label alignment="CENTER" layoutX="175.0" layoutY="353.0" text="Cartão amarelo">
+>>>>>>> 5430c2e0387e2b50181cb7793f430cd795493347
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
+<<<<<<< HEAD
             <Label alignment="CENTER" layoutX="333.0" layoutY="324.0" text="Cartão vermelho">
+=======
+            <Label alignment="CENTER" layoutX="175.0" layoutY="413.0" text="Cartão vermelho">
+>>>>>>> 5430c2e0387e2b50181cb7793f430cd795493347
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
+<<<<<<< HEAD
             <Label alignment="CENTER" layoutX="815.0" layoutY="324.0" text="Impedimento">
+=======
+            <Label alignment="CENTER" layoutX="620.0" layoutY="413.0" text="Assistência">
+>>>>>>> 5430c2e0387e2b50181cb7793f430cd795493347
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
+<<<<<<< HEAD
             <Label alignment="CENTER" layoutX="574.0" layoutY="324.0" text="Faltas">
+=======
+            <Label alignment="CENTER" layoutX="620.0" layoutY="353.0" text="Falta">
+>>>>>>> 5430c2e0387e2b50181cb7793f430cd795493347
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
+<<<<<<< HEAD
             <TextField alignment="TOP_LEFT" layoutX="92.0" layoutY="351.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
+=======
+            <TextField alignment="CENTER" layoutX="327.0" layoutY="353.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
+>>>>>>> 5430c2e0387e2b50181cb7793f430cd795493347
                <font>
                   <Font name="Segoe UI" size="18.0" />
                </font>
                <padding>
                   <Insets bottom="2.0" left="10.0" top="2.0" />
                </padding></TextField>
+<<<<<<< HEAD
             <TextField alignment="TOP_LEFT" layoutX="333.0" layoutY="351.0" prefHeight="25.0" prefWidth="149.0">
+=======
+            <TextField alignment="CENTER" layoutX="733.0" layoutY="353.0" prefHeight="25.0" prefWidth="149.0">
+>>>>>>> 5430c2e0387e2b50181cb7793f430cd795493347
                <padding>
                   <Insets bottom="2.0" left="10.0" top="2.0" />
                </padding>
@@ -124,7 +152,11 @@
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Label>
+<<<<<<< HEAD
             <TextField alignment="TOP_LEFT" layoutX="574.0" layoutY="351.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
+=======
+            <TextField alignment="CENTER" layoutX="327.0" layoutY="415.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
+>>>>>>> 5430c2e0387e2b50181cb7793f430cd795493347
                <font>
                   <Font name="Segoe UI" size="18.0" />
                </font>
@@ -132,7 +164,11 @@
                   <Insets bottom="2.0" left="10.0" top="2.0" />
                </padding>
             </TextField>
+<<<<<<< HEAD
             <TextField alignment="TOP_LEFT" layoutX="815.0" layoutY="351.0" prefHeight="25.0" prefWidth="149.0">
+=======
+            <TextField alignment="CENTER" layoutX="733.0" layoutY="415.0" prefHeight="25.0" prefWidth="149.0">
+>>>>>>> 5430c2e0387e2b50181cb7793f430cd795493347
                <padding>
                   <Insets bottom="2.0" left="10.0" top="2.0" />
                </padding>
@@ -145,6 +181,7 @@
                   <Font name="Segoe UI Bold" size="22.0" />
                </font>
             </Button>
+<<<<<<< HEAD
             <TextField alignment="TOP_LEFT" layoutX="92.0" layoutY="427.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
                <font>
                   <Font name="Segoe UI" size="18.0" />
@@ -197,6 +234,8 @@
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
+=======
+>>>>>>> 5430c2e0387e2b50181cb7793f430cd795493347
          </children>
       </Pane>
    </children>

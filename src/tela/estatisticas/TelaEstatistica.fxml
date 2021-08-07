@@ -34,7 +34,7 @@
       </Label>
       <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
+            <Image url="@../../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
          </image>
       </ImageView>
       <Pane layoutX="155.0" layoutY="88.0" prefHeight="590.0" prefWidth="1056.0" style="-fx-background-color: #fffffe;">
@@ -85,34 +85,34 @@
                   <Font name="Segoe UI" size="18.0" />
                </font>
             </TextField>
-            <Label alignment="CENTER" layoutX="175.0" layoutY="353.0" text="Cartão amarelo">
+            <Label alignment="CENTER" layoutX="92.0" layoutY="324.0" text="Cartão amarelo">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="175.0" layoutY="413.0" text="Cartão vermelho">
+            <Label alignment="CENTER" layoutX="333.0" layoutY="324.0" text="Cartão vermelho">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="620.0" layoutY="413.0" text="Assistência">
+            <Label alignment="CENTER" layoutX="815.0" layoutY="324.0" text="Impedimento">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="620.0" layoutY="353.0" text="Falta">
+            <Label alignment="CENTER" layoutX="574.0" layoutY="324.0" text="Faltas">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <TextField alignment="CENTER" layoutX="327.0" layoutY="353.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
+            <TextField alignment="TOP_LEFT" layoutX="92.0" layoutY="351.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
                <font>
                   <Font name="Segoe UI" size="18.0" />
                </font>
                <padding>
                   <Insets bottom="2.0" left="10.0" top="2.0" />
                </padding></TextField>
-            <TextField alignment="CENTER" layoutX="733.0" layoutY="353.0" prefHeight="25.0" prefWidth="149.0">
+            <TextField alignment="TOP_LEFT" layoutX="333.0" layoutY="351.0" prefHeight="25.0" prefWidth="149.0">
                <padding>
                   <Insets bottom="2.0" left="10.0" top="2.0" />
                </padding>
@@ -124,7 +124,7 @@
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Label>
-            <TextField alignment="CENTER" layoutX="327.0" layoutY="415.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
+            <TextField alignment="TOP_LEFT" layoutX="574.0" layoutY="351.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
                <font>
                   <Font name="Segoe UI" size="18.0" />
                </font>
@@ -132,7 +132,7 @@
                   <Insets bottom="2.0" left="10.0" top="2.0" />
                </padding>
             </TextField>
-            <TextField alignment="CENTER" layoutX="733.0" layoutY="415.0" prefHeight="25.0" prefWidth="149.0">
+            <TextField alignment="TOP_LEFT" layoutX="815.0" layoutY="351.0" prefHeight="25.0" prefWidth="149.0">
                <padding>
                   <Insets bottom="2.0" left="10.0" top="2.0" />
                </padding>
@@ -145,6 +145,58 @@
                   <Font name="Segoe UI Bold" size="22.0" />
                </font>
             </Button>
+            <TextField alignment="TOP_LEFT" layoutX="92.0" layoutY="427.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="2.0" left="10.0" top="2.0" />
+               </padding>
+            </TextField>
+            <Label alignment="CENTER" layoutX="92.0" layoutY="400.0" text="Pênaltis">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField alignment="TOP_LEFT" layoutX="333.0" layoutY="427.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="2.0" left="10.0" top="2.0" />
+               </padding>
+            </TextField>
+            <Label alignment="CENTER" layoutX="333.0" layoutY="400.0" text="Escanteio">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField alignment="TOP_LEFT" layoutX="574.0" layoutY="427.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="2.0" left="10.0" top="2.0" />
+               </padding>
+            </TextField>
+            <Label alignment="CENTER" layoutX="574.0" layoutY="400.0" text="Laterais">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <TextField alignment="TOP_LEFT" layoutX="815.0" layoutY="427.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
+               <font>
+                  <Font name="Segoe UI" size="18.0" />
+               </font>
+               <padding>
+                  <Insets bottom="2.0" left="10.0" top="2.0" />
+               </padding>
+            </TextField>
+            <Label alignment="CENTER" layoutX="815.0" layoutY="400.0" text="Substituições">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>

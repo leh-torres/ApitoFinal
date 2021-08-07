@@ -3,10 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package telaCadAvatar;
 
-package telacadcampeonato;
-
+import dao.DataSource;
+import java.net.URL;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,34 +16,21 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Zairo Bastos
+ * @author RonaldoMatos
  */
-public class TelaCadCampeonato extends Application {
+public class TelaCadAvatar extends Application{
     
     private static Stage stage;
 
-    public static Stage stage;
-
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/telacadcampeonato/TelaCadCampeonato.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/telaCadAvatar/telaCadAvatar.fxml"));                
         
         Scene scene = new Scene(root);
-
+        
         stage.setScene(scene);
         stage.show();
         setStage(stage);
-<<<<<<< HEAD
-    }
-
-    public static Stage getStage(){
-        return stage;
-    }
-
-    public static void setStage(Stage stage){
-        TelaCadCampeonato.stage = stage;
-=======
->>>>>>> ec73aff838e93d9c75e95cbe6b4cdf16f0982388
     }
     
     public static Stage getStage() {
@@ -49,15 +38,11 @@ public class TelaCadCampeonato extends Application {
     }
 
     public static void setStage(Stage stage) {
-        TelaCadCampeonato.stage = stage;
-    }
-
-
-    /**
-     * @param args the command line arguments
-     */
+        TelaCadAvatar.stage = stage;
+    }   
+    
     public static void main(String[] args) {
-        launch(args);
+        // TODO code application logic here
     }
-
+    
 }

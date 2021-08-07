@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telaprincipal.TelaPrincipalController">
     <stylesheets>
         <URL value="@fxml.css" />
     </stylesheets>
@@ -39,7 +39,7 @@
             <Image url="@../TelaInicial/images/lifestyle-05-removebg-preview.png" />
          </image>
       </ImageView>
-      <Button layoutX="515.0" layoutY="543.0" mnemonicParsing="false" prefHeight="73.0" prefWidth="336.0" stylesheets="@telaprincipal.css" text="Criar Campeonato" textFill="#fffffe">
+      <Button fx:id="criar_camp" layoutX="515.0" layoutY="543.0" mnemonicParsing="false" onAction="#inicioCampeonato" prefHeight="73.0" prefWidth="336.0" stylesheets="@telaprincipal.css" text="Criar Campeonato" textFill="#fffffe">
          <font>
             <Font name="Segoe UI Bold" size="18.0" />
          </font>

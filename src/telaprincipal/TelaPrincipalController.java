@@ -7,10 +7,15 @@ package telaprincipal;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
+import telacadcampeonato.TelaCadCampeonato;
 
 /**
  *
@@ -20,16 +25,30 @@ public class TelaPrincipalController implements Initializable {
     
     @FXML
     private Label label;
-    
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
+    private Button criar_camp;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }  
+    
+    public void inicioCampeonato(ActionEvent event) {
+        trocarTela();        
+    }
+    
+    private void fecha(){
+        TelaPrincipal.getStage().close();
+    }
+    
+    private void trocarTela(){
+        TelaCadCampeonato a = new TelaCadCampeonato();
+        fecha();
+        try {
+            a.start(new Stage());
+        } catch (Exception ex) {
+            Logger.getLogger(TelaPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
 }

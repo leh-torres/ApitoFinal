@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" style="-fx-background-color: #eff0f3;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="telaCadAvatar.TelaCadAvatarController">
+    <stylesheets>
+        <URL value="@telacadavatar.css" />
+    </stylesheets>
+   <children>
+      <Pane layoutX="435.0" layoutY="54.0" prefHeight="598.0" prefWidth="496.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="119.0" fitWidth="123.0" layoutX="189.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="file:/C:/Users/RonaldoMatos/Desktop/Gabriel/ApitoFinal/src/resources/Logotype.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="130.0" layoutY="177.0" text="Complete o cadastro do perfil com">
+               <font>
+                  <Font name="Segoe UI Semibold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="211.0" layoutY="198.0" text="seu avatar!">
+               <font>
+                  <Font name="Segoe UI Semibold" size="15.0" />
+               </font>
+            </Label>
+            <Line endX="187.0" layoutX="251.0" layoutY="228.0" startX="-195.0" stroke="#eff0f3" strokeWidth="3.0" />
+            <ImageView blendMode="DARKEN" fitHeight="200.0" fitWidth="200.0" layoutX="148.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+            <Line endX="-100.0" endY="180.0" layoutX="248.0" layoutY="281.0" startX="-100.0" startY="-20.0" stroke="#ff8e3c" />
+            <Line endX="-100.0" endY="180.0" layoutX="448.0" layoutY="281.0" startX="-100.0" startY="-20.0" stroke="#ff8e3c" />
+            <Line endX="100.0" layoutX="248.0" layoutY="261.0" startX="-100.0" stroke="#ff8e3c" />
+            <Line endX="100.0" layoutX="248.0" layoutY="461.0" startX="-100.0" stroke="#ff8e3c" />
+            <Button fx:id="bt_avancar" layoutX="349.0" layoutY="541.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: #ff8e3c;" text="Avançar" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Semibold" size="15.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="bt_inserir" layoutX="190.0" layoutY="470.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" style="-fx-background-color: white;" text="Inserir imagem" textFill="#ff8e3c" underline="true">
+               <font>
+                  <Font name="Segoe UI Semibold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

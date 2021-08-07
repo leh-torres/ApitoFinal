@@ -5,13 +5,9 @@
  */
 package apitofinal;
 
-import dao.DataSource;
+import dao.CampeonatoDAO;
 import dao.UsuarioDAO;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,6 +19,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 import telaCadUsuario.TelaCadUsuario;
 import telaprincipal.TelaPrincipal;
@@ -50,9 +48,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField txtlogin;
     
-    private boolean verifica;
+    private boolean verificaLogin;
+    private boolean verificaCampeonato;
     
     UsuarioDAO usu = new UsuarioDAO();
+    CampeonatoDAO cam = new CampeonatoDAO();
     
     @FXML
     public void displayImage(){
@@ -61,24 +61,44 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     public  void handleButtonAction(ActionEvent event) {
+        verificaLogin = usu.login(txtlogin.getText(), pass_senha.getText());
+        verificaCampeonato = cam.verificaCampeonato();
         
-        verifica = usu.login(txtlogin.getText(), pass_senha.getText());
-        if(verifica == true){
-            TelaPrincipal tela = new TelaPrincipal();
-            fecha();
-            try {
-            tela.start(new Stage());
-        } catch (Exception ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        if(verificaLogin == true){
+            if(verificaCampeonato == true){
+                TelaPrincipal tela = new TelaPrincipal();
+                fecha();
+
+                try {
+                tela.start(new Stage());
+            } catch (Exception ex) {
+                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } 
         }
-        }
-        
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        pass_senha.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
+            try {
+                if (event.getCode() == KeyCode.ENTER) {
+                    verificaLogin = usu.login(txtlogin.getText(), pass_senha.getText());
+            if(verificaLogin == true){
+                TelaPrincipal tela = new TelaPrincipal();
+                fecha();
+                try {
+                tela.start(new Stage());
+            } catch (Exception ex) {
+                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            }
+                }
+            } catch (Exception ex) {
+            }
+        });
+    }
+ 
 
     @FXML
     public void acaoBotaoCadastrar(ActionEvent event) {
@@ -91,7 +111,7 @@ public class FXMLDocumentController implements Initializable {
         }
     }
     
-    public void fecha(){
+    private void fecha(){
         ApitoFinal.getStage().close();
     }
     

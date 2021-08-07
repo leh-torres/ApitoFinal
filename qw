@@ -1,0 +1,140 @@
+[33mcommit 59c539d1c027ce9ad5bf7fb7fe7451eb9c0a4149[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Merge: 6f92528 5430c2e
+Author: Zairo Bastos <zairo_vianahd@hotmail.com>
+Date:   Wed Aug 4 02:16:53 2021 -0300
+
+    Botão de voltar
+
+[33mcommit 6f925286caf0d981edea3e3269b31ce11c33167b[m
+Author: Zairo Bastos <zairo_vianahd@hotmail.com>
+Date:   Tue Aug 3 18:50:40 2021 -0300
+
+    Adição do voltar na tela de cadastro do time
+
+[33mcommit 5430c2e0387e2b50181cb7793f430cd795493347[m
+Author: Gabriel Rudan <gabrielrudam92@gmail.com>
+Date:   Tue Aug 3 16:06:00 2021 -0300
+
+    Tela de Cad Avatar incompleta
+
+[33mcommit 99b4a6912e2e16e5ffc46830752c76406a267a47[m
+Author: Raylander <raylandermarques24@gmail.com>
+Date:   Fri Jul 30 11:19:37 2021 -0300
+
+    Implementação da transição da tela login com a criar campeonato incompleta
+
+[33mcommit 3e668239cfafe9466e709eb785db08904fb3b5c2[m
+Author: Raylander <raylandermarques24@gmail.com>
+Date:   Thu Jul 29 17:45:17 2021 -0300
+
+    Adicionando uma classe para a verificação do login
+
+[33mcommit c05fa4e9df75cb7e12b41d4b8eb56f7466bc1dc8[m
+Author: Zairo Bastos <zairo_vianahd@hotmail.com>
+Date:   Thu Jul 29 15:04:12 2021 -0300
+
+    Migração apenas dos src das telas
+
+[33mcommit b14708fe5b2b2b7311fda169769885dd9b620d99[m
+Author: Zairo Bastos <zairo_vianahd@hotmail.com>
+Date:   Mon Jul 26 18:56:31 2021 -0300
+
+    Criação de demais telas do projeto
+
+[33mcommit 3fb355ebc20a4cd415928ea017c2b5b60cdfcad6[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Raylander <raylandermarques24@gmail.com>
+Date:   Mon Jul 26 10:33:03 2021 -0300
+
+    Funcionalidades do botão cadastrar e adicinar funcionando
+
+[33mcommit ed6a765c9759a73de517ad9d3d72db0d7ece9a75[m
+Author: Gabriel Rudan <gabrielrudam92@gmail.com>
+Date:   Mon Jul 26 10:22:09 2021 -0300
+
+    Campo de senha alterado
+
+[33mcommit d15d362df2bfe544b4be1fcabff44b04685133af[m
+Author: Gabriel Rudan <gabrielrudam92@gmail.com>
+Date:   Sun Jul 25 22:20:36 2021 -0300
+
+    Campo de nome e sobrenome add
+
+[33mcommit a292beed448843781f170ea710f1ed99955c6cb2[m
+Author: Raylander <raylandermarques24@gmail.com>
+Date:   Sun Jul 25 21:48:51 2021 -0300
+
+    Botão entrar funcionando
+
+[33mcommit 4aa27ce408bbd6ce62b41f4151c26b48be113b07[m
+Author: Raylander <raylandermarques24@gmail.com>
+Date:   Fri Jul 23 15:12:36 2021 -0300
+
+    Adicionando funções dos botões 1
+
+[33mcommit aea9309b1dcad69827db3b20e93159936ac627d8[m
+Author: Leticia <leticiatp2@gmail.com>
+Date:   Tue Jul 20 22:59:10 2021 -0300
+
+    Atualização no dao
+
+[33mcommit 436c26dd2631c7d97195c26468f91c9f0b3acb42[m
+Author: Raylander <raylandermarques24@gmail.com>
+Date:   Mon Jul 19 21:26:07 2021 -0300
+
+    Adicionado a funcao de cadastro 1
+
+[33mcommit 553ba81da69ef93fe405699bd67a0378d5b3d930[m
+Merge: 095badf fae3693
+Author: Raylander <raylandermarques24@gmail.com>
+Date:   Mon Jul 19 14:19:51 2021 -0300
+
+    Commit após merge dos arquivos e conexão do banco
+
+[33mcommit 095badf5df99e48d346fcb3306d840e2efca6212[m
+Author: Raylander <raylandermarques24@gmail.com>
+Date:   Mon Jul 19 14:11:05 2021 -0300
+
+    Adicionado arquivos da conexão com o banco
+
+[33mcommit fae369388ee04b6d221f129b3cb98238e82dc6b0[m
+Author: Gabriel Rudan <gabrielrudam92@gmail.com>
+Date:   Thu Jul 15 16:37:11 2021 -0300
+
+    telaCadUsuario Completa
+
+[33mcommit 15c7893bdb198cc22bc68fd23b98f603754d65c5[m
+Merge: 0316aa9 05bebd6
+Author: Gabriel Rudan <gabrielrudam92@gmail.com>
+Date:   Thu Jul 15 16:35:03 2021 -0300
+
+    Merge origin/master
+
+[33mcommit 0316aa9fd137e3353be32ed0f4b4cd644f3bca24[m
+Author: Gabriel Rudan <gabrielrudam92@gmail.com>
+Date:   Thu Jul 15 16:24:33 2021 -0300
+
+    telaCadUsuario
+
+[33mcommit 05bebd6350f325ed33f1815e7caf3cdd09744088[m
+Author: Leticia <leticiatp2@gmail.com>
+Date:   Wed Jul 14 01:22:25 2021 -0300
+
+    Adicionado a classe conexão e começo da implantação das classes referentes as tabelas do banco
+
+[33mcommit 9cff4e5eee2235c53db3ea281fa365174d114874[m
+Author: Leticia <leticiatp2@gmail.com>
+Date:   Tue Jul 13 23:46:41 2021 -0300
+
+    Modificação pro visual studio code rodar o projeto
+
+[33mcommit d3e1e0fe249185ab027063bc4347b3d101e0be0d[m
+Author: Gabriel Rudan <gabrielrudam92@gmail.com>
+Date:   Tue Jul 13 16:28:15 2021 -0300
+
+    update
+
+[33mcommit 1165630d0014a6245edc1069e1a474fd5d3eb569[m
+Author: Gabriel Rudan <gabrielrudam92@gmail.com>
+Date:   Tue Jul 6 13:18:43 2021 -0300
+
+    testando

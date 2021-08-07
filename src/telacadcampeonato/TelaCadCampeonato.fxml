@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,9 +13,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telacadcampeonato.TelaCadCampeonatoController">
     <stylesheets>
-        <URL value="@fxml.css" />
+        <URL value="@telacadcampeonato.css" />
     </stylesheets>
    <children>
       <Label layoutY="-4.0" prefHeight="60.0" prefWidth="1366.0" style="-fx-background-color: #fffffe; -fx-border-color: #C9C9C9;">
@@ -52,7 +51,7 @@
                </font>
             </Label>
             <Separator layoutX="52.0" layoutY="168.0" prefHeight="0.0" prefWidth="552.0" />
-            <TextField layoutX="91.0" layoutY="211.0" prefHeight="25.0" prefWidth="473.0" />
+            <TextField fx:id="txt_nome_camp" layoutX="91.0" layoutY="211.0" prefHeight="25.0" prefWidth="473.0" />
             <Label layoutX="92.0" layoutY="187.0" text="Nome do campeonato">
                <font>
                   <Font name="Segoe UI" size="15.0" />
@@ -63,11 +62,11 @@
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Label>
-            <RadioButton layoutX="94.0" layoutY="276.0" mnemonicParsing="false" text="8 Times">
+            <RadioButton fx:id="rad_qtd8" layoutX="94.0" layoutY="276.0" mnemonicParsing="false" text="8 Times">
                <font>
                   <Font name="Segoe UI" size="13.0" />
                </font></RadioButton>
-            <RadioButton layoutX="169.0" layoutY="276.0" mnemonicParsing="false" text="16 Times">
+            <RadioButton fx:id="rad_qtd16" layoutX="169.0" layoutY="276.0" mnemonicParsing="false" text="16 Times">
                <font>
                   <Font name="Segoe UI" size="13.0" />
                </font></RadioButton>
@@ -76,18 +75,18 @@
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="320.0" layoutY="269.0" prefHeight="25.0" prefWidth="244.0" />
+            <TextField fx:id="txt_premiacao" layoutX="320.0" layoutY="269.0" prefHeight="25.0" prefWidth="244.0" />
             <Label layoutX="92.0" layoutY="313.0" text="Descrição">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Label>
-            <TextArea layoutX="91.0" layoutY="341.0" prefHeight="93.0" prefWidth="473.0" />
-            <Button layoutX="416.0" layoutY="461.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" style="-fx-background-color: #ff8e3c;" text="Avançar" textFill="#fffffe">
+            <Button fx:id="btn_avancar" layoutX="416.0" layoutY="461.0" mnemonicParsing="false" onAction="#acaoDoBotao" prefHeight="33.0" prefWidth="148.0" style="-fx-background-color: #ff8e3c;" text="Avançar" textFill="#fffffe">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
+            <TextField fx:id="txt_desc" layoutX="94.0" layoutY="342.0" prefHeight="50.0" prefWidth="473.0" />
          </children>
       </Pane>
    </children>

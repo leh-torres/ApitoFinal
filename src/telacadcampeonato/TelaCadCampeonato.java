@@ -18,14 +18,25 @@ import javafx.stage.Stage;
  */
 public class TelaCadCampeonato extends Application {
 
+    public static Stage stage;
+
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/telacadcampeonato/TelaCadCampeonato.fxml"));
         
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
         stage.show();
+        setStage(stage);
+    }
+
+    public static Stage getStage(){
+        return stage;
+    }
+
+    public static void setStage(Stage stage){
+        TelaCadCampeonato.stage = stage;
     }
 
     /**

@@ -5,6 +5,7 @@
  */
 package apitofinal;
 
+import dao.BarraDeMenu;
 import dao.CampeonatoDAO;
 import dao.UsuarioDAO;
 import java.net.URL;
@@ -22,6 +23,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import selecaocampeonato.SelecaoCampeonato;
 import telaCadUsuario.TelaCadUsuario;
 import telaprincipal.TelaPrincipal;
 
@@ -62,19 +64,30 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     public  void handleButtonAction(ActionEvent event) {
         verificaLogin = usu.login(txtlogin.getText(), pass_senha.getText());
-        verificaCampeonato = cam.verificaCampeonato();
+        verificaCampeonato = cam.verificaCampeonato(txtlogin.getText(), pass_senha.getText());
         
         if(verificaLogin == true){
+            BarraDeMenu barra = new BarraDeMenu();
+            barra.logoNomeUsuario(txtlogin.getText(), pass_senha.getText());
             if(verificaCampeonato == true){
-                TelaPrincipal tela = new TelaPrincipal();
+                SelecaoCampeonato tela1 = new SelecaoCampeonato();
                 fecha();
 
+                try {
+                tela1.start(new Stage());
+            } catch (Exception ex) {
+                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            } 
+            else{
+                TelaPrincipal tela = new TelaPrincipal();
+                fecha();
                 try {
                 tela.start(new Stage());
             } catch (Exception ex) {
                 Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
             }
-        } 
+            }
         }
     }
     

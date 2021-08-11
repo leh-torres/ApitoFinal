@@ -22,26 +22,27 @@ public class CampeonatoDAO {
     ResultSet ps = null;
     DataSource data = new DataSource();
     
-    public boolean verificaCampeonato(){
+    public boolean verificaCampeonato(String email, String senha){
         conn = data.getConnection();
         
-        String SQL = "SELECT * FROM competicao";
+        String SQL = "SELECT * FROM competicao WHERE EXISTS(SELECT id_user FROM usuario WHERE email_user=? and senha_user=?)=fk_usuario";
         try {
             pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setString(1, email);
+            pst.setString(2, senha);
             ps = pst.executeQuery();
             
-            if(ps.wasNull() == true){
+            if(ps.next()){
                 data.closeDataSource();
                 return true;
             }
             else{
-                System.out.println("Erro");
+                return false;
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
         return false;
-    }
-   
+    }    
     
 }

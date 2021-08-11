@@ -15,14 +15,16 @@ import javax.swing.JOptionPane;
  *
  * @author rayla
  */
-public class UsuarioDAO {
+public class BarraDeMenu {
     
     Connection conn = null;
     PreparedStatement pst = null;
     ResultSet ps = null;
     DataSource data = new DataSource();
+    private static int id;
+    private static String nome;
     
-    public boolean login(String txtlogin, String pass_senha){
+    public void logoNomeUsuario(String txtlogin, String pass_senha){
         conn = data.getConnection();
         
         String SQL = "SELECT * FROM usuario WHERE email_user=? and senha_user=?";
@@ -34,7 +36,7 @@ public class UsuarioDAO {
             
             if(ps.next()){
                 data.closeDataSource();
-                return true;
+                id = ps.getInt("id_user");
             }
             else{
                 JOptionPane.showMessageDialog(null,"Usuário ou senha inválidos");
@@ -42,7 +44,28 @@ public class UsuarioDAO {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-        return false;
     }
-   
+    
+    public String Nome(){
+        
+        conn = data.getConnection();
+        
+        String SQL = "SELECT * FROM usuario WHERE id_user=?";
+        try {
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setString(1, Integer.toString(id));
+            ps = pst.executeQuery();
+            
+            if(ps.next()){
+                data.closeDataSource();
+                nome = ps.getString("nome_user");
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Usuário ou senha inválidos");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return null;
+    }
 }

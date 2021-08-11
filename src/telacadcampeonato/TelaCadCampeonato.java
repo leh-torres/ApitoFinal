@@ -31,17 +31,6 @@ public class TelaCadCampeonato extends Application {
         stage.setScene(scene);
         stage.show();
         setStage(stage);
-<<<<<<< HEAD
-    }
-
-    public static Stage getStage(){
-        return stage;
-    }
-
-    public static void setStage(Stage stage){
-        TelaCadCampeonato.stage = stage;
-=======
->>>>>>> ec73aff838e93d9c75e95cbe6b4cdf16f0982388
     }
     
     public static Stage getStage() {

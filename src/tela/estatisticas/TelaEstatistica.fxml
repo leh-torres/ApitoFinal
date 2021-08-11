@@ -34,42 +34,42 @@
       </Label>
       <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
+            <Image url="@../../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
          </image>
       </ImageView>
-      <Pane layoutX="155.0" layoutY="88.0" prefHeight="590.0" prefWidth="1056.0" style="-fx-background-color: #fffffe;">
+      <Pane layoutX="283.0" layoutY="170.0" prefHeight="406.0" prefWidth="800.0" style="-fx-background-color: #fffffe;">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="340.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="227.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Imagens/ceara.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="580.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="467.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Imagens/fortaleza.png" />
                </image>
             </ImageView>
-            <Label layoutX="506.0" layoutY="120.0" text="X">
+            <Label layoutX="393.0" layoutY="110.0" text="X">
                <font>
                   <Font name="Segoe UI Bold" size="52.0" />
                </font>
             </Label>
-            <Label layoutX="729.0" layoutY="118.0" text="FEC">
+            <Label layoutX="616.0" layoutY="108.0" text="FEC">
                <font>
                   <Font name="Segoe UI Bold" size="55.0" />
                </font>
             </Label>
-            <Label layoutX="205.0" layoutY="112.0" text="CSC">
+            <Label layoutX="92.0" layoutY="102.0" text="CSC">
                <font>
                   <Font name="System Bold" size="55.0" />
                </font>
             </Label>
-            <Label layoutX="487.0" layoutY="211.0" text="Placar">
+            <Label layoutX="374.0" layoutY="201.0" text="Placar">
                <font>
                   <Font name="Segoe UI Bold" size="25.0" />
                </font>
             </Label>
-            <TextField layoutX="425.0" layoutY="258.0" prefHeight="30.0" prefWidth="60.0">
+            <TextField layoutX="312.0" layoutY="248.0" prefHeight="30.0" prefWidth="60.0">
                <font>
                   <Font name="Segoe UI" size="18.0" />
                </font>
@@ -77,7 +77,7 @@
                   <Insets bottom="2.0" left="10.0" top="2.0" />
                </padding>
             </TextField>
-            <TextField layoutX="560.0" layoutY="258.0" prefHeight="30.0" prefWidth="60.0">
+            <TextField layoutX="447.0" layoutY="248.0" prefHeight="30.0" prefWidth="60.0">
                <padding>
                   <Insets bottom="2.0" left="10.0" top="2.0" />
                </padding>
@@ -85,62 +85,12 @@
                   <Font name="Segoe UI" size="18.0" />
                </font>
             </TextField>
-            <Label alignment="CENTER" layoutX="175.0" layoutY="353.0" text="Cartão amarelo">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="175.0" layoutY="413.0" text="Cartão vermelho">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="620.0" layoutY="413.0" text="Assistência">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="620.0" layoutY="353.0" text="Falta">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Label>
-            <TextField alignment="CENTER" layoutX="327.0" layoutY="353.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
-               <font>
-                  <Font name="Segoe UI" size="18.0" />
-               </font>
-               <padding>
-                  <Insets bottom="2.0" left="10.0" top="2.0" />
-               </padding></TextField>
-            <TextField alignment="CENTER" layoutX="733.0" layoutY="353.0" prefHeight="25.0" prefWidth="149.0">
-               <padding>
-                  <Insets bottom="2.0" left="10.0" top="2.0" />
-               </padding>
-               <font>
-                  <Font name="Segoe UI" size="18.0" />
-               </font></TextField>
-            <Label layoutX="517.0" layoutY="262.0" text="X">
+            <Label layoutX="404.0" layoutY="252.0" text="X">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Label>
-            <TextField alignment="CENTER" layoutX="327.0" layoutY="415.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="149.0">
-               <font>
-                  <Font name="Segoe UI" size="18.0" />
-               </font>
-               <padding>
-                  <Insets bottom="2.0" left="10.0" top="2.0" />
-               </padding>
-            </TextField>
-            <TextField alignment="CENTER" layoutX="733.0" layoutY="415.0" prefHeight="25.0" prefWidth="149.0">
-               <padding>
-                  <Insets bottom="2.0" left="10.0" top="2.0" />
-               </padding>
-               <font>
-                  <Font name="Segoe UI" size="18.0" />
-               </font>
-            </TextField>
-            <Button layoutX="419.0" layoutY="497.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="208.0" style="-fx-background-color: fe8e3c;" text="Salvar" textFill="#fffffe">
+            <Button layoutX="312.0" layoutY="290.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="195.0" style="-fx-background-color: fe8e3c;" text="Salvar" textFill="#fffffe">
                <font>
                   <Font name="Segoe UI Bold" size="22.0" />
                </font>

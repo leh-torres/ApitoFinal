@@ -20,8 +20,6 @@ public class TelaCadCampeonato extends Application {
     
     private static Stage stage;
 
-    public static Stage stage;
-
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/telacadcampeonato/TelaCadCampeonato.fxml"));

@@ -4,6 +4,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cadequipeesportiva.CadEquipeEsportivaController">
     <stylesheets>
         <URL value="@fxml.css" />
     </stylesheets>
@@ -78,6 +79,12 @@
                   <Font name="Segoe UI" size="23.0" />
                </font>
             </Button>
+            <Button fx:id="btnFile" layoutX="91.0" layoutY="252.0" mnemonicParsing="false" onAction="#Button1Action" prefHeight="29.0" prefWidth="474.0" text="Selecione o escudo">
+               <font>
+                  <Font name="Segoe UI" size="15.0" />
+               </font>
+            </Button>
+            <ListView fx:id="view" layoutX="91.0" layoutY="295.0" prefHeight="139.0" prefWidth="474.0" style="-fx-border-color: #fff;" />
          </children>
       </Pane>
    </children>

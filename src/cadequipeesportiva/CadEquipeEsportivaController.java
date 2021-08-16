@@ -5,12 +5,15 @@
  */
 package cadequipeesportiva;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.stage.FileChooser;
 
 /**
  *
@@ -18,14 +21,24 @@ import javafx.scene.control.Label;
  */
 public class CadEquipeEsportivaController implements Initializable {
     
-    @FXML
-    private Label label;
     
     @FXML
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
+    private Button btnFile;
+    
+    @FXML
+    private ListView view;
+   
+    public void Button1Action(ActionEvent event){
+        FileChooser fc = new FileChooser();
+        File seletedFile = fc.showOpenDialog(null);
+        
+        if(seletedFile != null){
+            view.getItems().add(seletedFile.getAbsolutePath());
+        }else{
+            System.out.println("Arquivo não é válido!");
+        }
     }
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

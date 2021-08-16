@@ -1,15 +1,11 @@
 package classes;
 
-import java.sql.Blob;
-
 public class Times {
     private int id_time;
     private String nome_time;
-    private Blob imagem_time;
+    private byte[] imagem_time;
     private String abreviacao_time;
-    private int fk_part;
     private int fk_usuario;
-    private int fk_atleta;
     
     public Times(){
         
@@ -31,11 +27,11 @@ public class Times {
         this.nome_time = nome_time;
     }
 
-    public Blob getImagem_time() {
+    public byte[] getImagem_time() {
         return imagem_time;
     }
 
-    public void setImagem_time(Blob imagem_time) {
+    public void setImagem_time(byte[] imagem_time) {
         this.imagem_time = imagem_time;
     }
 
@@ -47,14 +43,6 @@ public class Times {
         this.abreviacao_time = abreviacao_time;
     }
 
-    public int getFk_part() {
-        return fk_part;
-    }
-
-    public void setFk_part(int fk_part) {
-        this.fk_part = fk_part;
-    }
-
     public int getFk_usuario() {
         return fk_usuario;
     }
@@ -62,14 +50,5 @@ public class Times {
     public void setFk_usuario(int fk_usuario) {
         this.fk_usuario = fk_usuario;
     }
-
-    public int getFk_atleta() {
-        return fk_atleta;
-    }
-
-    public void setFk_atleta(int fk_atleta) {
-        this.fk_atleta = fk_atleta;
-    }
-    
     
 }

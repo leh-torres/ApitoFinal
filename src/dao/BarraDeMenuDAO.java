@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author rayla
  */
-public class BarraDeMenu {
+public class BarraDeMenuDAO {
     
     Connection conn = null;
     PreparedStatement pst = null;
@@ -23,9 +23,12 @@ public class BarraDeMenu {
     DataSource data = new DataSource();
     private static int id;
     private static String nome;
+
+    public BarraDeMenuDAO(){
+        conn = data.getConnection();
+    }
     
     public void logoNomeUsuario(String txtlogin, String pass_senha){
-        conn = data.getConnection();
         
         String SQL = "SELECT * FROM usuario WHERE email_user=? and senha_user=?";
         try {
@@ -47,8 +50,6 @@ public class BarraDeMenu {
     }
     
     public String Nome(){
-        
-        conn = data.getConnection();
         
         String SQL = "SELECT * FROM usuario WHERE id_user=?";
         try {

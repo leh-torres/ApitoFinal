@@ -5,11 +5,12 @@
  */
 package telaprincipal;
 
-import dao.BarraDeMenu;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import dao.BarraDeMenuDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -49,7 +50,7 @@ public class TelaPrincipalController implements Initializable {
     }
     
     public void NomeUsuario(ActionEvent event){
-        BarraDeMenu barra = new BarraDeMenu();
+        BarraDeMenuDAO barra = new BarraDeMenuDAO();
         nome_user.setText(barra.Nome());
     }
     

@@ -5,8 +5,8 @@
  */
 package apitofinal;
 
-import dao.BarraDeMenu;
-import dao.CampeonatoDAO;
+import dao.BarraDeMenuDAO;
+import dao.CompeticaoDAO;
 import dao.UsuarioDAO;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -54,7 +54,7 @@ public class FXMLDocumentController implements Initializable {
     private boolean verificaCampeonato;
     
     UsuarioDAO usu = new UsuarioDAO();
-    CampeonatoDAO cam = new CampeonatoDAO();
+    CompeticaoDAO cam = new CompeticaoDAO();
     
     @FXML
     public void displayImage(){
@@ -67,7 +67,7 @@ public class FXMLDocumentController implements Initializable {
         verificaCampeonato = cam.verificaCampeonato(txtlogin.getText(), pass_senha.getText());
         
         if(verificaLogin == true){
-            BarraDeMenu barra = new BarraDeMenu();
+            BarraDeMenuDAO barra = new BarraDeMenuDAO();
             barra.logoNomeUsuario(txtlogin.getText(), pass_senha.getText());
             if(verificaCampeonato == true){
                 SelecaoCampeonato tela1 = new SelecaoCampeonato();

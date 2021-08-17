@@ -5,7 +5,7 @@
  */
 package telaSorteio8;
 
-import dao.BarraDeMenu;
+import dao.BarraDeMenuDAO;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -28,7 +28,7 @@ public class TelaSorteio8FXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        BarraDeMenu barra = new BarraDeMenu();
+        BarraDeMenuDAO barra = new BarraDeMenuDAO();
         nome_user.setText(barra.Nome());
     }    
     

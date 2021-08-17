@@ -5,7 +5,7 @@
  */
 package cadequipeesportiva;
 
-import dao.BarraDeMenu;
+import dao.BarraDeMenuDAO;
 import dao.Time;
 import java.io.File;
 import java.net.URL;
@@ -75,7 +75,7 @@ public class CadEquipeEsportivaController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        BarraDeMenu barra = new BarraDeMenu();
+        BarraDeMenuDAO barra = new BarraDeMenuDAO();
         nome_user.setText(barra.Nome());
     }    
     

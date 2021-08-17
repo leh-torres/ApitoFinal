@@ -38,7 +38,7 @@ public class TelaPrincipalController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        BarraDeMenu barra = new BarraDeMenu();
+        BarraDeMenuDAO barra = new BarraDeMenuDAO();
         nome_user.setText(barra.Nome());
     }  
     
@@ -50,14 +50,11 @@ public class TelaPrincipalController implements Initializable {
         
     }
     
-<<<<<<< HEAD
     public void NomeUsuario(ActionEvent event){
         BarraDeMenuDAO barra = new BarraDeMenuDAO();
         nome_user.setText(barra.Nome());
     }
     
-=======
->>>>>>> bb580e6b3fee51333fb0248cb399373a1c83c045
     private void fecha(){
         TelaPrincipal.getStage().close();
     }

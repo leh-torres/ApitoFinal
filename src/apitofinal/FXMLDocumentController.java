@@ -100,7 +100,7 @@ public class FXMLDocumentController implements Initializable {
                     verificaCampeonato = cam.verificaCampeonato(txtlogin.getText(), pass_senha.getText());
 
                     if(verificaLogin == true){
-                        BarraDeMenu barra = new BarraDeMenu();
+                        BarraDeMenuDAO barra = new BarraDeMenuDAO();
                         barra.logoNomeUsuario(txtlogin.getText(), pass_senha.getText());
                         if(verificaCampeonato == true){
                             SelecaoCampeonato tela1 = new SelecaoCampeonato();

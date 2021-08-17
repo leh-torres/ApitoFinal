@@ -24,14 +24,10 @@ public class BarraDeMenuDAO {
     DataSource data = new DataSource();
     private static int id;
     private static String nome;
-<<<<<<< HEAD:src/dao/BarraDeMenuDAO.java
 
     public BarraDeMenuDAO(){
         conn = data.getConnection();
     }
-=======
-    private static ImageView imagem;
->>>>>>> bb580e6b3fee51333fb0248cb399373a1c83c045:src/dao/BarraDeMenu.java
     
     public void logoNomeUsuario(String txtlogin, String pass_senha){
         
@@ -87,9 +83,9 @@ public class BarraDeMenuDAO {
             ps = pst.executeQuery();
             
             if(ps.next()){
-                imagem = (ImageView) ps.getBlob("imagem_user");
+                //imagem = (ImageView) ps.getBlob("imagem_user");
                 data.closeDataSource();
-                return imagem;
+                //return imagem;
             }
             else{
                 JOptionPane.showMessageDialog(null,"Usuário ou senha inválidos");

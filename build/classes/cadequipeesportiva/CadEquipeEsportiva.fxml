@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cadequipeesportiva.CadEquipeEsportivaController">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cadequipeesportiva.CadEquipeEsportivaController">
     <stylesheets>
         <URL value="@fxml.css" />
     </stylesheets>
@@ -28,12 +28,12 @@
             <Font name="Eras Demi ITC" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="1136.0" prefHeight="58.0" prefWidth="101.0" text="Zairo Bastos" textFill="#333333">
+      <Label fx:id="nome_user" layoutX="1136.0" prefHeight="58.0" prefWidth="101.0" text="Zairo Bastos" textFill="#333333">
          <font>
             <Font name="Segoe UI" size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Imagem_user" fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
          </image>
@@ -51,7 +51,7 @@
                </font>
             </Label>
             <Separator layoutX="52.0" layoutY="168.0" prefHeight="0.0" prefWidth="552.0" />
-            <TextField layoutX="91.0" layoutY="211.0" prefHeight="25.0" prefWidth="337.0" />
+            <TextField fx:id="nome" layoutX="91.0" layoutY="211.0" prefHeight="25.0" prefWidth="337.0" />
             <Label layoutX="92.0" layoutY="187.0" text="Nome da equipe">
                <font>
                   <Font name="Segoe UI" size="15.0" />
@@ -62,8 +62,8 @@
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="454.0" layoutY="211.0" prefHeight="25.0" prefWidth="111.0" />
-            <Button layoutX="416.0" layoutY="461.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" style="-fx-background-color: #ff8e3c;" text="Avançar" textFill="#fffffe">
+            <TextField fx:id="abreviacao" layoutX="454.0" layoutY="211.0" prefHeight="25.0" prefWidth="111.0" />
+            <Button fx:id="avancar" layoutX="416.0" layoutY="461.0" mnemonicParsing="false" onAction="#AcaoDoBotaoAvancar" prefHeight="33.0" prefWidth="148.0" style="-fx-background-color: #ff8e3c;" text="Avançar" textFill="#fffffe">
                <font>
                   <Font size="18.0" />
                </font>

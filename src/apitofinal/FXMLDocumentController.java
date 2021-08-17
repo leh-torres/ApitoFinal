@@ -96,16 +96,32 @@ public class FXMLDocumentController implements Initializable {
         pass_senha.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
             try {
                 if (event.getCode() == KeyCode.ENTER) {
-                    verificaLogin = usu.login(txtlogin.getText(), pass_senha.getText());
-            if(verificaLogin == true){
-                TelaPrincipal tela = new TelaPrincipal();
-                fecha();
-                try {
-                tela.start(new Stage());
-            } catch (Exception ex) {
-                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            }
+                  verificaLogin = usu.login(txtlogin.getText(), pass_senha.getText());
+                    verificaCampeonato = cam.verificaCampeonato(txtlogin.getText(), pass_senha.getText());
+
+                    if(verificaLogin == true){
+                        BarraDeMenu barra = new BarraDeMenu();
+                        barra.logoNomeUsuario(txtlogin.getText(), pass_senha.getText());
+                        if(verificaCampeonato == true){
+                            SelecaoCampeonato tela1 = new SelecaoCampeonato();
+                            fecha();
+
+                            try {
+                            tela1.start(new Stage());
+                        } catch (Exception ex) {
+                            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        } 
+                        else{
+                            TelaPrincipal tela = new TelaPrincipal();
+                            fecha();
+                            try {
+                            tela.start(new Stage());
+                        } catch (Exception ex) {
+                            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        }
+                    }
                 }
             } catch (Exception ex) {
             }

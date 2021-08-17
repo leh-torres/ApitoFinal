@@ -13,27 +13,30 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author raylander
+ * @author rayla
  */
-public class UsuarioDAO {
+public class Time {
     
     Connection conn = null;
     PreparedStatement pst = null;
     ResultSet ps = null;
     DataSource data = new DataSource();
-    private int id;
+    int rs;
     
-    public boolean login(String txtlogin, String pass_senha){
+    public boolean inserirTime(String nome_time,byte[] imagem_time,String abreviacao_time,int fk_usuario){
         conn = data.getConnection();
         
-        String SQL = "SELECT * FROM usuario WHERE email_user=? and senha_user=?";
+        String SQL = "INSERT INTO times (nome_time,imagem_time,abreviacao_time,fk_usuario) VALUES (?,?,?,?)";
+        
         try {
             pst = (PreparedStatement)conn.prepareStatement(SQL);
-            pst.setString(1, txtlogin);
-            pst.setString(2, pass_senha);
-            ps = pst.executeQuery();
+            pst.setString(1, nome_time);
+            pst.setBytes(2, imagem_time);
+            pst.setString(3, abreviacao_time);
+            pst.setInt(4, fk_usuario);
+            rs = pst.executeUpdate();
             
-            if(ps.next()){
+            if(rs == 1){
                 data.closeDataSource();
                 return true;
             }
@@ -45,6 +48,4 @@ public class UsuarioDAO {
         }
         return false;
     }
-    
-   
 }

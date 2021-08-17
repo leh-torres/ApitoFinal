@@ -27,6 +27,7 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 import com.mysql.cj.xdevapi.PreparableStatement;
+import dao.BarraDeMenu;
 
 import classes.Competicao;
 import javafx.collections.FXCollections;
@@ -48,11 +49,17 @@ import javafx.scene.control.TextField;
  */
 public class TelaCadCampeonatoController implements Initializable {
 
-    @FXML
     private Label label;
 
     @FXML
+<<<<<<< HEAD
     private TextField txtNomeComp;
+=======
+    private TextField txt_nome_camp;
+    
+    @FXML
+    private TextField nome_user;
+>>>>>>> bb580e6b3fee51333fb0248cb399373a1c83c045
 
     @FXML
     private TextField txtPremiacao;
@@ -75,21 +82,42 @@ public class TelaCadCampeonatoController implements Initializable {
     @FXML
     private Button btnAvancar;
 
+<<<<<<< HEAD
     @FXML
     private ComboBox<Situacao> status;
+=======
+    private DatePicker data_terminio;
+>>>>>>> bb580e6b3fee51333fb0248cb399373a1c83c045
 
     private List<Situacao> situacoes = new ArrayList<>();
 
     private ObservableList<Situacao> obsSituacao;
+<<<<<<< HEAD
 
     
     @FXML
     private void acaoDoBotao(ActionEvent event){
         botaoAvancar();
+=======
+    @FXML
+    private DatePicker data_temino;
+    
+    @FXML
+    private void acaoDoBotao(ActionEvent event){
+        cadastroCamp();
+    }
+
+    private void handleButtonAction(ActionEvent event) {
+        System.out.println("You clicked me!");
+        label.setText("Hello World!");
+>>>>>>> bb580e6b3fee51333fb0248cb399373a1c83c045
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        BarraDeMenu barra = new BarraDeMenu();
+        nome_user.setText(barra.Nome());
+        
         carregaSituacao();
     } 
     

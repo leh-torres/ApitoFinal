@@ -5,6 +5,7 @@
  */
 package cadequipeesportiva;
 
+import dao.BarraDeMenu;
 import dao.Time;
 import java.io.File;
 import java.net.URL;
@@ -15,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javax.swing.JOptionPane;
 
@@ -33,6 +35,12 @@ public class CadEquipeEsportivaController implements Initializable {
     
     @FXML
     private TextField nome;
+    
+    @FXML
+    private TextField nome_user;
+    
+    @FXML
+    private ImageView imagem_user;
     
     @FXML
     private TextField abreviacao;
@@ -67,7 +75,8 @@ public class CadEquipeEsportivaController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        BarraDeMenu barra = new BarraDeMenu();
+        nome_user.setText(barra.Nome());
     }    
     
 }

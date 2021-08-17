@@ -21,6 +21,7 @@ public class UsuarioDAO {
     PreparedStatement pst = null;
     ResultSet ps = null;
     DataSource data = new DataSource();
+    private int id;
     
     public boolean login(String txtlogin, String pass_senha){
         conn = data.getConnection();
@@ -44,5 +45,6 @@ public class UsuarioDAO {
         }
         return false;
     }
+    
    
 }

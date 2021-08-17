@@ -37,7 +37,8 @@ public class TelaPrincipalController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        BarraDeMenu barra = new BarraDeMenu();
+        nome_user.setText(barra.Nome());
     }  
     
     public void inicioCampeonato(ActionEvent event) {
@@ -46,11 +47,6 @@ public class TelaPrincipalController implements Initializable {
     
     public void logoUsuario(ActionEvent event){
         
-    }
-    
-    public void NomeUsuario(ActionEvent event){
-        BarraDeMenu barra = new BarraDeMenu();
-        nome_user.setText(barra.Nome());
     }
     
     private void fecha(){

@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
 
 /**
@@ -23,6 +24,7 @@ public class BarraDeMenu {
     DataSource data = new DataSource();
     private static int id;
     private static String nome;
+    private static ImageView imagem;
     
     public void logoNomeUsuario(String txtlogin, String pass_senha){
         conn = data.getConnection();
@@ -35,8 +37,8 @@ public class BarraDeMenu {
             ps = pst.executeQuery();
             
             if(ps.next()){
-                data.closeDataSource();
                 id = ps.getInt("id_user");
+                data.closeDataSource();
             }
             else{
                 JOptionPane.showMessageDialog(null,"Usuário ou senha inválidos");
@@ -57,8 +59,9 @@ public class BarraDeMenu {
             ps = pst.executeQuery();
             
             if(ps.next()){
-                data.closeDataSource();
                 nome = ps.getString("nome_user");
+                data.closeDataSource();
+                return nome;
             }
             else{
                 JOptionPane.showMessageDialog(null,"Usuário ou senha inválidos");
@@ -67,5 +70,30 @@ public class BarraDeMenu {
             JOptionPane.showMessageDialog(null, ex);
         }
         return null;
+    }
+    
+    public ImageView Imagem(){
+        
+        conn = data.getConnection();
+        
+        String SQL = "SELECT * FROM usuario WHERE id_user=?";
+        try {
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setString(1, Integer.toString(id));
+            ps = pst.executeQuery();
+            
+            if(ps.next()){
+                imagem = (ImageView) ps.getBlob("imagem_user");
+                data.closeDataSource();
+                return imagem;
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Usuário ou senha inválidos");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return null;
+
     }
 }

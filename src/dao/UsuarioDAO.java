@@ -11,6 +11,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
+import com.mysql.cj.jdbc.result.ResultSetMetaData;
+
+import classes.Usuario;
+
 /**
  *
  * @author raylander
@@ -22,9 +26,12 @@ public class UsuarioDAO {
     ResultSet ps = null;
     DataSource data = new DataSource();
     private int id;
+
+    public UsuarioDAO(){
+        conn = data.getConnection();
+    }
     
     public boolean login(String txtlogin, String pass_senha){
-        conn = data.getConnection();
         
         String SQL = "SELECT * FROM usuario WHERE email_user=? and senha_user=?";
         try {
@@ -45,6 +52,7 @@ public class UsuarioDAO {
         }
         return false;
     }
+
     
    
 }

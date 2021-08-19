@@ -3,7 +3,6 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.Separator?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telacadcampeonato.TelaCadCampeonatoController">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telacadcampeonato.TelaCadCampeonatoController">
     <stylesheets>
         <URL value="@telacadcampeonato.css" />
     </stylesheets>
@@ -52,7 +51,7 @@
                </font>
             </Label>
             <Separator layoutX="52.0" layoutY="168.0" prefHeight="0.0" prefWidth="552.0" />
-            <TextField fx:id="txtNomeComp" layoutX="73.0" layoutY="211.0" prefHeight="25.0" prefWidth="200.0" />
+            <TextField fx:id="txtNomeComp" layoutX="73.0" layoutY="211.0" prefHeight="25.0" prefWidth="511.0" />
             <Label layoutX="73.0" layoutY="187.0" text="Nome do campeonato">
                <font>
                   <Font name="Segoe UI" size="15.0" />
@@ -87,12 +86,6 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <ComboBox fx:id="status" layoutX="383.0" layoutY="211.0" prefWidth="200.0" />
-            <Label layoutX="383.0" layoutY="187.0" text="Status">
-               <font>
-                  <Font name="Segoe UI" size="15.0" />
-               </font>
-            </Label>
             <Label layoutX="73.0" layoutY="321.0" text="Data de início">
                <font>
                   <Font name="Segoe UI" size="15.0" />

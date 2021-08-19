@@ -12,6 +12,8 @@ import java.sql.SQLException;
 import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
 
+import classes.Usuario;
+
 /**
  *
  * @author rayla
@@ -30,7 +32,7 @@ public class BarraDeMenuDAO {
     }
     
     public void logoNomeUsuario(String txtlogin, String pass_senha){
-        
+        Usuario usuario = new Usuario();
         String SQL = "SELECT * FROM usuario WHERE email_user=? and senha_user=?";
         try {
             pst = (PreparedStatement)conn.prepareStatement(SQL);
@@ -40,6 +42,7 @@ public class BarraDeMenuDAO {
             
             if(ps.next()){
                 id = ps.getInt("id_user");
+                usuario.setId_user(id);
                 data.closeDataSource();
             }
             else{

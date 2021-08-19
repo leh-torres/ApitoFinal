@@ -18,7 +18,8 @@ import classes.Competicao;
 
 /**
  *
- * @author rayla
+ * @author raylander
+ * @author Leticia Torres
  */
 public class CompeticaoDAO {
     
@@ -27,7 +28,6 @@ public class CompeticaoDAO {
     ResultSet rs = null; 
     DataSource data = new DataSource(); 
     private int retUpdate;
-    private final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
     public CompeticaoDAO(){
         conexao = data.getConnection();
@@ -69,17 +69,18 @@ public class CompeticaoDAO {
 
                 return true;
             } else{
-                SQL = "INSERT INTO competicao (nome_comp, descricao_comp, premiacao_comp, situacao_comp, data_ini_comp, data_termi_comp, quantidade_times_comp) VALUES (?,?,?,?,?,?,?)";
+                SQL = "INSERT INTO competicao (nome_comp, descricao_comp, premiacao_comp, data_ini_comp, data_termi_comp, situacao_comp, quantidade_times_comp, fk_usuario) VALUES (?,?,?,?,?,?,?,?)";
 
                 try {
                     ps = (PreparedStatement)conexao.prepareStatement(SQL);
                     ps.setString(1, competicao.getNomeCompeticao());
                     ps.setString(2, competicao.getDescricao());
                     ps.setString(3, competicao.getPremiacao());
-                    ps.setString(4, competicao.getSituacao());
-                    ps.setString(5, competicao.getData_inicio());
-                    ps.setString(6, competicao.getData_terminio());
+                    ps.setString(4, competicao.getData_inicio());
+                    ps.setString(5, competicao.getData_terminio());
+                    ps.setString(6, competicao.getSituacao());
                     ps.setString(7, competicao.getQtd_times());
+                    ps.setInt(8, competicao.getFk_user());
                     retUpdate = ps.executeUpdate();
 
 

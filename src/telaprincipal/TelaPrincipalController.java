@@ -50,11 +50,6 @@ public class TelaPrincipalController implements Initializable {
         
     }
     
-    public void NomeUsuario(ActionEvent event){
-        BarraDeMenuDAO barra = new BarraDeMenuDAO();
-        nome_user.setText(barra.Nome());
-    }
-    
     private void fecha(){
         TelaPrincipal.getStage().close();
     }

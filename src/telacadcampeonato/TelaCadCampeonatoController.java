@@ -22,10 +22,7 @@ import java.util.ResourceBundle;
 
 
 import javax.swing.JOptionPane;
-
-import com.mysql.cj.xdevapi.PreparableStatement;
 import dao.BarraDeMenu;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -37,6 +34,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -51,13 +49,11 @@ public class TelaCadCampeonatoController implements Initializable {
     DataSource data = new DataSource(); //objeto que abre a connection
     private int retUpdate; //recebe o retorno do update
 
-    private Label label;
-
     @FXML
     private TextField txt_nome_camp;
     
     @FXML
-    private TextField nome_user;
+    private Label nome_user;
 
     @FXML
     private TextField txt_premiacao;
@@ -87,22 +83,18 @@ public class TelaCadCampeonatoController implements Initializable {
     private ObservableList<Situacao> obsSituacao;
     @FXML
     private DatePicker data_temino;
+    @FXML
+    private ImageView imagem_user;
     
     @FXML
     private void acaoDoBotao(ActionEvent event){
         cadastroCamp();
     }
 
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         BarraDeMenu barra = new BarraDeMenu();
         nome_user.setText(barra.Nome());
-        
         carregaSituacao();
     } 
     

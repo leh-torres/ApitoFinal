@@ -15,8 +15,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javax.swing.ImageIcon;
 import telacadcampeonato.TelaCadCampeonato;
 
 
@@ -39,6 +41,7 @@ public class TelaPrincipalController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         BarraDeMenu barra = new BarraDeMenu();
         nome_user.setText(barra.Nome());
+        
     }  
     
     public void inicioCampeonato(ActionEvent event) {

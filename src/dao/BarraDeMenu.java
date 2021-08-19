@@ -24,7 +24,7 @@ public class BarraDeMenu {
     DataSource data = new DataSource();
     private static int id;
     private static String nome;
-    private static ImageView imagem;
+    private static byte[] imagem;
     
     public void logoNomeUsuario(String txtlogin, String pass_senha){
         conn = data.getConnection();
@@ -72,7 +72,7 @@ public class BarraDeMenu {
         return null;
     }
     
-    public ImageView Imagem(){
+    public byte[] Imagem(){
         
         conn = data.getConnection();
         
@@ -83,7 +83,7 @@ public class BarraDeMenu {
             ps = pst.executeQuery();
             
             if(ps.next()){
-                imagem = (ImageView) ps.getBlob("imagem_user");
+                imagem = ps.getBytes("imagem__user");
                 data.closeDataSource();
                 return imagem;
             }

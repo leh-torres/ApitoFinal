@@ -5,13 +5,15 @@
  */
 package apitofinal;
 
-import dao.BarraDeMenu;
-import dao.CampeonatoDAO;
+import dao.BarraDeMenuDAO;
+import dao.CompeticaoDAO;
 import dao.UsuarioDAO;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import classes.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -54,7 +56,7 @@ public class FXMLDocumentController implements Initializable {
     private boolean verificaCampeonato;
     
     UsuarioDAO usu = new UsuarioDAO();
-    CampeonatoDAO cam = new CampeonatoDAO();
+    CompeticaoDAO cam = new CompeticaoDAO();
     
     @FXML
     public void displayImage(){
@@ -63,12 +65,14 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     public  void handleButtonAction(ActionEvent event) {
+
         verificaLogin = usu.login(txtlogin.getText(), pass_senha.getText());
         verificaCampeonato = cam.verificaCampeonato(txtlogin.getText(), pass_senha.getText());
-        
+
         if(verificaLogin == true){
-            BarraDeMenu barra = new BarraDeMenu();
+            BarraDeMenuDAO barra = new BarraDeMenuDAO();
             barra.logoNomeUsuario(txtlogin.getText(), pass_senha.getText());
+            
             if(verificaCampeonato == true){
                 SelecaoCampeonato tela1 = new SelecaoCampeonato();
                 fecha();
@@ -100,7 +104,7 @@ public class FXMLDocumentController implements Initializable {
                     verificaCampeonato = cam.verificaCampeonato(txtlogin.getText(), pass_senha.getText());
 
                     if(verificaLogin == true){
-                        BarraDeMenu barra = new BarraDeMenu();
+                        BarraDeMenuDAO barra = new BarraDeMenuDAO();
                         barra.logoNomeUsuario(txtlogin.getText(), pass_senha.getText());
                         if(verificaCampeonato == true){
                             SelecaoCampeonato tela1 = new SelecaoCampeonato();
@@ -139,7 +143,8 @@ public class FXMLDocumentController implements Initializable {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
+
     private void fecha(){
         ApitoFinal.getStage().close();
     }

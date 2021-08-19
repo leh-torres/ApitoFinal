@@ -3,7 +3,7 @@ package classes;
 import java.sql.Blob;
 
 public class Usuario {
-    private int id_user;
+    private static int id_user;
     private String nome_user;
     private String sobrenome_user;
     private String email_user;

@@ -12,11 +12,13 @@ import java.sql.SQLException;
 import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
 
+import classes.Usuario;
+
 /**
  *
  * @author rayla
  */
-public class BarraDeMenu {
+public class BarraDeMenuDAO {
     
     Connection conn = null;
     PreparedStatement pst = null;
@@ -24,11 +26,17 @@ public class BarraDeMenu {
     DataSource data = new DataSource();
     private static int id;
     private static String nome;
+<<<<<<< HEAD:src/dao/BarraDeMenu.java
     private static byte[] imagem;
+=======
+
+    public BarraDeMenuDAO(){
+        conn = data.getConnection();
+    }
+>>>>>>> e59c81ebe57c9b971f7513a262b6bc5fd645271d:src/dao/BarraDeMenuDAO.java
     
     public void logoNomeUsuario(String txtlogin, String pass_senha){
-        conn = data.getConnection();
-        
+        Usuario usuario = new Usuario();
         String SQL = "SELECT * FROM usuario WHERE email_user=? and senha_user=?";
         try {
             pst = (PreparedStatement)conn.prepareStatement(SQL);
@@ -38,6 +46,7 @@ public class BarraDeMenu {
             
             if(ps.next()){
                 id = ps.getInt("id_user");
+                usuario.setId_user(id);
                 data.closeDataSource();
             }
             else{
@@ -49,8 +58,6 @@ public class BarraDeMenu {
     }
     
     public String Nome(){
-        
-        conn = data.getConnection();
         
         String SQL = "SELECT * FROM usuario WHERE id_user=?";
         try {
@@ -83,9 +90,13 @@ public class BarraDeMenu {
             ps = pst.executeQuery();
             
             if(ps.next()){
+<<<<<<< HEAD:src/dao/BarraDeMenu.java
                 imagem = ps.getBytes("imagem__user");
+=======
+                //imagem = (ImageView) ps.getBlob("imagem_user");
+>>>>>>> e59c81ebe57c9b971f7513a262b6bc5fd645271d:src/dao/BarraDeMenuDAO.java
                 data.closeDataSource();
-                return imagem;
+                //return imagem;
             }
             else{
                 JOptionPane.showMessageDialog(null,"Usuário ou senha inválidos");

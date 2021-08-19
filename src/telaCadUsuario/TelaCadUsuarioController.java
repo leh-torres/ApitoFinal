@@ -63,6 +63,7 @@ public class TelaCadUsuarioController implements Initializable {
             try {
                 if (event.getCode() == KeyCode.ENTER) {
                     cadastrar();
+                    trocarTela();
                 }
             } catch (Exception ex) {
             }
@@ -72,6 +73,7 @@ public class TelaCadUsuarioController implements Initializable {
     @FXML    
     public void acaoDOBotaoAvancar(ActionEvent event){
            cadastrar(); 
+           trocarTela();
     }
     
     @FXML  

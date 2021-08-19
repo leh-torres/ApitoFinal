@@ -8,13 +8,9 @@ package telacadcampeonato;
 
 import dao.CompeticaoDAO;
 import dao.UsuarioDAO;
-
-<<<<<<< HEAD
 import javax.swing.JOptionPane;
-import dao.BarraDeMenu;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-=======
 import java.net.URL;
 
 import java.util.ResourceBundle;
@@ -23,7 +19,6 @@ import apitofinal.FXMLDocumentController;
 import dao.BarraDeMenuDAO;
 import classes.Competicao;
 import classes.Usuario;
->>>>>>> e59c81ebe57c9b971f7513a262b6bc5fd645271d
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -40,17 +35,14 @@ import javafx.scene.image.ImageView;
  */
 public class TelaCadCampeonatoController implements Initializable {
 
-<<<<<<< HEAD
     @FXML
     private TextField txt_nome_camp;
     
     @FXML
     private Label nome_user;
-=======
-
+    
     @FXML
     private TextField txtNomeComp;
->>>>>>> e59c81ebe57c9b971f7513a262b6bc5fd645271d
 
     @FXML
     private TextField txtPremiacao;
@@ -72,36 +64,19 @@ public class TelaCadCampeonatoController implements Initializable {
 
     @FXML
     private Button btnAvancar;
-
-    @FXML
-    private Label nome_user;
-
-
-<<<<<<< HEAD
-    private ObservableList<Situacao> obsSituacao;
-    @FXML
-    private DatePicker data_temino;
-    @FXML
-    private ImageView imagem_user;
     
     @FXML
-    private void acaoDoBotao(ActionEvent event){
-        cadastroCamp();
-=======
+    private ImageView imagem_user;
+
     @FXML
     private void acaoDoBotao(ActionEvent event){
         botaoAvancar();
->>>>>>> e59c81ebe57c9b971f7513a262b6bc5fd645271d
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         BarraDeMenuDAO barra = new BarraDeMenuDAO();
         nome_user.setText(barra.Nome());
-<<<<<<< HEAD
-        carregaSituacao();
-=======
->>>>>>> e59c81ebe57c9b971f7513a262b6bc5fd645271d
     } 
 
     public void botaoAvancar(){

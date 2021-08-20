@@ -9,12 +9,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-
 import javax.swing.JOptionPane;
-
-
 import classes.Competicao;
+import classes.Usuario;
+import java.util.ArrayList;
 
 /**
  *
@@ -28,6 +26,9 @@ public class CompeticaoDAO {
     ResultSet rs = null; 
     DataSource data = new DataSource(); 
     private int retUpdate;
+    Usuario usuario = new Usuario();
+    Competicao competicao = new Competicao();
+    ArrayList<Competicao> listaComp = new ArrayList<Competicao>();
 
     public CompeticaoDAO(){
         conexao = data.getConnection();
@@ -106,6 +107,36 @@ public class CompeticaoDAO {
 
         return false;
         
+    }
+    
+    public ArrayList verificaCampeonatoAberto(){
+        
+        String SQL = "SELECT * FROM competicao WHERE fk_usuario=?";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, usuario.getId_user());
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                while(rs.next()){
+                competicao.setId_competicao(rs.getInt("id_comp"));
+                competicao.setNomeCompeticao(rs.getString("nome_comp"));
+                competicao.setDescricao(rs.getString("descricao_comp"));
+                competicao.setPremiacao(rs.getString("premiacao_comp"));
+                competicao.setData_inicio(rs.getString("data_ini_comp"));
+                competicao.setData_terminio(rs.getString("data_termi_comp"));
+                competicao.setSituacao(rs.getString("situacao_comp"));
+                competicao.setQtd_times(rs.getString("quantidade_times_comp"));
+                competicao.setFk_user(rs.getInt("fk_usuario"));
+                listaComp.add(competicao);
+                }
+                data.closeDataSource();
+                return listaComp;
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return null;
     }
     
 }

@@ -10,7 +10,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -21,7 +21,7 @@ public class TelaSorteio8FXMLController implements Initializable {
     
     
     @FXML
-    private TextField nome_user;
+    private Label nome_user;
 
     /**
      * Initializes the controller class.

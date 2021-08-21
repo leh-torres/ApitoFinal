@@ -26,10 +26,10 @@ public class CompeticaoDAO {
     ResultSet rs = null; 
     DataSource data = new DataSource(); 
     private int retUpdate;
+    private String nome;
     Usuario usuario = new Usuario();
-    Competicao competicao = new Competicao();
-    ArrayList<Competicao> listaComp = new ArrayList<Competicao>();
-
+    ArrayList<Competicao> listaComp = new ArrayList<>();
+    
     public CompeticaoDAO(){
         conexao = data.getConnection();
     }
@@ -110,15 +110,16 @@ public class CompeticaoDAO {
     }
     
     public ArrayList verificaCampeonatoAberto(){
-        
+        conexao = data.getConnection();
         String SQL = "SELECT * FROM competicao WHERE fk_usuario=?";
         try {
             ps = (PreparedStatement)conexao.prepareStatement(SQL);
             ps.setInt(1, usuario.getId_user());
             rs = ps.executeQuery();
             
-            if(rs.next()){
                 while(rs.next()){
+                    
+                Competicao competicao = new Competicao();
                 competicao.setId_competicao(rs.getInt("id_comp"));
                 competicao.setNomeCompeticao(rs.getString("nome_comp"));
                 competicao.setDescricao(rs.getString("descricao_comp"));
@@ -132,7 +133,28 @@ public class CompeticaoDAO {
                 }
                 data.closeDataSource();
                 return listaComp;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return null;
+    }
+    
+    public String Nome(int id){
+        Connection conn = null;
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        String SQL = "SELECT nome_comp FROM competicao WHERE id_comp=?";
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setInt(1,id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                nome = rs.getString("nome_comp");
+                data1.closeDataSource();
             }
+                return nome;
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }

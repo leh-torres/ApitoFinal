@@ -37,8 +37,7 @@ public class SelecaoCampeonato extends Application {
     public static void setStage(Stage stage) {
         SelecaoCampeonato.stage = stage;
     }   
-    
-
+   
     /**
      * @param args the command line arguments
      */

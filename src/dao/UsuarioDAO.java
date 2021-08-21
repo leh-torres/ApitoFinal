@@ -10,11 +10,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
-
-import com.mysql.cj.jdbc.result.ResultSetMetaData;
-
-import classes.Usuario;
-
 /**
  *
  * @author raylander

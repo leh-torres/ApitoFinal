@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" style="-fx-background-color: #eff0f3;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/16" fx:controller="telaCadAvatar.TelaCadAvatarController">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" style="-fx-background-color: #eff0f3;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telaCadAvatar.TelaCadAvatarController">
     <stylesheets>
         <URL value="@telacadavatar.css" />
     </stylesheets>
@@ -51,7 +51,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="bt_inserir" layoutX="190.0" layoutY="470.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" style="-fx-background-color: white;" text="Inserir imagem" textFill="#ff8e3c" underline="true">
+            <Button fx:id="bt_inserir" layoutX="190.0" layoutY="470.0" mnemonicParsing="false" onAction="#Button1Action" prefHeight="30.0" prefWidth="115.0" style="-fx-background-color: white;" text="Inserir imagem" textFill="#ff8e3c" underline="true">
                <font>
                   <Font name="Segoe UI Semibold" size="14.0" />
                </font>

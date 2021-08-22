@@ -3,8 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package telacadcampeonato;
+package home;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,31 +15,17 @@ import javafx.stage.Stage;
  *
  * @author Zairo Bastos
  */
-public class TelaCadCampeonato extends Application {
+public class Home extends Application {
     
-    private static Stage stage;
-
-    public static Stage stage;
-
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/telacadcampeonato/TelaCadCampeonato.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
         
         Scene scene = new Scene(root);
-
+        
         stage.setScene(scene);
         stage.show();
-        setStage(stage);
     }
-    
-    public static Stage getStage() {
-        return stage;
-    }
-
-    public static void setStage(Stage stage) {
-        TelaCadCampeonato.stage = stage;
-    }
-
 
     /**
      * @param args the command line arguments
@@ -48,5 +33,5 @@ public class TelaCadCampeonato extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+    
 }

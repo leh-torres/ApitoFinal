@@ -21,7 +21,7 @@ public class SelecaoCampeonato extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("SelecionaCampeonato.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/selecaocampeonato/SelecionaCampeonato.fxml"));
         
         Scene scene = new Scene(root);
         

@@ -11,9 +11,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import dao.BarraDeMenuDAO;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
+import java.sql.Blob;
+import java.sql.SQLException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,7 +21,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import telacadcampeonato.TelaCadCampeonato;
 
@@ -34,21 +32,22 @@ import telacadcampeonato.TelaCadCampeonato;
 public class TelaPrincipalController implements Initializable {
     
     @FXML
-    private Label label;
-    @FXML
     private Label nome_user;
     @FXML
     private ImageView imagem_user;
     @FXML
     private Button criar_camp;
-    
-    BarraDeMenuDAO barra1 = new BarraDeMenuDAO();
+    byte[] imgByte = null;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         BarraDeMenuDAO barra = new BarraDeMenuDAO();
+        BarraDeMenuDAO barra1 = new BarraDeMenuDAO();
+        nome_user.setText(barra.Nome());
+        imagem_user.setImage(barra1.Imagem());
     }
     
+    @FXML
     public void inicioCampeonato(ActionEvent event) {
         trocarTela();        
     }

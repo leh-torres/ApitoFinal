@@ -36,7 +36,7 @@ public class TelaDefinirPartidas16Main extends Application {
     }
 
     public static void setStage(Stage stage) {
-        TelaDefinirPartidas16.stage = stage;
+        TelaDefinirPartidas16Main.stage = stage;
     }   
     
     

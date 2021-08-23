@@ -5,6 +5,11 @@
  */
 package dao;
 
+import classes.Usuario;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -21,6 +26,7 @@ public class UsuarioDAO {
     ResultSet ps = null;
     DataSource data = new DataSource();
     private int id;
+    private int result;
 
     public UsuarioDAO(){
         conn = data.getConnection();
@@ -48,6 +54,30 @@ public class UsuarioDAO {
         return false;
     }
 
-    
+    public boolean adicionaImagemUsuario(File imagem, int id) throws FileNotFoundException{
+        
+        FileInputStream file = null;
+        
+        String SQL = "UPDATE usuario SET imagem_user=? WHERE id_user=?";
+        try {
+            file = new FileInputStream(imagem);
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setBinaryStream(1,(InputStream)file,(int)(imagem.length()));
+            pst.setInt(2,id);
+            result = pst.executeUpdate();
+            data.closeDataSource();
+            
+            if(result == 1){
+                return true;
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Imagem não cadastrada");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        
+        return false;
+    }
    
 }

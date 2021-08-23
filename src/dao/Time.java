@@ -5,6 +5,7 @@
  */
 package dao;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,7 +24,7 @@ public class Time {
     DataSource data = new DataSource();
     int rs;
     
-    public boolean inserirTime(String nome_time,byte[] imagem_time,String abreviacao_time,int fk_usuario){
+    public boolean inserirTime(String nome_time,File imagem_time,String abreviacao_time,int fk_usuario){
         conn = data.getConnection();
         
         String SQL = "INSERT INTO times (nome_time,imagem_time,abreviacao_time,fk_usuario) VALUES (?,?,?,?)";
@@ -31,7 +32,7 @@ public class Time {
         try {
             pst = (PreparedStatement)conn.prepareStatement(SQL);
             pst.setString(1, nome_time);
-            pst.setBytes(2, imagem_time);
+            //pst.setBytes(2, imagem_time);
             pst.setString(3, abreviacao_time);
             pst.setInt(4, fk_usuario);
             rs = pst.executeUpdate();

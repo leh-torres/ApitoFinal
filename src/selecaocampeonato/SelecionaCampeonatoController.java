@@ -19,7 +19,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javax.swing.ImageIcon;
 import telacadcampeonato.TelaCadCampeonato;
 
 /**
@@ -27,6 +30,11 @@ import telacadcampeonato.TelaCadCampeonato;
  * @author Zairo Bastos
  */
 public class SelecionaCampeonatoController implements Initializable {
+    
+    byte[] imgByte = null;
+    
+    @FXML
+    private ImageView imagem_user;
     
     @FXML 
     private Label nome_user;
@@ -172,8 +180,10 @@ public class SelecionaCampeonatoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         BarraDeMenuDAO barra = new BarraDeMenuDAO();
+        BarraDeMenuDAO barra1 = new BarraDeMenuDAO();
         nome_user.setText(barra.Nome());
         listaComp = comp.verificaCampeonatoAberto(); 
+        imagem_user.setImage(barra1.Imagem());
 
         switch (listaComp.size()) {
             case 14:

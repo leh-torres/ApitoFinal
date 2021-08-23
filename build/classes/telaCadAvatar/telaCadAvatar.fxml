@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" style="-fx-background-color: #eff0f3;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telaCadAvatar.TelaCadAvatarController">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" style="-fx-background-color: #eff0f3;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telaCadAvatar.TelaCadAvatarController">
     <stylesheets>
         <URL value="@telacadavatar.css" />
     </stylesheets>
@@ -43,7 +43,7 @@
             <Line endX="-100.0" endY="180.0" layoutX="448.0" layoutY="281.0" startX="-100.0" startY="-20.0" stroke="#ff8e3c" />
             <Line endX="100.0" layoutX="248.0" layoutY="261.0" startX="-100.0" stroke="#ff8e3c" />
             <Line endX="100.0" layoutX="248.0" layoutY="461.0" startX="-100.0" stroke="#ff8e3c" />
-            <Button fx:id="bt_avancar" layoutX="349.0" layoutY="541.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: #ff8e3c;" text="Avançar" textFill="WHITE">
+            <Button fx:id="bt_avancar" layoutX="349.0" layoutY="541.0" mnemonicParsing="false" onAction="#AcaoBotaoSalvar" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: #ff8e3c;" text="Avançar" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>

@@ -9,10 +9,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javafx.scene.image.ImageView;
 import javax.swing.JOptionPane;
-
 import classes.Usuario;
+import java.io.InputStream;
+import java.sql.Blob;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  *
@@ -26,7 +28,8 @@ public class BarraDeMenuDAO {
     DataSource data = new DataSource();
     private static int id;
     private static String nome;
-    private static byte[] imagem;
+    private Blob image = null;
+    private byte[] imgByte = null;
 
     public BarraDeMenuDAO(){
         conn = data.getConnection();
@@ -76,7 +79,7 @@ public class BarraDeMenuDAO {
         return null;
     }
     
-    public byte[] Imagem(){
+    public Image Imagem(){
         
         conn = data.getConnection();
         
@@ -87,11 +90,15 @@ public class BarraDeMenuDAO {
             ps = pst.executeQuery();
             
             if(ps.next()){
-                imagem = ps.getBytes("imagem__user");
-                data.closeDataSource();
+                if(ps.getBinaryStream("imagem_user") != null){
+                InputStream imageFile = ps.getBinaryStream("imagem_user");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
             }
             else{
-                JOptionPane.showMessageDialog(null,"Usuário ou senha inválidos");
+                JOptionPane.showMessageDialog(null,"Não existe imagem salva");
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);

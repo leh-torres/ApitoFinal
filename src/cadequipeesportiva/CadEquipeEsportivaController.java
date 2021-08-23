@@ -5,6 +5,7 @@
  */
 package cadequipeesportiva;
 
+import classes.Usuario;
 import dao.BarraDeMenuDAO;
 import dao.Time;
 import java.io.File;
@@ -14,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -37,18 +39,18 @@ public class CadEquipeEsportivaController implements Initializable {
     private TextField nome;
     
     @FXML
-    private TextField nome_user;
+    private Label nome_user;
     
-    @FXML
-    private ImageView imagem_user;
     
     @FXML
     private TextField abreviacao;
     
     private boolean verifica;
-    private byte[] image;
+    private File image;
     @FXML
     private Button avancar;
+    @FXML
+    private ImageView Imagem_user;
    
     @FXML
     public void Button1Action(ActionEvent event){
@@ -60,13 +62,14 @@ public class CadEquipeEsportivaController implements Initializable {
         }else{
             System.out.println("Arquivo não é válido!");
         }
-        image = new byte[(int) seletedFile.length()];
+        image = seletedFile;
     }
     
     @FXML
     public void AcaoDoBotaoAvancar(ActionEvent event){
         Time time = new Time();
-        verifica = time.inserirTime(nome.getText(), image, abreviacao.getText(), 0);
+        Usuario usu = new Usuario();
+        verifica = time.inserirTime(nome.getText(), image, abreviacao.getText(),usu.getId_user());
         if(verifica){
             JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
         }

@@ -24,16 +24,11 @@
             <Font name="Eras Demi ITC" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="nome_user" layoutX="1136.0" prefHeight="58.0" prefWidth="101.0" text="Zairo Bastos" textFill="#333333">
+      <Label fx:id="nome_user" layoutX="1124.0" layoutY="-3.0" prefHeight="58.0" prefWidth="101.0" text="Zairo Bastos" textFill="#333333">
          <font>
             <Font name="Segoe UI" size="18.0" />
          </font>
       </Label>
-      <ImageView fx:id="imagem_user" fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="548.0" fitWidth="650.0" layoutX="358.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../TelaInicial/images/lifestyle-05-removebg-preview.png" />
@@ -44,5 +39,6 @@
             <Font name="Segoe UI Bold" size="18.0" />
          </font>
       </Button>
+      <ImageView fx:id="imagem_user" fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

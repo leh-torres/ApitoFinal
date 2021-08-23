@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -37,7 +38,7 @@ public class CadEquipeEsportivaController implements Initializable {
     private TextField nome;
     
     @FXML
-    private TextField nome_user;
+    private Label nome_user;
     
     @FXML
     private ImageView imagem_user;

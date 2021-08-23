@@ -29,7 +29,7 @@ public class TelaCadAvatar extends Application{
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
-        stage.show();
+        stage.show(); 
         setStage(stage);
     }
     
@@ -42,7 +42,7 @@ public class TelaCadAvatar extends Application{
     }   
     
     public static void main(String[] args) {
-        // TODO code application logic here
+        launch(args);
     }
     
 }

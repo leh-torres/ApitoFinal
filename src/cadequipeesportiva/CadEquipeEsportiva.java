@@ -21,7 +21,7 @@ public class CadEquipeEsportiva extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("CadEquipeEsportiva.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/cadequipeesportiva/CadEquipeEsportiva.fxml"));
         
         Scene scene = new Scene(root);
         

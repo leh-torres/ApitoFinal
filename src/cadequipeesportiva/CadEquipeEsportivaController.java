@@ -56,7 +56,7 @@ public class CadEquipeEsportivaController implements Initializable {
         File seletedFile = fc.showOpenDialog(null);
         
         if(seletedFile != null){
-            view.getItems().add(seletedFile.getAbsolutePath());
+            view.getItems().add(seletedFile.getName());
         }else{
             System.out.println("Arquivo não é válido!");
         }

@@ -25,15 +25,14 @@ public class UsuarioDAO {
     PreparedStatement pst = null;
     ResultSet ps = null;
     DataSource data = new DataSource();
-    private int id;
     private int result;
 
     public UsuarioDAO(){
-        conn = data.getConnection();
+        
     }
     
     public boolean login(String txtlogin, String pass_senha){
-        
+        conn = data.getConnection();
         String SQL = "SELECT * FROM usuario WHERE email_user=? and senha_user=?";
         try {
             pst = (PreparedStatement)conn.prepareStatement(SQL);
@@ -54,15 +53,13 @@ public class UsuarioDAO {
         return false;
     }
 
-    public boolean adicionaImagemUsuario(File imagem, int id) throws FileNotFoundException{
-        
-        FileInputStream file = null;
-        
+    public boolean adicionaImagemUsuario(FileInputStream fis, int id) throws FileNotFoundException{
+        DataSource data2 = new DataSource();
+        conn = data2.getConnection();
         String SQL = "UPDATE usuario SET imagem_user=? WHERE id_user=?";
         try {
-            file = new FileInputStream(imagem);
             pst = (PreparedStatement)conn.prepareStatement(SQL);
-            pst.setBinaryStream(1,(InputStream)file,(int)(imagem.length()));
+            pst.setBinaryStream(1, fis);
             pst.setInt(2,id);
             result = pst.executeUpdate();
             data.closeDataSource();
@@ -78,6 +75,36 @@ public class UsuarioDAO {
         }
         
         return false;
+    }
+
+    public int getIdDoCadastro(String nome, String sobrenome){
+        DataSource data1 = new DataSource();
+        Connection conn1 = null;
+        conn1 = data1.getConnection();
+
+        int id = 0;
+        String SQL = "SELECT id_user FROM usuario WHERE nome_user = ? AND sobrenome_user = ?";
+
+        try {
+            pst = (PreparedStatement)conn1.prepareStatement(SQL);
+            pst.setString(1, nome);
+            pst.setString(2, sobrenome);
+            ps = pst.executeQuery();
+            
+            if(ps.next()){
+                id = ps.getInt(1);
+                data.closeDataSource();
+            } else{
+                JOptionPane.showMessageDialog(null, "Usuario não encontrado");
+            }
+
+            return id;
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
+        return 0;
     }
    
 }

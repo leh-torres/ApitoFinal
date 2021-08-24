@@ -5,8 +5,8 @@
  */
 package telaCadUsuario;
 
-import apitofinal.ApitoFinal;
 import apitofinal.FXMLDocumentController;
+import classes.Usuario;
 import dao.DataSource;
 import java.net.URL;
 import java.sql.Connection;
@@ -24,6 +24,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import telaCadAvatar.TelaCadAvatar;
+import telaCadAvatar.TelaCadAvatarController;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -86,12 +89,12 @@ public class TelaCadUsuarioController implements Initializable {
     }
     
     private void trocarTela(){
-        ApitoFinal a = new ApitoFinal();
+        TelaCadAvatar a = new TelaCadAvatar();
         fecha();
         try {
             a.start(new Stage());
         } catch (Exception ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TelaCadAvatarController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -127,8 +130,12 @@ public class TelaCadUsuarioController implements Initializable {
             rs = pstl.executeUpdate();
             
             if(rs == 1){
+                Usuario usuario = new Usuario();
+                usuario.setNome_user(txt_nome.getText());
+                usuario.setSobrenome_user(txt_sobrenome.getText());
                 JOptionPane.showMessageDialog(null,"Usuario cadastrado");
                 data.closeDataSource();
+
                 trocarTela();
             }
             else{

@@ -12,6 +12,8 @@ import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -27,6 +29,12 @@ public class TelaCadAvatar extends Application{
         Parent root = FXMLLoader.load(getClass().getResource("/telaCadAvatar/telaCadAvatar.fxml"));                
         
         Scene scene = new Scene(root);
+        Image image = new Image(getClass().getResourceAsStream("/apitofinal/Logotype.jpg"));
+        ImageView imageView = new ImageView(image);
+        
+        imageView.setImage(image);
+        imageView.setVisible(true);
+        imageView.setCache(true);
         
         stage.setScene(scene);
         stage.show(); 

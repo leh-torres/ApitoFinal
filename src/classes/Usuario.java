@@ -1,14 +1,12 @@
 package classes;
 
-import java.sql.Blob;
 
 public class Usuario {
     private static int id_user;
-    private String nome_user;
-    private String sobrenome_user;
+    private static String nome_user;
+    private static String sobrenome_user;
     private String email_user;
     private String senha_user;
-    private Blob imagem_user;
 
     public Usuario(){
     
@@ -54,13 +52,6 @@ public class Usuario {
         this.senha_user = senha_user;
     }
 
-    public Blob getImagem_user() {
-        return imagem_user;
-    }
 
-    public void setImagem_user(Blob imagem_user) {
-        this.imagem_user = imagem_user;
-    }
-    
-    
+
 }

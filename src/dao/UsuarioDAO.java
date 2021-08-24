@@ -14,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javafx.stage.FileChooser;
 import javax.swing.JOptionPane;
 /**
  *
@@ -63,7 +64,7 @@ public class UsuarioDAO {
             file = new FileInputStream(imagem);
             pst = (PreparedStatement)conn.prepareStatement(SQL);
             pst.setBinaryStream(1,(InputStream)file,(int)(imagem.length()));
-            pst.setInt(2,id);
+            pst.setString(2,Integer.toString(id));
             result = pst.executeUpdate();
             data.closeDataSource();
             

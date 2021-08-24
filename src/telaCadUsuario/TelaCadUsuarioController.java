@@ -49,7 +49,7 @@ public class TelaCadUsuarioController implements Initializable {
     @FXML
     private Button bt_conectar;
   
-    
+    private boolean testa;
     Connection conn = null;
     PreparedStatement pst = null;
     PreparedStatement pstl = null;
@@ -65,8 +65,10 @@ public class TelaCadUsuarioController implements Initializable {
         pass_senha.addEventHandler(KeyEvent.KEY_PRESSED, (KeyEvent event) -> {
             try {
                 if (event.getCode() == KeyCode.ENTER) {
-                    cadastrar();
+                    testa = cadastrar(); 
+                    if(testa == true){
                     trocarTela();
+                    }
                 }
             } catch (Exception ex) {
             }
@@ -75,8 +77,10 @@ public class TelaCadUsuarioController implements Initializable {
 
     @FXML    
     public void acaoDOBotaoAvancar(ActionEvent event){
-           cadastrar(); 
+           testa = cadastrar(); 
+           if(testa == true){
            trocarTela();
+           }
     }
     
     @FXML  
@@ -98,7 +102,7 @@ public class TelaCadUsuarioController implements Initializable {
         }
     }
     
-    private void cadastrar(){
+    private boolean cadastrar(){
         conn = data.getConnection();
         
         String SQL = "SELECT * FROM usuario WHERE nome_user=? and sobrenome_user=? and email_user=? and senha_user=?";
@@ -117,6 +121,7 @@ public class TelaCadUsuarioController implements Initializable {
                 txt_sobrenome.clear();
                 txt_email.clear();
                 pass_senha.clear();
+                return false;
             }
             else{
              SQL = "INSERT INTO usuario VALUES(null,?,?,?,?,?)";
@@ -136,7 +141,7 @@ public class TelaCadUsuarioController implements Initializable {
                 JOptionPane.showMessageDialog(null,"Usuario cadastrado");
                 data.closeDataSource();
 
-                trocarTela();
+                return true;
             }
             else{
                 System.out.println("Erro");
@@ -148,6 +153,7 @@ public class TelaCadUsuarioController implements Initializable {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
+        return false;
     }
 }
     

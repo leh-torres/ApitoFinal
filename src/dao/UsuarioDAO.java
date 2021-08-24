@@ -60,13 +60,8 @@ public class UsuarioDAO {
         String SQL = "UPDATE usuario SET imagem_user=? WHERE id_user=?";
         try {
             pst = (PreparedStatement)conn.prepareStatement(SQL);
-<<<<<<< HEAD
-            pst.setBinaryStream(1,(InputStream)file,(int)(imagem.length()));
-            pst.setString(2,Integer.toString(id));
-=======
             pst.setBinaryStream(1, fis);
             pst.setInt(2,id);
->>>>>>> refs/remotes/origin/master
             result = pst.executeUpdate();
             data.closeDataSource();
             

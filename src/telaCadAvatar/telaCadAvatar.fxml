@@ -35,34 +35,15 @@
                </font>
             </Label>
             <Line endX="187.0" layoutX="251.0" layoutY="228.0" startX="-195.0" stroke="#eff0f3" strokeWidth="3.0" />
-<<<<<<< HEAD
-            <ImageView fx:id="imgem_tela" blendMode="DARKEN" fitHeight="200.0" fitWidth="200.0" layoutX="148.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true">
-               <cursor>
-                  <Cursor fx:constant="CROSSHAIR" />
-               </cursor>
-            </ImageView>
-            <Line endX="-100.0" endY="180.0" layoutX="248.0" layoutY="281.0" startX="-100.0" startY="-20.0" stroke="#ff8e3c" />
-            <Line endX="-100.0" endY="180.0" layoutX="448.0" layoutY="281.0" startX="-100.0" startY="-20.0" stroke="#ff8e3c" />
-            <Line endX="100.0" layoutX="248.0" layoutY="261.0" startX="-100.0" stroke="#ff8e3c" />
-            <Line endX="100.0" layoutX="248.0" layoutY="461.0" startX="-100.0" stroke="#ff8e3c" />
-            <Button fx:id="bt_avancar" layoutX="349.0" layoutY="541.0" mnemonicParsing="false" onAction="#AcaoBotaoSalvar" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: #ff8e3c;" text="Avançar" textFill="WHITE">
-=======
             <Button fx:id="bt_avancar" layoutX="309.0" layoutY="339.0" mnemonicParsing="false" onAction="#AcaoBotaoSalvar" prefHeight="31.0" prefWidth="115.0" style="-fx-background-color: #ff8e3c;" text="Avançar" textFill="WHITE">
->>>>>>> refs/remotes/origin/master
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Button>
             <Button fx:id="bt_inserir" layoutX="55.0" layoutY="269.0" mnemonicParsing="false" onAction="#Button1Action" prefHeight="30.0" prefWidth="115.0" style="-fx-background-color: white;" text="Inserir imagem" textFill="#ff8e3c" underline="true">
                <font>
                   <Font name="Segoe UI Semibold" size="14.0" />
                </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
             </Button>
             <Label fx:id="labelCaminho" layoutX="170.0" layoutY="269.0" prefHeight="30.0" prefWidth="265.0">
                <opaqueInsets>

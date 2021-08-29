@@ -27,6 +27,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import telaSelecionarTimes.telaSelecionarTimes;
 
 /**
  *
@@ -71,6 +73,7 @@ public class TelaCadCampeonatoController implements Initializable {
     @FXML
     private void acaoDoBotao(ActionEvent event){
         botaoAvancar();
+        trocaDeTela();
     }
 
     @Override
@@ -102,4 +105,20 @@ public class TelaCadCampeonatoController implements Initializable {
        compDAO.cadastrarComp(competicao);
     }
 
+    private void trocaDeTela(){
+        telaSelecionarTimes tela = new telaSelecionarTimes();
+        fecha();
+
+        try {
+            tela.start(new Stage());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
+    private void fecha(){
+        TelaCadCampeonato.getStage().close();
+    }
 }

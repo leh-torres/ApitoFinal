@@ -9,7 +9,7 @@ public class Competicao {
     private String data_terminio;
     private String situacao;
     private String qtd_times;
-    private int    fk_user;
+    private static int    fk_user;
 
     public Competicao(){
 

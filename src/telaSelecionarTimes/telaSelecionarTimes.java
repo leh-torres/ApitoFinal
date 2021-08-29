@@ -11,7 +11,7 @@ public class telaSelecionarTimes extends Application{
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("TelaSelecionarTimesFXML.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("TelaSelecionarTImesFXML.fxml"));
         
         Scene scene = new Scene(root);
         

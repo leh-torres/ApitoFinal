@@ -7,7 +7,7 @@ package cadequipeesportiva;
 
 import classes.Usuario;
 import dao.BarraDeMenuDAO;
-import dao.Time;
+import dao.TimeDAO;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -81,7 +81,7 @@ public class CadEquipeEsportivaController implements Initializable {
     
     @FXML
     public void AcaoDoBotaoAvancar(ActionEvent event) throws FileNotFoundException{
-        Time time = new Time();
+        TimeDAO time = new TimeDAO();
         Usuario usu = new Usuario();
         image = new File(path);
         fis = new FileInputStream(image);

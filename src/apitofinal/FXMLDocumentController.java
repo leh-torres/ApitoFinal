@@ -77,19 +77,19 @@ public class FXMLDocumentController implements Initializable {
                 fecha();
 
                 try {
-                tela1.start(new Stage());
-            } catch (Exception ex) {
-                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                    tela1.start(new Stage());
+                } catch (Exception ex) {
+                    Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             } 
             else{
                 TelaPrincipal tela = new TelaPrincipal();
                 fecha();
                 try {
-                tela.start(new Stage());
-            } catch (Exception ex) {
-                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                  tela.start(new Stage());
+                } catch (Exception ex) {
+                    Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }

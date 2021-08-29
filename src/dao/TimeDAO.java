@@ -61,6 +61,7 @@ public class TimeDAO {
 
 
     public ArrayList getTimes(int id_usuario){
+        System.out.println("ArrayList DAO");
         conn = data.getConnection();
 
         ArrayList<Time> arrayTimes = new ArrayList<>();
@@ -68,6 +69,7 @@ public class TimeDAO {
         String SQL = "select * from times where fk_usuario = ?";
 
         try{
+            System.out.println("try");
             pst = (PreparedStatement)conn.prepareStatement(SQL);
             pst.setInt(1, id_usuario);
             ps = pst.executeQuery();
@@ -86,7 +88,7 @@ public class TimeDAO {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, ex);
         }
-
+        System.out.println("fora");
         return null;
     }
 }

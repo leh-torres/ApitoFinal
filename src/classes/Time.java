@@ -4,13 +4,13 @@ import java.sql.Blob;
 import java.util.ArrayList;
 
 public class Time {
-    private static int id_time;
+    private int id_time;
     private String nome_time;
     private Blob imagem_time;
     private String abreviacao_time;
-    private static int fk_usuario;
-    private static int fk_comp;
-    private static ArrayList<Time> arrayTimes = new ArrayList<>();
+    private int fk_usuario;
+    private int fk_comp;
+    private ArrayList<Time> arrayTimes = new ArrayList<>();
     
     public Time(){
         
@@ -27,7 +27,7 @@ public class Time {
      * @param id_time the id_time to set
      */
     public void setId_time(int id_time) {
-        Time.id_time = id_time;
+        this.id_time = id_time;
     }
 
     /**
@@ -69,7 +69,7 @@ public class Time {
      * @param fk_usuario the fk_usuario to set
      */
     public void setFk_usuario(int fk_usuario) {
-        Time.fk_usuario = fk_usuario;
+        this.fk_usuario = fk_usuario;
     }
 
     /**
@@ -83,7 +83,7 @@ public class Time {
      * @param fk_comp the fk_comp to set
      */
     public void setFk_comp(int fk_comp) {
-        Time.fk_comp = fk_comp;
+        this.fk_comp = fk_comp;
     }
 
 

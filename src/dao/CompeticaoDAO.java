@@ -36,7 +36,7 @@ public class CompeticaoDAO {
 
     public boolean verificaCampeonato(String email, String senha){
         
-        String SQL = "SELECT * FROM competicao WHERE EXISTS(SELECT id_user FROM usuario WHERE email_user=? and senha_user=?)=fk_usuario";
+        String SQL = "SELECT * FROM competicao WHERE NOT EXISTS(SELECT id_user FROM usuario WHERE email_user=? and senha_user=?)=fk_usuario";
         try {
             ps = (PreparedStatement)conexao.prepareStatement(SQL);
             ps.setString(1, email);

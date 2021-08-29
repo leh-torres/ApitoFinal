@@ -180,7 +180,10 @@ public class SelecionaCampeonatoController implements Initializable {
         BarraDeMenuDAO barra = new BarraDeMenuDAO();
         BarraDeMenuDAO barra1 = new BarraDeMenuDAO();
         nome_user.setText(barra.Nome());
-        listaComp = comp.verificaCampeonatoAberto(); 
+        listaComp = comp.verificaCampeonatoAberto();
+        for(int i =0; i < listaComp.size(); i++){
+            System.out.println(listaComp.get(i).getNomeCompeticao());
+        } 
         imagem_user.setImage(barra1.Imagem());
 
         switch (listaComp.size()) {

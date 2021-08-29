@@ -93,7 +93,10 @@ public class TelaSelecionarTImesFXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        System.out.println("Entrou no initialize");
         CarregaTimesCadastrados();
+
+        //TODO implementar barra de tarefa
 
         lista_times.setOnMouseClicked(new EventHandler<MouseEvent>(){
     
@@ -135,18 +138,17 @@ public class TelaSelecionarTImesFXMLController implements Initializable {
     }
     
     private void CarregaTimesCadastrados(){
-        //Para o funcionamento real
-        //arrayTimes = timeDAO.getTimes(time.getFk_usuario(), time.getFk_comp());
-
+        arrayTimes = timeDAO.getTimes(comp.getFk_user());
+        System.out.println(comp.getFk_user());
         //Para testes
-        arrayTimes = timeDAO.getTimes(8);
+        //arrayTimes = timeDAO.getTimes(8);
 
         for(int i = 0; i < arrayTimes.size(); i++){
             nome = arrayTimes.get(i).getNome_time();
             arrayAux.add(nome);
             System.out.println(arrayTimes.get(i).getNome_time());
         }
-
+        
         observableList = FXCollections.observableArrayList(arrayAux);
 
         lista_times.setItems(observableList);

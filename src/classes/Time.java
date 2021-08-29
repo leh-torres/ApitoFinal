@@ -10,7 +10,7 @@ public class Time {
     private String abreviacao_time;
     private int fk_usuario;
     private int fk_comp;
-    private ArrayList<Time> arrayTimes = new ArrayList<>();
+    private static ArrayList<Time> arrayTimes = new ArrayList<>();
     
     public Time(){
         

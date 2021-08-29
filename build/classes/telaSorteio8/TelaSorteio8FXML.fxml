@@ -39,17 +39,17 @@
       </ImageView>
       <Pane layoutX="307.0" layoutY="88.0" prefHeight="586.0" prefWidth="756.0" style="-fx-background-color: white;">
          <children>
-            <ImageView fx:id="time_sorteado" fitHeight="110.0" fitWidth="110.0" layoutX="323.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="364.0" fitWidth="717.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imagem_fundo" fitHeight="364.0" fitWidth="717.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="file:/C:/Users/RonaldoMatos/Desktop/Gabriel/ApitoFinal/src/resources/Árvore%208.png" />
                </image>
             </ImageView>
+            <ImageView fx:id="time_sorteado" fitHeight="110.0" fitWidth="110.0" layoutX="323.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="80.0" layoutX="353.0" layoutY="323.0" startX="-30.0" stroke="#ff8e3c" strokeWidth="3.0" />
             <Line endX="80.0" layoutX="353.0" layoutY="436.0" startX="-30.0" stroke="#ff8e3c" strokeWidth="3.0" />
             <Line endX="80.0" layoutX="409.0" layoutY="380.0" rotate="90.0" startX="-30.0" stroke="#ff8e3c" strokeWidth="3.0" />
             <Line endX="80.0" layoutX="297.0" layoutY="380.0" rotate="90.0" startX="-30.0" stroke="#ff8e3c" strokeWidth="3.0" />
-            <Button fx:id="bt_sortear" layoutX="322.0" layoutY="447.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="112.0" style="-fx-background-color: #ff8e3c;" text="Sortear" textFill="WHITE">
+            <Button fx:id="bt_sortear" layoutX="322.0" layoutY="447.0" mnemonicParsing="false" onAction="#acaoBotaoSortear" prefHeight="18.0" prefWidth="112.0" style="-fx-background-color: #ff8e3c;" text="Sortear" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Semibold" size="14.0" />
                </font>

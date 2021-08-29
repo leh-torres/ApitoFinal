@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,6 +22,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import javax.swing.JOptionPane;
+import telaDefinirPartidas8.TelaDefinirPartidas8;
 
 /**
  * FXML Controller class
@@ -87,8 +92,11 @@ public class TelaSorteio8FXMLController implements Initializable {
     private ImageView imagem_fundo;
     
     private int i = 0;
+    private int j = 0;
+    private int id ;
+    private boolean testa;
     private int count = 0;
-    private int[] id_sorteado;
+    private int[] id_sorteado = new int[9];
     ArrayList<Time> times = new ArrayList<>();
     @FXML
     private ImageView imagem_user;
@@ -103,6 +111,7 @@ public class TelaSorteio8FXMLController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        sortear();
         BarraDeMenuDAO barra = new BarraDeMenuDAO();
         BarraDeMenuDAO barra1 = new BarraDeMenuDAO();
         Image image = new Image(getClass().getResourceAsStream("/resources/Árvore 8.png"));
@@ -110,7 +119,7 @@ public class TelaSorteio8FXMLController implements Initializable {
         times = time.getArrayTimes();
         nome_user.setText(barra.Nome());
         imagem_user.setImage(barra1.Imagem());
-        //imagem_fundo.setImage(image);
+        imagem_fundo.setImage(image);
         
         
         abrev1.setText(times.get(0).getAbreviacao_time());
@@ -124,47 +133,71 @@ public class TelaSorteio8FXMLController implements Initializable {
     }    
     
     public void acaoBotaoSortear(ActionEvent event) throws SQLException{
-        sortear();
-        InputStream imageFile = times.get(id_sorteado[i-1]).getImagem_time().getBinaryStream();
+        InputStream imageFile = times.get(id_sorteado[count]).getImagem_time().getBinaryStream();
         Image image = new Image(imageFile);
         time_sorteado.setImage(image);
         
         if(count == 0){
             time1.setImage(image);
         }
-        else if(count ==1){
+        else if(count == 1){
             time2.setImage(image);
         }
-        else if(count ==2){
+        else if(count == 2){
             time3.setImage(image);
         }
-        else if(count ==3){
+        else if(count == 3){
             time4.setImage(image);
         }
-        else if(count ==4){
+        else if(count == 4){
             time5.setImage(image);
         }
-        else if(count ==5){
+        else if(count == 5){
             time6.setImage(image);
         }
-        else if(count ==6){
+        else if(count == 6){
             time7.setImage(image);
         }
-        else if(count ==7){
+        else if(count == 7){
             time8.setImage(image);
         }
+        count ++ ;
     }
     
     private void sortear(){
         Random random = new Random();
-        id_sorteado[i] = random.nextInt(7);
-        i++;
-        for(int j=0; j<i;j++){
-            if(id_sorteado[i] == id_sorteado[j]){
-                i--;
-                sortear();
-            }
+        
+        for( i=0; i<8; i++){
+             id = random.nextInt(8);
+             for( j=0;j<i;j++){
+                   if(id == id_sorteado[j] ){
+                         sortear();   
+                   }else{
+                        id_sorteado[i] = id;                        
+                   }
+             }
         }
+    }
+    
+    public void acaoBotaoProximo(){
+        Time time = new Time();
+        time.setId_sorteado(id_sorteado);
+        trocarTela();
+    }
+    
+    private void trocarTela(){
+        TelaDefinirPartidas8 tela1 = new TelaDefinirPartidas8();
+            fecha();
+
+            try {
+            tela1.start(new Stage());
+            } catch (Exception ex) {
+            Logger.getLogger(TelaSorteio8FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    
+    private void fecha(){
+        TelaSorteio8.getStage().close();
     }
     
 }

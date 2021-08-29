@@ -11,6 +11,7 @@ public class Time {
     private int fk_usuario;
     private int fk_comp;
     private static ArrayList<Time> arrayTimes = new ArrayList<>();
+    private int[] id_sorteado = new int[8];
     
     public Time(){
         
@@ -116,4 +117,12 @@ public class Time {
         this.arrayTimes = arrayTimes;
     }
 
+    public int[] getId_sorteado() {
+        return id_sorteado;
+    }
+
+    public void setId_sorteado(int[] id_sorteado) {
+        this.id_sorteado = id_sorteado;
+    }
+    
 }

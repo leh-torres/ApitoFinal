@@ -120,12 +120,19 @@ public class SelecionaCampeonatoController implements Initializable {
     
     @FXML
     public void funcaoBtn1(ActionEvent event){
+        System.out.println("Botão");
+        System.out.println(comp1.getId_competicao());
+        System.out.println(comp1.getNomeCompeticao());
+        System.out.println(comp1.getDescricao());
+        System.out.println(comp1.getPremiacao());
+
         if(Integer.parseInt(comp1.getQtd_times()) == 8){
             Home h = new Home();
             HomeController hc = new HomeController();
             hc.setComp(comp1);
             fecha();
             try {
+
                 h.start(new Stage());
             } catch (Exception e) {
                 e.printStackTrace();

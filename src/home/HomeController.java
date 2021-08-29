@@ -80,8 +80,9 @@ public class HomeController implements Initializable {
     @FXML
     private Label labelNome;
     
-    Competicao competicao = new Competicao();
-    CompeticaoDAO competicaoDAO = new CompeticaoDAO();
+    private Competicao competicao = new Competicao();
+    private CompeticaoDAO competicaoDAO = new CompeticaoDAO();
+    
 
     @FXML
     public void deletaComp(ActionEvent event) {
@@ -101,12 +102,46 @@ public class HomeController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        labelPremio.setText(competicao.getPremiacao());
-        labelDescricao.setText(competicao.getDescricao());
+        //labelPremio.setText(competicao.getPremiacao());
+        //labelDescricao.setText(competicao.getDescricao());
+
+        /**COMPETICAO */
+        System.out.println("COMPETICAO");
+        System.out.println(competicao.getId_competicao());
+        System.out.println(competicao.getNomeCompeticao());
+        System.out.println(competicao.getPremiacao());
+        System.out.println(competicao.getDescricao());
+        
     }    
-    
+
+    @FXML
     public void setComp(Competicao comp){
-        competicao = comp;
+        competicao.setId_competicao(comp.getId_competicao());
+        competicao.setNomeCompeticao(comp.getNomeCompeticao());
+        competicao.setPremiacao(comp.getPremiacao());
+        competicao.setDescricao(comp.getDescricao());
+        competicao.setSituacao(comp.getSituacao());
+        competicao.setData_inicio(comp.getData_inicio());
+        competicao.setData_terminio(comp.getData_terminio());
+        competicao.setFk_user(comp.getFk_user());
+
+        /**COMP */
+        System.out.println("COMP");
+        System.out.println(comp.getId_competicao());
+        System.out.println(comp.getNomeCompeticao());
+        System.out.println(comp.getPremiacao());
+        System.out.println(comp.getDescricao());
+
+        /**COMPETICAO */
+        System.out.println("COMPETICAO");
+        System.out.println(competicao.getId_competicao());
+        System.out.println(competicao.getNomeCompeticao());
+        System.out.println(competicao.getPremiacao());
+        System.out.println(competicao.getDescricao());
+    }
+
+    private void getCom(){
+
     }
 
     private void fecha(){

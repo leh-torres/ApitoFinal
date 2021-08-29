@@ -164,7 +164,7 @@ public class CompeticaoDAO {
     public boolean excluirCompeticao(int id){
         conexao = data.getConnection();
 
-        String SQL = "DELETE FROM competicao WHERE id_comp = ?";
+        String SQL = "DELETE FROM competicao WHERE competicao.id_comp = ?";
 
         try {
             ps = (PreparedStatement)conexao.prepareStatement(SQL);

@@ -3,13 +3,13 @@ package classes;
 public class Competicao {
     private int id_competicao;
     private String nomeCompeticao;
-    private String descricao;
-    private String premiacao;
+    private static String descricao;
+    private static String premiacao;
     private String data_inicio;
     private String data_terminio;
     private String situacao;
     private String qtd_times;
-    private static int    fk_user;
+    private static int fk_user;
 
     public Competicao(){
 

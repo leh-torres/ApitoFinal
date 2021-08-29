@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="home.HomeController">
     <stylesheets>
         <URL value="@fxml.css" />
     </stylesheets>
@@ -25,12 +25,12 @@
             <Font name="Eras Demi ITC" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="1136.0" prefHeight="58.0" prefWidth="101.0" text="Zairo Bastos" textFill="#333333">
+      <Label fx:id="nomeLabel" layoutX="1136.0" prefHeight="58.0" prefWidth="101.0" text="Zairo Bastos" textFill="#333333">
          <font>
             <Font name="Segoe UI" size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagePerfil" fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
          </image>
@@ -52,20 +52,20 @@
                   <Image url="@../TelaInicial/images/8x.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="287.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="287.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="287.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="287.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="447.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="449.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="593.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="742.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="890.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="890.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="1050.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="1050.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="1050.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="1050.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image4" fitHeight="70.0" fitWidth="70.0" layoutX="287.0" layoutY="365.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image3" fitHeight="70.0" fitWidth="70.0" layoutX="287.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image2" fitHeight="70.0" fitWidth="70.0" layoutX="287.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image1" fitHeight="70.0" fitWidth="70.0" layoutX="287.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image5" fitHeight="70.0" fitWidth="70.0" layoutX="447.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image6" fitHeight="70.0" fitWidth="70.0" layoutX="449.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image7" fitHeight="70.0" fitWidth="70.0" layoutX="593.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image8" fitHeight="70.0" fitWidth="70.0" layoutX="742.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image10" fitHeight="70.0" fitWidth="70.0" layoutX="890.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image9" fitHeight="70.0" fitWidth="70.0" layoutX="890.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image11" fitHeight="70.0" fitWidth="70.0" layoutX="1050.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image12" fitHeight="70.0" fitWidth="70.0" layoutX="1050.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image14" fitHeight="70.0" fitWidth="70.0" layoutX="1050.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image13" fitHeight="70.0" fitWidth="70.0" layoutX="1050.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="669.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="664.0" layoutY="62.0" text="Campeão">
                <font>
@@ -77,7 +77,7 @@
                   <Font name="Segoe UI Bold" size="15.0" />
                </font>
             </Label>
-            <Label alignment="TOP_LEFT" layoutX="358.0" layoutY="442.0" prefHeight="44.0" prefWidth="513.0" text="Campeonato Cearense de Futebol 2021">
+            <Label fx:id="descricaoLabel" alignment="TOP_LEFT" layoutX="358.0" layoutY="442.0" prefHeight="44.0" prefWidth="363.0" text="Campeonato Cearense de Futebol 2021">
                <font>
                   <Font size="15.0" />
                </font>
@@ -87,7 +87,7 @@
                   <Font name="Segoe UI Bold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="1005.0" layoutY="442.0" text="R$ 500,00">
+            <Label fx:id="labelPremio" layoutX="1005.0" layoutY="442.0" text="R$ 500,00">
                <font>
                   <Font size="15.0" />
                </font>
@@ -97,7 +97,7 @@
                   <Font name="Segoe UI Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="360.0" layoutY="510.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-border-color: #ff8e3c; -fx-border-width: 1; -fx-border-radius: 3;" text="Excluir Campeonato" textFill="#ff8e3c">
+            <Button layoutX="360.0" layoutY="510.0" mnemonicParsing="false" onAction="#deletaComp" prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-border-color: #ff8e3c; -fx-border-width: 1; -fx-border-radius: 3;" text="Excluir Campeonato" textFill="#ff8e3c">
                <font>
                   <Font name="Segoe UI Bold" size="15.0" />
                </font>

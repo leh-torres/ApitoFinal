@@ -160,5 +160,26 @@ public class CompeticaoDAO {
         }
         return null;
     }
+
+    public boolean excluirCompeticao(int id){
+        conexao = data.getConnection();
+
+        String SQL = "DELETE FROM competicao WHERE id_comp = ?";
+
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id);
+            retUpdate = ps.executeUpdate();
+
+            if(retUpdate == 1){
+                data.closeDataSource();
+            }
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
+        return false;
+    }
     
 }

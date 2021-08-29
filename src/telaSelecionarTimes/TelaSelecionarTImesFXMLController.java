@@ -108,18 +108,19 @@ public class TelaSelecionarTImesFXMLController implements Initializable {
                 
                 for(int i = 0; i < arrayTimes.size(); i++){
                     if(nome == arrayTimes.get(i).getNome_time()){
+                        Time time = new Time();
                         auxNome = arrayTimes.get(i).getNome_time();
                         auxAbrv = arrayTimes.get(i).getAbreviacao_time();
                         auxImagem = (Blob) arrayTimes.get(i).getImagem_time();
 
-                        timeAux.setId_time(arrayTimes.get(i).getId_time());
-                        timeAux.setNome_time(auxNome);
-                        timeAux.setAbreviacao_time(auxAbrv);
-                        timeAux.setImagem_time(auxImagem);
-                        timeAux.setFk_usuario(arrayTimes.get(i).getFk_usuario());
-                        timeAux.setFk_comp(comp.getId_competicao());
+                        time.setId_time(arrayTimes.get(i).getId_time());
+                        time.setNome_time(auxNome);
+                        time.setAbreviacao_time(auxAbrv);
+                        time.setImagem_time(auxImagem);
+                        time.setFk_usuario(arrayTimes.get(i).getFk_usuario());
+                        time.setFk_comp(comp.getId_competicao());
 
-                        arrayTimesAux.add(timeAux);
+                        arrayTimesAux.add(time);
                         arrayAux1.add(auxNome);
 
                         txtNomeTime.setText(auxNome);
@@ -166,6 +167,9 @@ public class TelaSelecionarTImesFXMLController implements Initializable {
     @FXML
     public void acaoDoBotaoConcluir(ActionEvent event){
         timeAux.setArrayTimes(arrayTimesAux);
+        for(int i = 0; i<timeAux.getArrayTimes().size();i++){
+            System.out.println(timeAux.getArrayTimes().get(i).getNome_time());
+        }
         if(timeAux.getArrayTimes().size() == 8){
             TelaSorteio8 tela8 = new TelaSorteio8();
             close();

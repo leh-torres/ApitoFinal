@@ -9,6 +9,9 @@ import apitofinal.FXMLDocumentController;
 import classes.Competicao;
 import dao.BarraDeMenuDAO;
 import dao.CompeticaoDAO;
+import home.Home;
+import home.HomeController;
+
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -85,15 +88,30 @@ public class SelecionaCampeonatoController implements Initializable {
     @FXML
     private Button btn_cad;
     
-    ArrayList<Competicao> listaComp = new ArrayList<>();
-    CompeticaoDAO comp = new CompeticaoDAO();
+    private ArrayList<Competicao> listaComp = new ArrayList<>();
+    private CompeticaoDAO comp = new CompeticaoDAO();
+    private Competicao comp1 = new Competicao();
+    private Competicao comp2 = new Competicao();
+    private Competicao comp3 = new Competicao();
+    private Competicao comp4 = new Competicao();
+    private Competicao comp5 = new Competicao();
+    private Competicao comp6 = new Competicao();
+    private Competicao comp7 = new Competicao();
+    private Competicao comp8 = new Competicao();
+    private Competicao comp9 = new Competicao();
+    private Competicao comp10 = new Competicao();
+    private Competicao comp11 = new Competicao();
+    private Competicao comp12 = new Competicao();
+    private Competicao comp13 = new Competicao();
+    private Competicao comp14 = new Competicao();
+    
     
     @FXML
     public void funcaoBtnCad(ActionEvent event) {
         TelaCadCampeonato tela = new TelaCadCampeonato();
                 fecha();
 
-                try {
+            try {
                 tela.start(new Stage());
             } catch (Exception ex) {
                 Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
@@ -102,72 +120,212 @@ public class SelecionaCampeonatoController implements Initializable {
     
     @FXML
     public void funcaoBtn1(ActionEvent event){
-        
+        if(Integer.parseInt(comp1.getQtd_times()) == 8){
+            Home h = new Home();
+            HomeController hc = new HomeController();
+            hc.setComp(comp1);
+            fecha();
+            try {
+                h.start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // TODO else if para a tela de 16
     }
     
     @FXML
     public void funcaoBtn2(ActionEvent event){
-    
+        if(Integer.parseInt(comp2.getQtd_times()) == 8){
+            Home h = new Home();
+            HomeController hc = new HomeController();
+            hc.setComp(comp2);
+            fecha();
+            try {
+                h.start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // TODO else if para a tela de 16
     }
     
     @FXML
     public void funcaoBtn3(ActionEvent event){
-    
+        if(Integer.parseInt(comp3.getQtd_times()) == 8){
+            Home h = new Home();
+            HomeController hc = new HomeController();
+            hc.setComp(comp3);
+            fecha();
+            try {
+                h.start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // TODO else if para a tela de 16
     }
     
     @FXML
     public void funcaoBtn4(ActionEvent event){
-    
+        if(Integer.parseInt(comp4.getQtd_times()) == 8){
+            Home h = new Home();
+            HomeController hc = new HomeController();
+            hc.setComp(comp4);
+            fecha();
+            try {
+                h.start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // TODO else if para a tela de 16
     }
     
     @FXML
     public void funcaoBtn5(ActionEvent event){
-    
+        if(Integer.parseInt(comp5.getQtd_times()) == 8){
+            Home h = new Home();
+            HomeController hc = new HomeController();
+            hc.setComp(comp5);
+            fecha();
+            try {
+                h.start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // TODO else if para a tela de 16
     }
     
     @FXML
     public void funcaoBtn6(ActionEvent event){
-    
+        if(Integer.parseInt(comp6.getQtd_times()) == 8){
+            Home h = new Home();
+            HomeController hc = new HomeController();
+            hc.setComp(comp6);
+            fecha();
+            try {
+                h.start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // TODO else if para a tela de 16
     }
     
     @FXML
     public void funcaoBtn7(ActionEvent event){
-    
+        if(Integer.parseInt(comp7.getQtd_times()) == 8){
+            Home h = new Home();
+            HomeController hc = new HomeController();
+            hc.setComp(comp7);
+            fecha();
+            try {
+                h.start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // TODO else if para a tela de 16
     }
     
     @FXML
     public void funcaoBtn8(ActionEvent event){
-    
+        if(Integer.parseInt(comp8.getQtd_times()) == 8){
+            Home h = new Home();
+            HomeController hc = new HomeController();
+            hc.setComp(comp8);
+            fecha();
+            try {
+                h.start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // TODO else if para a tela de 16
     }
     
     @FXML
     public void funcaoBtn9(ActionEvent event){
-    
+        if(Integer.parseInt(comp9.getQtd_times()) == 8){
+            Home h = new Home();
+            HomeController hc = new HomeController();
+            hc.setComp(comp9);
+            fecha();
+            try {
+                h.start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // TODO else if para a tela de 16
     }
     
     @FXML
     public void funcaoBtn10(ActionEvent event){
-    
+        if(Integer.parseInt(comp10.getQtd_times()) == 8){
+            Home h = new Home();
+            HomeController hc = new HomeController();
+            hc.setComp(comp10);
+            fecha();
+            try {
+                h.start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // TODO else if para a tela de 16
     }
     
     @FXML
     public void funcaoBtn11(ActionEvent event){
-    
+        if(Integer.parseInt(comp11.getQtd_times()) == 8){
+            Home h = new Home();
+            HomeController hc = new HomeController();
+            hc.setComp(comp11);
+            fecha();
+            try {
+                h.start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // TODO else if para a tela de 16
     }
     
     @FXML
     public void funcaoBtn12(ActionEvent event){
-    
+        if(Integer.parseInt(comp12.getQtd_times()) == 8){
+            Home h = new Home();
+            HomeController hc = new HomeController();
+            hc.setComp(comp12);
+            fecha();
+            try {
+                h.start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // TODO else if para a tela de 16
     }
     
     @FXML
     public void funcaoBtn13(ActionEvent event){
-    
+        if(Integer.parseInt(comp13.getQtd_times()) == 8){
+            Home h = new Home();
+            HomeController hc = new HomeController();
+            hc.setComp(comp13);
+            fecha();
+            try {
+                h.start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // TODO else if para a tela de 16
     }
     
     @FXML
     public void funcaoBtn14(ActionEvent event){
-    
+        if(Integer.parseInt(comp14.getQtd_times()) == 8){
+            Home h = new Home();
+            HomeController hc = new HomeController();
+            hc.setComp(comp14);
+            fecha();
+            try {
+                h.start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } // TODO else if para a tela de 16
     }
     
     @FXML
@@ -185,6 +343,7 @@ public class SelecionaCampeonatoController implements Initializable {
             System.out.println(listaComp.get(i).getNomeCompeticao());
         } 
         imagem_user.setImage(barra1.Imagem());
+
 
         switch (listaComp.size()) {
             case 14:
@@ -204,6 +363,21 @@ public class SelecionaCampeonatoController implements Initializable {
                 btn3.setText(comp.Nome(listaComp.get(2).getId_competicao()));
                 btn2.setText(comp.Nome(listaComp.get(1).getId_competicao()));
                 btn1.setText(comp.Nome(listaComp.get(0).getId_competicao()));
+
+                comp1 = listaComp.get(0);
+                comp2 = listaComp.get(1);
+                comp3 = listaComp.get(2);
+                comp4 = listaComp.get(3);
+                comp5 = listaComp.get(4);
+                comp6 = listaComp.get(5);
+                comp7 = listaComp.get(6);
+                comp8 = listaComp.get(7);
+                comp9 = listaComp.get(8);
+                comp10 = listaComp.get(9);
+                comp11 = listaComp.get(10);
+                comp12 = listaComp.get(11);
+                comp13 = listaComp.get(12);
+                comp14 = listaComp.get(13);
                 break;
             case 13:
                 btn15.setDisable(true);
@@ -222,6 +396,20 @@ public class SelecionaCampeonatoController implements Initializable {
                 btn3.setText(comp.Nome(listaComp.get(2).getId_competicao()));
                 btn2.setText(comp.Nome(listaComp.get(1).getId_competicao()));
                 btn1.setText(comp.Nome(listaComp.get(0).getId_competicao()));
+
+                comp1 = listaComp.get(0);
+                comp2 = listaComp.get(1);
+                comp3 = listaComp.get(2);
+                comp4 = listaComp.get(3);
+                comp5 = listaComp.get(4);
+                comp6 = listaComp.get(5);
+                comp7 = listaComp.get(6);
+                comp8 = listaComp.get(7);
+                comp9 = listaComp.get(8);
+                comp10 = listaComp.get(9);
+                comp11 = listaComp.get(10);
+                comp12 = listaComp.get(11);
+                comp13 = listaComp.get(12);
                 break;
             case 12:
                 btn15.setDisable(true);
@@ -240,6 +428,19 @@ public class SelecionaCampeonatoController implements Initializable {
                 btn3.setText(comp.Nome(listaComp.get(2).getId_competicao()));
                 btn2.setText(comp.Nome(listaComp.get(1).getId_competicao()));
                 btn1.setText(comp.Nome(listaComp.get(0).getId_competicao()));
+
+                comp1 = listaComp.get(0);
+                comp2 = listaComp.get(1);
+                comp3 = listaComp.get(2);
+                comp4 = listaComp.get(3);
+                comp5 = listaComp.get(4);
+                comp6 = listaComp.get(5);
+                comp7 = listaComp.get(6);
+                comp8 = listaComp.get(7);
+                comp9 = listaComp.get(8);
+                comp10 = listaComp.get(9);
+                comp11 = listaComp.get(10);
+                comp12 = listaComp.get(11);
                 break;
             case 11:
                 btn15.setDisable(true);
@@ -258,6 +459,18 @@ public class SelecionaCampeonatoController implements Initializable {
                 btn3.setText(comp.Nome(listaComp.get(2).getId_competicao()));
                 btn2.setText(comp.Nome(listaComp.get(1).getId_competicao()));
                 btn1.setText(comp.Nome(listaComp.get(0).getId_competicao()));
+
+                comp1 = listaComp.get(0);
+                comp2 = listaComp.get(1);
+                comp3 = listaComp.get(2);
+                comp4 = listaComp.get(3);
+                comp5 = listaComp.get(4);
+                comp6 = listaComp.get(5);
+                comp7 = listaComp.get(6);
+                comp8 = listaComp.get(7);
+                comp9 = listaComp.get(8);
+                comp10 = listaComp.get(9);
+                comp11 = listaComp.get(10);
                 break;
             case 10:
                 btn15.setDisable(true);
@@ -276,6 +489,17 @@ public class SelecionaCampeonatoController implements Initializable {
                 btn3.setText(comp.Nome(listaComp.get(2).getId_competicao()));
                 btn2.setText(comp.Nome(listaComp.get(1).getId_competicao()));
                 btn1.setText(comp.Nome(listaComp.get(0).getId_competicao()));
+
+                comp1 = listaComp.get(0);
+                comp2 = listaComp.get(1);
+                comp3 = listaComp.get(2);
+                comp4 = listaComp.get(3);
+                comp5 = listaComp.get(4);
+                comp6 = listaComp.get(5);
+                comp7 = listaComp.get(6);
+                comp8 = listaComp.get(7);
+                comp9 = listaComp.get(8);
+                comp10 = listaComp.get(9);
                 break;
             case 9:
                 btn15.setDisable(true);
@@ -294,6 +518,16 @@ public class SelecionaCampeonatoController implements Initializable {
                 btn3.setText(comp.Nome(listaComp.get(2).getId_competicao()));
                 btn2.setText(comp.Nome(listaComp.get(1).getId_competicao()));
                 btn1.setText(comp.Nome(listaComp.get(0).getId_competicao()));
+
+                comp1 = listaComp.get(0);
+                comp2 = listaComp.get(1);
+                comp3 = listaComp.get(2);
+                comp4 = listaComp.get(3);
+                comp5 = listaComp.get(4);
+                comp6 = listaComp.get(5);
+                comp7 = listaComp.get(6);
+                comp8 = listaComp.get(7);
+                comp9 = listaComp.get(8);
                 break;
             case 8:
                 btn15.setDisable(true);
@@ -312,6 +546,15 @@ public class SelecionaCampeonatoController implements Initializable {
                 btn3.setText(comp.Nome(listaComp.get(2).getId_competicao()));
                 btn2.setText(comp.Nome(listaComp.get(1).getId_competicao()));
                 btn1.setText(comp.Nome(listaComp.get(0).getId_competicao()));
+
+                comp1 = listaComp.get(0);
+                comp2 = listaComp.get(1);
+                comp3 = listaComp.get(2);
+                comp4 = listaComp.get(3);
+                comp5 = listaComp.get(4);
+                comp6 = listaComp.get(5);
+                comp7 = listaComp.get(6);
+                comp8 = listaComp.get(7);
                 break;
             case 7:
                 btn15.setDisable(true);
@@ -330,6 +573,14 @@ public class SelecionaCampeonatoController implements Initializable {
                 btn3.setText(comp.Nome(listaComp.get(2).getId_competicao()));
                 btn2.setText(comp.Nome(listaComp.get(1).getId_competicao()));
                 btn1.setText(comp.Nome(listaComp.get(0).getId_competicao()));
+
+                comp1 = listaComp.get(0);
+                comp2 = listaComp.get(1);
+                comp3 = listaComp.get(2);
+                comp4 = listaComp.get(3);
+                comp5 = listaComp.get(4);
+                comp6 = listaComp.get(5);
+                comp7 = listaComp.get(6);
                 break;
             case 6:
                 btn15.setDisable(true);
@@ -348,6 +599,13 @@ public class SelecionaCampeonatoController implements Initializable {
                 btn3.setText(comp.Nome(listaComp.get(2).getId_competicao()));
                 btn2.setText(comp.Nome(listaComp.get(1).getId_competicao()));
                 btn1.setText(comp.Nome(listaComp.get(0).getId_competicao()));
+
+                comp1 = listaComp.get(0);
+                comp2 = listaComp.get(1);
+                comp3 = listaComp.get(2);
+                comp4 = listaComp.get(3);
+                comp5 = listaComp.get(4);
+                comp6 = listaComp.get(5);
                 break;
             case 5:
                 btn15.setDisable(true);
@@ -366,6 +624,12 @@ public class SelecionaCampeonatoController implements Initializable {
                 btn3.setText(comp.Nome(listaComp.get(2).getId_competicao()));
                 btn2.setText(comp.Nome(listaComp.get(1).getId_competicao()));
                 btn1.setText(comp.Nome(listaComp.get(0).getId_competicao()));
+
+                comp1 = listaComp.get(0);
+                comp2 = listaComp.get(1);
+                comp3 = listaComp.get(2);
+                comp4 = listaComp.get(3);
+                comp5 = listaComp.get(4);
                 break;
             case 4:
                 btn15.setDisable(true);
@@ -384,6 +648,11 @@ public class SelecionaCampeonatoController implements Initializable {
                 btn3.setText(comp.Nome(listaComp.get(2).getId_competicao()));
                 btn2.setText(comp.Nome(listaComp.get(1).getId_competicao()));
                 btn1.setText(comp.Nome(listaComp.get(0).getId_competicao()));
+
+                comp1 = listaComp.get(0);
+                comp2 = listaComp.get(1);
+                comp3 = listaComp.get(2);
+                comp4 = listaComp.get(3);
                 break;
             case 3:
                 btn15.setDisable(true);
@@ -402,6 +671,10 @@ public class SelecionaCampeonatoController implements Initializable {
                 btn3.setText(comp.Nome(listaComp.get(2).getId_competicao()));
                 btn2.setText(comp.Nome(listaComp.get(1).getId_competicao()));
                 btn1.setText(comp.Nome(listaComp.get(0).getId_competicao()));
+
+                comp1 = listaComp.get(0);
+                comp2 = listaComp.get(1);
+                comp3 = listaComp.get(2);
                 break;
             case 2:
                 btn15.setDisable(true);
@@ -420,6 +693,9 @@ public class SelecionaCampeonatoController implements Initializable {
                
                 btn2.setText(comp.Nome(listaComp.get(1).getId_competicao()));
                 btn1.setText(comp.Nome(listaComp.get(0).getId_competicao()));
+
+                comp1 = listaComp.get(0);
+                comp2 = listaComp.get(1);
                 break;
             case 1:
                 btn15.setDisable(true);
@@ -438,6 +714,8 @@ public class SelecionaCampeonatoController implements Initializable {
                 btn2.setDisable(true);
                 
                 btn1.setText(comp.Nome(listaComp.get(0).getId_competicao()));
+
+                comp1 = listaComp.get(0);
                 break;
             default:
                 btn15.setText(comp.Nome(listaComp.get(14).getId_competicao()));
@@ -462,5 +740,7 @@ public class SelecionaCampeonatoController implements Initializable {
     private void fecha(){
         SelecaoCampeonato.getStage().close();
     }
+    
+
     
 }

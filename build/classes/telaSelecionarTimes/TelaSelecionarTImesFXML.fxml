@@ -46,7 +46,7 @@
                   <Image url="@../resources/Logotype.jpg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="130.0" fitWidth="130.0" layoutX="36.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageTime" fitHeight="130.0" fitWidth="130.0" layoutX="36.0" layoutY="211.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="101.0" layoutY="140.0" text="Selecione as equipes que participarão ">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
@@ -62,22 +62,12 @@
             <Line endX="36.0" layoutX="195.0" layoutY="276.0" rotate="90.0" startX="-94.0" stroke="#ff8e3c" strokeWidth="3.0" />
             <Line endX="36.0" layoutX="65.0" layoutY="276.0" rotate="90.0" startX="-94.0" stroke="#ff8e3c" strokeWidth="3.0" />
             <Line endX="36.0" layoutX="130.0" layoutY="342.0" startX="-94.0" stroke="#ff8e3c" strokeWidth="3.0" />
-            <Label layoutX="181.0" layoutY="233.0" text="Nome do Time">
-               <font>
-                  <Font name="Eras Demi ITC" size="27.0" />
-               </font>
-            </Label>
             <Label layoutX="181.0" layoutY="273.0" text="Abreviação:">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="262.0" layoutY="274.0" text="ABRV">
-               <font>
-                  <Font name="Eras Demi ITC" size="16.0" />
-               </font>
-            </Label>
-            <Button layoutX="51.0" layoutY="365.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="167.0" style="-fx-background-color: #ff8e3c;" text="Selecionar time" textFill="WHITE">
+            <Button fx:id="btnSelecionarTime" layoutX="51.0" layoutY="365.0" mnemonicParsing="false" onAction="#acaoBotaoSelecionar" prefHeight="32.0" prefWidth="167.0" style="-fx-background-color: #ff8e3c;" text="Selecionar time" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="14.0" />
                </font>
@@ -85,7 +75,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button layoutX="245.0" layoutY="365.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="167.0" style="-fx-background-color: white;" text="CONCLUIR" textFill="#ff8e3c">
+            <Button fx:id="btnConcluir" layoutX="245.0" layoutY="365.0" mnemonicParsing="false" onAction="#acaoDoBotaoConcluir" prefHeight="32.0" prefWidth="167.0" style="-fx-background-color: white;" text="CONCLUIR" textFill="#ff8e3c">
                <font>
                   <Font name="Eras Bold ITC" size="14.0" />
                </font>
@@ -97,10 +87,18 @@
             <Line endX="72.0" layoutX="340.0" layoutY="397.0" startX="-94.0" stroke="#ff8e3c" strokeWidth="2.0" />
             <Line endX="-62.0" layoutX="490.0" layoutY="381.0" rotate="90.0" startX="-94.0" stroke="#ff8e3c" strokeWidth="2.0" />
             <Line endX="-62.0" layoutX="323.0" layoutY="381.0" rotate="90.0" startX="-94.0" stroke="#ff8e3c" strokeWidth="2.0" />
-            <ListView layoutX="23.0" layoutY="422.0" prefHeight="130.0" prefWidth="416.0" />
+            <ListView fx:id="listaTimesSelecionados" layoutX="23.0" layoutY="422.0" prefHeight="130.0" prefWidth="416.0" />
+            <TextField fx:id="txtNomeTime" disable="true" editable="false" layoutX="177.0" layoutY="232.0" prefHeight="32.0" prefWidth="236.0">
+               <font>
+                  <Font size="15.0" />
+               </font></TextField>
+            <TextField fx:id="txtAbrev" disable="true" editable="false" layoutX="264.0" layoutY="271.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></TextField>
          </children></Pane>
       <ListView fx:id="lista_times" layoutX="790.0" layoutY="155.0" prefHeight="439.0" prefWidth="212.0" />
-      <TextField layoutX="790.0" layoutY="91.0" prefHeight="39.0" prefWidth="212.0" promptText="🔎" style="-fx-background-color: white;">
+      <TextField fx:id="txtBusca" layoutX="790.0" layoutY="91.0" onAction="#acaoDeBusca" onKeyPressed="#acaoDeBusca" prefHeight="39.0" prefWidth="212.0" promptText="🔎" style="-fx-background-color: white;">
          <font>
             <Font name="Segoe UI" size="14.0" />
          </font>
@@ -108,7 +106,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Button layoutX="790.0" layoutY="619.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="212.0" style="-fx-background-color: #ff8e3c;" text="➕ Cadastrar time ➕" textFill="WHITE">
+      <Button fx:id="btnCadastrarTime" layoutX="790.0" layoutY="619.0" mnemonicParsing="false" onAction="#acaoDoCadastrar" prefHeight="39.0" prefWidth="212.0" style="-fx-background-color: #ff8e3c;" text="➕ Cadastrar time ➕" textFill="WHITE">
          <font>
             <Font name="Segoe UI Bold" size="14.0" />
          </font>

@@ -2,7 +2,6 @@
 
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -21,7 +20,7 @@
          <children>
             <ImageView fx:id="ImageLogo" fitHeight="119.0" fitWidth="123.0" layoutX="189.0" layoutY="28.0" onDragDetected="#displayImage" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="file:/C:/Users/RonaldoMatos/Desktop/Gabriel/ApitoFinal/src/resources/Logotype.jpg" />
+                  <Image url="@../resources/Logotype.jpg" />
                </image>
             </ImageView>
             <Label layoutX="130.0" layoutY="177.0" text="Complete o cadastro do perfil com">

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="selecaocampeonato.SelecionaCampeonatoController">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="selecaocampeonato.SelecionaCampeonatoController">
     <stylesheets>
         <URL value="@fxml.css" />
       <URL value="@selecaocampeonato.css" />
@@ -38,37 +38,37 @@
       </ImageView>
       <Pane layoutX="55.0" layoutY="88.0" prefHeight="590.0" prefWidth="1256.0" style="-fx-background-color: #fffffe;">
          <children>
-            <Button fx:id="btn1" layoutX="72.0" layoutY="68.0" mnemonicParsing="false" onAction="#funcaoBtn1" prefHeight="90.0" prefWidth="248.0" text="Campeonato Brasileiro" textFill="#fffffe">
+            <Button fx:id="btn1" layoutX="72.0" layoutY="68.0" mnemonicParsing="false" onAction="#funcaoBtn1" prefHeight="90.0" prefWidth="248.0" text="Campeonato " textFill="#fffffe">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btn2" layoutX="361.0" layoutY="68.0" mnemonicParsing="false" onAction="#funcaoBtn2" prefHeight="90.0" prefWidth="248.0" text="Campeonato Brasileiro" textFill="#fffffe">
+            <Button fx:id="btn2" layoutX="361.0" layoutY="68.0" mnemonicParsing="false" onAction="#funcaoBtn2" prefHeight="90.0" prefWidth="248.0" text="Campeonato" textFill="#fffffe">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btn3" layoutX="649.0" layoutY="68.0" mnemonicParsing="false" onAction="#funcaoBtn3" prefHeight="90.0" prefWidth="248.0" text="Campeonato Brasileiro" textFill="#fffffe">
+            <Button fx:id="btn3" layoutX="649.0" layoutY="68.0" mnemonicParsing="false" onAction="#funcaoBtn3" prefHeight="90.0" prefWidth="248.0" text="Campeonato " textFill="#fffffe">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btn4" layoutX="937.0" layoutY="68.0" mnemonicParsing="false" onAction="#funcaoBtn4" prefHeight="90.0" prefWidth="248.0" text="Campeonato Brasileiro" textFill="#fffffe">
+            <Button fx:id="btn4" layoutX="937.0" layoutY="68.0" mnemonicParsing="false" onAction="#funcaoBtn4" prefHeight="90.0" prefWidth="248.0" text="Campeonato " textFill="#fffffe">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btn13" layoutX="72.0" layoutY="431.0" mnemonicParsing="false" onAction="#funcaoBtn13" prefHeight="90.0" prefWidth="248.0" text="Campeonato Brasileiro" textFill="#fffffe">
+            <Button fx:id="btn13" layoutX="72.0" layoutY="431.0" mnemonicParsing="false" onAction="#funcaoBtn13" prefHeight="90.0" prefWidth="248.0" text="Campeonato " textFill="#fffffe">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btn14" layoutX="361.0" layoutY="431.0" mnemonicParsing="false" onAction="#funcaoBtn14" prefHeight="90.0" prefWidth="248.0" text="Campeonato Brasileiro" textFill="#fffffe">
+            <Button fx:id="btn14" layoutX="361.0" layoutY="431.0" mnemonicParsing="false" onAction="#funcaoBtn14" prefHeight="90.0" prefWidth="248.0" text="Campeonato " textFill="#fffffe">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btn15" layoutX="649.0" layoutY="431.0" mnemonicParsing="false" onAction="#funcaoBtn15" prefHeight="90.0" prefWidth="248.0" text="Campeonato Brasileiro" textFill="#fffffe">
+            <Button fx:id="btn15" layoutX="649.0" layoutY="431.0" mnemonicParsing="false" onAction="#funcaoBtn15" prefHeight="90.0" prefWidth="248.0" text="Campeonato " textFill="#fffffe">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
@@ -78,42 +78,42 @@
                   <Font name="Segoe UI Bold" size="21.0" />
                </font>
             </Button>
-            <Button fx:id="btn5" layoutX="72.0" layoutY="189.0" mnemonicParsing="false" onAction="#funcaoBtn5" prefHeight="90.0" prefWidth="248.0" text="Campeonato Brasileiro" textFill="#fffffe">
+            <Button fx:id="btn5" layoutX="72.0" layoutY="189.0" mnemonicParsing="false" onAction="#funcaoBtn5" prefHeight="90.0" prefWidth="248.0" text="Campeonato " textFill="#fffffe">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btn6" layoutX="361.0" layoutY="189.0" mnemonicParsing="false" onAction="#funcaoBtn6" prefHeight="90.0" prefWidth="248.0" text="Campeonato Brasileiro" textFill="#fffffe">
+            <Button fx:id="btn6" layoutX="361.0" layoutY="189.0" mnemonicParsing="false" onAction="#funcaoBtn6" prefHeight="90.0" prefWidth="248.0" text="Campeonato " textFill="#fffffe">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btn7" layoutX="649.0" layoutY="189.0" mnemonicParsing="false" onAction="#funcaoBtn7" prefHeight="90.0" prefWidth="248.0" text="Campeonato Brasileiro" textFill="#fffffe">
+            <Button fx:id="btn7" layoutX="649.0" layoutY="189.0" mnemonicParsing="false" onAction="#funcaoBtn7" prefHeight="90.0" prefWidth="248.0" text="Campeonato " textFill="#fffffe">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btn8" layoutX="937.0" layoutY="189.0" mnemonicParsing="false" onAction="#funcaoBtn8" prefHeight="90.0" prefWidth="248.0" text="Campeonato Brasileiro" textFill="#fffffe">
+            <Button fx:id="btn8" layoutX="937.0" layoutY="189.0" mnemonicParsing="false" onAction="#funcaoBtn8" prefHeight="90.0" prefWidth="248.0" text="Campeonato " textFill="#fffffe">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btn9" layoutX="72.0" layoutY="310.0" mnemonicParsing="false" onAction="#funcaoBtn9" prefHeight="90.0" prefWidth="248.0" text="Campeonato Brasileiro" textFill="#fffffe">
+            <Button fx:id="btn9" layoutX="72.0" layoutY="310.0" mnemonicParsing="false" onAction="#funcaoBtn9" prefHeight="90.0" prefWidth="248.0" text="Campeonato " textFill="#fffffe">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btn10" layoutX="361.0" layoutY="310.0" mnemonicParsing="false" onAction="#funcaoBtn10" prefHeight="90.0" prefWidth="248.0" text="Campeonato Brasileiro" textFill="#fffffe">
+            <Button fx:id="btn10" layoutX="361.0" layoutY="310.0" mnemonicParsing="false" onAction="#funcaoBtn10" prefHeight="90.0" prefWidth="248.0" text="Campeonato " textFill="#fffffe">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btn11" layoutX="649.0" layoutY="310.0" mnemonicParsing="false" onAction="#funcaoBtn11" prefHeight="90.0" prefWidth="248.0" text="Campeonato Brasileiro" textFill="#fffffe">
+            <Button fx:id="btn11" layoutX="649.0" layoutY="310.0" mnemonicParsing="false" onAction="#funcaoBtn11" prefHeight="90.0" prefWidth="248.0" text="Campeonato " textFill="#fffffe">
                <font>
                   <Font name="Segoe UI Bold" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btn12" layoutX="937.0" layoutY="310.0" mnemonicParsing="false" onAction="#funcaoBtn12" prefHeight="90.0" prefWidth="248.0" text="Campeonato Brasileiro" textFill="#fffffe">
+            <Button fx:id="btn12" layoutX="937.0" layoutY="310.0" mnemonicParsing="false" onAction="#funcaoBtn12" prefHeight="90.0" prefWidth="248.0" text="Campeonato " textFill="#fffffe">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>

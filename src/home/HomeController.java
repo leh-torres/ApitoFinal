@@ -75,7 +75,7 @@ public class HomeController implements Initializable {
     private Label labelPremio;
 
     @FXML
-    private Label labelDescricao;
+    private Label descricaoLabel;
 
     @FXML
     private Label labelNome;
@@ -85,7 +85,7 @@ public class HomeController implements Initializable {
     
 
     @FXML
-    public void deletaComp(ActionEvent event) {
+    private void deletaComp(ActionEvent event) {
         boolean retorno = competicaoDAO.excluirCompeticao(competicao.getId_competicao());
         if(retorno == true){
             JOptionPane.showMessageDialog(null, "Campeonato excluido com sucesso!");
@@ -102,46 +102,27 @@ public class HomeController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //labelPremio.setText(competicao.getPremiacao());
-        //labelDescricao.setText(competicao.getDescricao());
+        competicao = competicaoDAO.gCompeticao(competicao.getIdSelecionaCampeonato());
+        JOptionPane.showMessageDialog(null,"Nome:" + competicao.getNomeCompeticao() + " Premiacao:" + competicao.getPremiacao() + " Descricao:" + competicao.getDescricao());
+        
+        labelPremio.setText(competicao.getPremiacao());
+        descricaoLabel.setText(competicao.getDescricao());
 
-        /**COMPETICAO */
-        System.out.println("COMPETICAO");
-        System.out.println(competicao.getId_competicao());
-        System.out.println(competicao.getNomeCompeticao());
-        System.out.println(competicao.getPremiacao());
-        System.out.println(competicao.getDescricao());
+        
         
     }    
 
     @FXML
-    public void setComp(Competicao comp){
-        competicao.setId_competicao(comp.getId_competicao());
-        competicao.setNomeCompeticao(comp.getNomeCompeticao());
-        competicao.setPremiacao(comp.getPremiacao());
-        competicao.setDescricao(comp.getDescricao());
-        competicao.setSituacao(comp.getSituacao());
-        competicao.setData_inicio(comp.getData_inicio());
-        competicao.setData_terminio(comp.getData_terminio());
-        competicao.setFk_user(comp.getFk_user());
+    private void voltar(ActionEvent event){
+        SelecaoCampeonato selecao = new SelecaoCampeonato();
+        fecha();
 
-        /**COMP */
-        System.out.println("COMP");
-        System.out.println(comp.getId_competicao());
-        System.out.println(comp.getNomeCompeticao());
-        System.out.println(comp.getPremiacao());
-        System.out.println(comp.getDescricao());
-
-        /**COMPETICAO */
-        System.out.println("COMPETICAO");
-        System.out.println(competicao.getId_competicao());
-        System.out.println(competicao.getNomeCompeticao());
-        System.out.println(competicao.getPremiacao());
-        System.out.println(competicao.getDescricao());
-    }
-
-    private void getCom(){
-
+        try {
+            selecao.start(new Stage());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     private void fecha(){

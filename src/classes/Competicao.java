@@ -1,5 +1,7 @@
 package classes;
 
+import java.util.ArrayList;
+
 public class Competicao {
     private int id_competicao;
     private String nomeCompeticao;
@@ -10,10 +12,20 @@ public class Competicao {
     private String situacao;
     private String qtd_times;
     private static int fk_user;
+    private static int idSelecionaCampeonato;
 
     public Competicao(){
 
     }
+
+    public int getId_competicao() {
+        return id_competicao;
+    }
+
+    public void setId_competicao(int id_competicao) {
+        this.id_competicao = id_competicao;
+    }
+
 
     /**
      * @return String return the nomeCompeticao
@@ -127,11 +139,11 @@ public class Competicao {
         this.fk_user = fk_user;
     }
 
-    public int getId_competicao() {
-        return id_competicao;
+    public static int getIdSelecionaCampeonato() {
+        return idSelecionaCampeonato;
     }
 
-    public void setId_competicao(int id_competicao) {
-        this.id_competicao = id_competicao;
+    public static void setIdSelecionaCampeonato(int idSelecionaCampeonato) {
+        Competicao.idSelecionaCampeonato = idSelecionaCampeonato;
     }
 }

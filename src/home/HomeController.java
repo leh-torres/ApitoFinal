@@ -5,20 +5,25 @@
  */
 package home;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
 import classes.Competicao;
+import classes.Usuario;
+import dao.BarraDeMenuDAO;
 import dao.CompeticaoDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import selecaocampeonato.SelecaoCampeonato;
+import telaUsuario.TelaUsuario;
 
 /**
  *
@@ -82,33 +87,19 @@ public class HomeController implements Initializable {
     
     private Competicao competicao = new Competicao();
     private CompeticaoDAO competicaoDAO = new CompeticaoDAO();
+    private BarraDeMenuDAO barra = new BarraDeMenuDAO();
     
 
-    @FXML
-    private void deletaComp(ActionEvent event) {
-        boolean retorno = competicaoDAO.excluirCompeticao(competicao.getId_competicao());
-        if(retorno == true){
-            JOptionPane.showMessageDialog(null, "Campeonato excluido com sucesso!");
-            SelecaoCampeonato selecao = new SelecaoCampeonato();
-            fecha();
-            try {
-                selecao.start(new Stage());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         competicao = competicaoDAO.gCompeticao(competicao.getIdSelecionaCampeonato());
         JOptionPane.showMessageDialog(null,"Nome:" + competicao.getNomeCompeticao() + " Premiacao:" + competicao.getPremiacao() + " Descricao:" + competicao.getDescricao());
-        
-        labelPremio.setText(competicao.getPremiacao());
-        descricaoLabel.setText(competicao.getDescricao());
 
-        
+
+        labelPremio.setText(competicao.getPremiacao());
+        descricaoLabel.setText(competicao.getDescricao());   
+ 
         
     }    
 
@@ -125,7 +116,35 @@ public class HomeController implements Initializable {
         }
     }
 
-    private void fecha(){
+    @FXML
+    private void deletaComp(ActionEvent event) {
+        boolean retorno = competicaoDAO.excluirCompeticao(competicao.getId_competicao());
+        if(retorno == true){
+            JOptionPane.showMessageDialog(null, "Campeonato excluido com sucesso!");
+            SelecaoCampeonato selecao = new SelecaoCampeonato();
+            fecha();
+            try {
+                selecao.start(new Stage());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    @FXML
+    private void abreTelaUsuario(MouseEvent event){
+        TelaUsuario telaUser = new TelaUsuario();
+
+        try {
+            telaUser.start(new Stage());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    public void fecha(){
         Home.getStage().close();
     }
 }

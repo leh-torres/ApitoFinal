@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -106,6 +107,86 @@ public class UsuarioDAO {
         }
 
         return 0;
+    }
+
+    public Usuario getUser(int id){
+        conn = data.getConnection();
+
+        String SQL = "SELECT * FROM usuario WHERE id_user = ?";
+
+        try {
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setInt(1, id);
+            ps = pst.executeQuery();
+
+            if(ps.next()){
+                Usuario user = new Usuario();
+                user.setId_user(ps.getInt("id_user"));
+                user.setNome_user(ps.getString("nome_user"));
+                user.setSobrenome_user(ps.getString("sobrenome_user"));
+                user.setEmail_user(ps.getString("email_user"));
+                user.setImagemPerfil(ps.getBlob("imagem_user"));
+
+                data.closeDataSource();
+                return user;
+
+            }else {
+                System.out.println("Não foi possível resgatar usuario");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
+        return null;
+    }
+
+    public boolean excluirCadastro(int id){
+        conn = data.getConnection();
+
+        String SQL = "DELETE FROM usuario WHERE id_user = ?";
+
+        try {
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setInt(1, id);
+            result = pst.executeUpdate();
+
+            if(result == 1){
+                data.closeDataSource();
+            }
+            return true;
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
+        return false;
+    }
+
+    public boolean atualizaCadastroCompleto(String nome, String sobrenome, String email, String senha, Blob perfil, int id){
+        conn = data.getConnection();
+
+        String SQL = "UPDATE usuario SET nome_user = ?, sobrenome_user = ?, email_user = ?, senha_user = ?, imagem_user = ? WHERE id_user = ?";
+
+        try {
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setString(1, nome);
+            pst.setString(2, sobrenome);
+            pst.setString(3, email);
+            pst.setString(4, senha);
+            pst.setBlob(5, perfil);
+            pst.setInt(6, id);
+            result = pst.executeUpdate();
+
+            if(result == 1){
+                data.closeDataSource();
+                System.out.println("Cadastro atualizado com sucesso!");
+            }
+            return true;
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return false;
     }
    
 }

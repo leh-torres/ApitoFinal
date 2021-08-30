@@ -144,7 +144,7 @@ public class FXMLDocumentController implements Initializable {
     }
 
 
-    private void fecha(){
+    public void fecha(){
         ApitoFinal.getStage().close();
     }
     

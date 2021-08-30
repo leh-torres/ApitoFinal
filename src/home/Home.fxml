@@ -30,7 +30,7 @@
             <Font name="Segoe UI" size="18.0" />
          </font>
       </Label>
-      <ImageView fx:id="imagePerfil" fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagePerfil" fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" onMouseClicked="#abreTelaUsuario" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
          </image>

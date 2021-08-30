@@ -51,11 +51,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-<<<<<<< HEAD
             <ImageView fx:id="concluir" fitHeight="96.0" fitWidth="86.0" layoutX="425.0" layoutY="439.0" onMouseClicked="#acaoConcluir" pickOnBounds="true" preserveRatio="true">
-=======
-            <ImageView fx:id="concluir" fitHeight="96.0" fitWidth="86.0" layoutX="425.0" layoutY="439.0" pickOnBounds="true" preserveRatio="true">
->>>>>>> 7ac083866cb63441f50e1c9458711a4f84cf9fc7
                <image>
                   <Image url="@../resources/Logotype2.png" />
                </image>

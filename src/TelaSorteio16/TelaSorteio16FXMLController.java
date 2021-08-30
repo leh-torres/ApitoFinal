@@ -139,6 +139,7 @@ public class TelaSorteio16FXMLController implements Initializable {
     @FXML
     private ImageView time_sorteado;
     
+    @FXML
     private ImageView imagem_fundo;
     
     private int i = 0;
@@ -167,7 +168,7 @@ public class TelaSorteio16FXMLController implements Initializable {
         
         nome_user.setText(barra.Nome());
         imagem_user.setImage(barra1.Imagem());
-        //imagem_fundo.setImage(image);
+        imagem_fundo.setImage(image);
         
         
         abrev1.setText(times.get(0).getAbreviacao_time());
@@ -240,27 +241,29 @@ public class TelaSorteio16FXMLController implements Initializable {
         }
         else if(count == 15){
             time16.setImage(image);
+            bt_sortear.setDisable(true);
         }
         count ++ ;
     }
     
     private void sortear(){
-        System.out.println("Antes do Random");
         Random random = new Random();
-        System.out.println("Depois do Random");
-        
-        for( i=0; i<times.size(); i++){
-            System.out.println("Entrou no for");
-             id = random.nextInt(30);
-             System.out.println(id);
+        while(i<17){
+        id = (int) (Math.random()*17);
              for( j=0;j<i;j++){
                  System.out.println("Entrou no segundo for");
-                   if(id == id_sorteado[j] ){
-                         sortear();   
-                   }else{
-                        id_sorteado[i] = id;                        
+                   if(id == id_sorteado[j]){
+                       System.out.println("Primeiro if");
+                       sortear();   
                    }
-             }
+                   else{
+                       System.out.println("Segundo if");
+                        id_sorteado[i] = id;  
+                        
+                   }
+             }  
+            i++;
+            sortear();  
         }
     }
     

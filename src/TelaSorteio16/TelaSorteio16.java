@@ -21,7 +21,7 @@ public class TelaSorteio16 extends Application {
     private static Stage stage;
     
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("TelaSorteio16FXML.fxml"));
         
         Scene scene = new Scene(root);

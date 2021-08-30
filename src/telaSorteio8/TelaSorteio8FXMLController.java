@@ -161,6 +161,7 @@ public class TelaSorteio8FXMLController implements Initializable {
         }
         else if(count == 7){
             time8.setImage(image);
+            bt_sortear.setDisable(true);
         }
         count ++ ;
     }

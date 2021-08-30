@@ -14,6 +14,9 @@ public class Partida {
     private int fk_comp;
     private int fk_time1;
     private int fk_time2;
+    private static int id_time1;
+    private static int id_time2;
+    private static int id_comp;
     
     public Partida (){
         
@@ -131,5 +134,31 @@ public class Partida {
     public void setFk_time2(int fk_time2) {
         this.fk_time2 = fk_time2;
     }
+
+    public int getId_time1() {
+        return id_time1;
+    }
+
+    public void setId_time1(int id_time1) {
+        Partida.id_time1 = id_time1;
+    }
+
+    public int getId_time2() {
+        return id_time2;
+    }
+
+    public void setId_time2(int id_time2) {
+        Partida.id_time2 = id_time2;
+    }
+
+    public int getId_comp() {
+        return id_comp;
+    }
+
+    public void setId_comp(int id_comp) {
+        Partida.id_comp = id_comp;
+    }
+    
+    
 
 }

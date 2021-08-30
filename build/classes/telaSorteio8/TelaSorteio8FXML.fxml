@@ -49,7 +49,7 @@
             <Line endX="80.0" layoutX="353.0" layoutY="436.0" startX="-30.0" stroke="#ff8e3c" strokeWidth="3.0" />
             <Line endX="80.0" layoutX="409.0" layoutY="380.0" rotate="90.0" startX="-30.0" stroke="#ff8e3c" strokeWidth="3.0" />
             <Line endX="80.0" layoutX="297.0" layoutY="380.0" rotate="90.0" startX="-30.0" stroke="#ff8e3c" strokeWidth="3.0" />
-            <Button fx:id="bt_sortear" layoutX="322.0" layoutY="447.0" mnemonicParsing="false" onAction="#acaoBotaoSortear" prefHeight="18.0" prefWidth="112.0" style="-fx-background-color: #ff8e3c;" text="Sortear" textFill="WHITE">
+            <Button fx:id="bt_sortear" layoutX="211.0" layoutY="448.0" mnemonicParsing="false" onAction="#acaoBotaoSortear" prefHeight="18.0" prefWidth="112.0" style="-fx-background-color: #ff8e3c;" text="Sortear" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Semibold" size="14.0" />
                </font>
@@ -176,6 +176,14 @@
             <Line endX="39.0" layoutX="684.0" layoutY="308.0" startX="-30.0" stroke="#ff8e3c" strokeWidth="2.0" />
             <Line endX="39.0" layoutX="650.0" layoutY="343.0" rotate="90.0" startX="-30.0" stroke="#ff8e3c" strokeWidth="2.0" />
             <Line endX="39.0" layoutX="684.0" layoutY="378.0" startX="-30.0" stroke="#ff8e3c" strokeWidth="2.0" />
+            <Button fx:id="bt_proximo" layoutX="433.0" layoutY="448.0" mnemonicParsing="false" onAction="#acaoBotaoProximo" prefHeight="18.0" prefWidth="112.0" style="-fx-background-color: #ff8e3c;" text="Próximo" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Semibold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </Pane>
    </children>

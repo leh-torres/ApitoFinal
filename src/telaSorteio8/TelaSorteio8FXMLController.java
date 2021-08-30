@@ -105,18 +105,19 @@ public class TelaSorteio8FXMLController implements Initializable {
     @FXML
     private Label txt_nomecamp;
     
+    Time time = new Time();    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        times = time.getArrayTimes();
         sortear();
         BarraDeMenuDAO barra = new BarraDeMenuDAO();
         BarraDeMenuDAO barra1 = new BarraDeMenuDAO();
         Image image = new Image(getClass().getResourceAsStream("/resources/Árvore 8.png"));
-        Time time = new Time();
-        times = time.getArrayTimes();
+        
         nome_user.setText(barra.Nome());
         imagem_user.setImage(barra1.Imagem());
         imagem_fundo.setImage(image);
@@ -179,8 +180,7 @@ public class TelaSorteio8FXMLController implements Initializable {
         }
     }
     
-    public void acaoBotaoProximo(){
-        Time time = new Time();
+    public void acaoBotaoProximo(ActionEvent event){
         time.setId_sorteado(id_sorteado);
         trocarTela();
     }

@@ -27,6 +27,7 @@ public class CompeticaoDAO {
     DataSource data = new DataSource(); 
     private int retUpdate;
     private String nome;
+    private int resultado;
     Usuario usuario = new Usuario();
     ArrayList<Competicao> listaComp = new ArrayList<>();
     
@@ -180,6 +181,29 @@ public class CompeticaoDAO {
         }
 
         return false;
+    }
+    
+    public int recuperaId(String nome_comp,int id_usuario){
+        Connection conn = null;
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        String SQL = "SELECT id_comp FROM competicao WHERE nome_comp = ? and fk_usuario = ?";
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setString(1, nome_comp);
+            ps.setInt(2, id_usuario);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                resultado = rs.getInt("id_comp");
+            }
+            data1.closeDataSource();
+            return resultado;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return 0;
     }
     
 }

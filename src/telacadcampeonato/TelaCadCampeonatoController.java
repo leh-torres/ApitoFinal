@@ -18,6 +18,7 @@ import java.util.ResourceBundle;
 import apitofinal.FXMLDocumentController;
 import dao.BarraDeMenuDAO;
 import classes.Competicao;
+import classes.Partida;
 import classes.Usuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -85,6 +86,7 @@ public class TelaCadCampeonatoController implements Initializable {
     public void botaoAvancar(){
        Competicao competicao = new Competicao();
        CompeticaoDAO compDAO = new CompeticaoDAO();
+       Partida partida = new Partida();
     
        Usuario usuario = new Usuario();
 
@@ -103,6 +105,8 @@ public class TelaCadCampeonatoController implements Initializable {
        competicao.setFk_user(usuario.getId_user());
       
        compDAO.cadastrarComp(competicao);
+       
+       partida.setId_comp(compDAO.recuperaId(txtNomeComp.getText(), usuario.getId_user()));
     }
 
     private void trocaDeTela(){

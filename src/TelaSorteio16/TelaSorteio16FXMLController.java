@@ -248,24 +248,44 @@ public class TelaSorteio16FXMLController implements Initializable {
     
     private void sortear(){
         Random random = new Random();
-        while(i<17){
-        id = (int) (Math.random()*17);
-             for( j=0;j<i;j++){
-                 System.out.println("Entrou no segundo for");
-                   if(id == id_sorteado[j]){
-                       System.out.println("Primeiro if");
-                       sortear();   
-                   }
-                   else{
-                       System.out.println("Segundo if");
-                        id_sorteado[i] = id;  
-                        
-                   }
-             }  
-            i++;
-            sortear();  
+        for(i=0;i<17;i++){
+        id = random.nextInt(17); 
+        }
+        for(i=0 ;i<17 ; i++){
+            for(j=0 ; j<i ; j++){
+                if(id_sorteado[j] == id_sorteado[i]){
+                    id_sorteado[j] = random.nextInt(17);
+                }
+            }
         }
     }
+    
+   /* private void sortear(){
+        Random random = new Random();
+        
+        for( i=0; i<8; i++){
+             id = (int) (Math.random()*(8-0));
+             for( j=0;j<i;j++){
+                   if(id == id_sorteado[j] ){
+                         sortear();   
+                   }else{
+                        id_sorteado[i] = id;                        
+                   }
+             }
+        }
+        
+        for( i=8; i<17; i++){
+             id = (int) (Math.random()*(16-8));
+             for( j=0;j<i;j++){
+                   if(id == id_sorteado[j] ){
+                         sortear();   
+                   }else{
+                        id_sorteado[i] = id;                        
+                   }
+             }
+        }
+        
+    }*/
     
     public void acaoBotaoProximo(ActionEvent event){
         time.setId_sorteado(id_sorteado);

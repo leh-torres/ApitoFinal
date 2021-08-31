@@ -21,6 +21,7 @@ import com.mysql.cj.jdbc.Blob;
 import cadequipeesportiva.CadEquipeEsportiva;
 import classes.Competicao;
 import classes.Time;
+import dao.BarraDeMenuDAO;
 import dao.CompeticaoDAO;
 import dao.TimeDAO;
 import javafx.collections.FXCollections;
@@ -51,6 +52,12 @@ public class TelaSelecionarTImesFXMLController implements Initializable {
 
     @FXML
     private ImageView imageTime;
+    
+    @FXML
+    private ImageView imagem_user;
+    
+    @FXML
+    private Label nome_user;
 
     @FXML
     private TextField txtNomeTime;
@@ -95,6 +102,11 @@ public class TelaSelecionarTImesFXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        BarraDeMenuDAO barra = new BarraDeMenuDAO();
+        BarraDeMenuDAO barra1 = new BarraDeMenuDAO();
+        nome_user.setText(barra.Nome());
+        imagem_user.setImage(barra1.Imagem());
         System.out.println("Entrou no initialize");
         CarregaTimesCadastrados();
 

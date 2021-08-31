@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telaSelecionarTimes.TelaSelecionarTImesFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telaSelecionarTimes.TelaSelecionarTImesFXMLController">
    <stylesheets>
       <URL value="@../telabase2/fxml.css" />
    </stylesheets>
@@ -29,12 +29,12 @@
             <Font name="Eras Demi ITC" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="1136.0" prefHeight="58.0" prefWidth="101.0" text="Zairo Bastos" textFill="#333333">
+      <Label fx:id="nome_user" layoutX="1136.0" prefHeight="58.0" prefWidth="101.0" text="Zairo Bastos" textFill="#333333">
          <font>
             <Font name="Segoe UI" size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagem_user" fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
          </image>

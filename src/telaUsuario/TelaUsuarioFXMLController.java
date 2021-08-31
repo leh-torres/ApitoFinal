@@ -27,6 +27,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import selecaocampeonato.SelecaoCampeonato;
+import selecaocampeonato.SelecionaCampeonatoController;
 import telaeditarcadastro.TelaEditarCadastro;
 
 /**
@@ -76,10 +78,10 @@ public class TelaUsuarioFXMLController implements Initializable {
     
     @FXML
     private void editarPerfil(){
-        HomeController hc = new HomeController();
+        SelecionaCampeonatoController selecao = new SelecionaCampeonatoController();
         TelaEditarCadastro edit = new TelaEditarCadastro();
         fecha();
-        hc.fecha();
+        selecao.fecha();
         try {
             edit.start(new Stage());
         } catch (Exception e) {
@@ -118,6 +120,13 @@ public class TelaUsuarioFXMLController implements Initializable {
         } else{
             JOptionPane.showMessageDialog(null, "Usuario não excluido. Tente Novamente");
         }
+    }
+
+    @FXML
+    private void sair(ActionEvent event){
+        fecha();
+        Platform.exit();
+        System.exit(0);
     }
 
     private void fecha(){

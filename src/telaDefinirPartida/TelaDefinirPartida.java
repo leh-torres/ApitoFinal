@@ -1,6 +1,12 @@
-package telaEditCampeonato;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package telaDefinirPartida;
 
-import javafx.application.Application;
+import java.io.IOException;
+import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -8,17 +14,14 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author Zairo Bastos
+ * @author rayla
  */
-
-
-public class TelaEditCampeonato extends Application {
+public class TelaDefinirPartida {
     
     private static Stage stage;
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("TelaEditCampeonatoFXML.fxml"));
+   
+    public void start(Stage stage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("telaDefinirPartidaFXML.fxml"));
         
         Scene scene = new Scene(root);
         
@@ -32,14 +35,13 @@ public class TelaEditCampeonato extends Application {
     }
 
     public static void setStage(Stage stage) {
-        TelaEditCampeonato.stage = stage;
-    }
-
+        TelaDefinirPartida.stage = stage;
+    }   
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         launch(args);
     }
+    
 }
-

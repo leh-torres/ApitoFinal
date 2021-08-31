@@ -8,6 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="selecaocampeonato.SelecionaCampeonatoController">
@@ -31,7 +32,7 @@
             <Font name="Segoe UI" size="18.0" />
          </font>
       </Label>
-      <ImageView fx:id="imagem_user" fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagem_user" fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" onMouseClicked="#abreTelaUsuario" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
          </image>
@@ -120,5 +121,9 @@
             </Button>
          </children>
       </Pane>
+      <Line endX="121.0" layoutX="1176.0" layoutY="53.0" startX="71.0" stroke="#ff8e3c" strokeWidth="2.0" />
+      <Line endX="121.0" layoutX="1150.0" layoutY="29.0" rotate="90.0" startX="73.0" stroke="#ff8e3c" strokeWidth="2.0" />
+      <Line endX="121.0" layoutX="1176.0" layoutY="3.0" startX="72.0" stroke="#ff8e3c" strokeWidth="2.0" />
+      <Line endX="120.47412109375" endY="3.020996332168579" layoutX="1202.0" layoutY="26.0" rotate="90.0" startX="71.0" startY="1.3125001192092896" stroke="#ff8e3c" strokeWidth="2.0" />
    </children>
 </AnchorPane>

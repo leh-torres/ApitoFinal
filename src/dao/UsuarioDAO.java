@@ -34,7 +34,8 @@ public class UsuarioDAO {
     }
     
     public boolean login(String txtlogin, String pass_senha){
-        conn = data.getConnection();
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
         String SQL = "SELECT * FROM usuario WHERE email_user=? and senha_user=?";
         try {
             pst = (PreparedStatement)conn.prepareStatement(SQL);
@@ -55,29 +56,6 @@ public class UsuarioDAO {
         return false;
     }
 
-    public boolean adicionaImagemUsuario(FileInputStream fis, int id) throws FileNotFoundException{
-        DataSource data2 = new DataSource();
-        conn = data2.getConnection();
-        String SQL = "UPDATE usuario SET imagem_user=? WHERE id_user=?";
-        try {
-            pst = (PreparedStatement)conn.prepareStatement(SQL);
-            pst.setBinaryStream(1, fis);
-            pst.setInt(2,id);
-            result = pst.executeUpdate();
-            data.closeDataSource();
-            
-            if(result == 1){
-                return true;
-            }
-            else{
-                JOptionPane.showMessageDialog(null,"Imagem não cadastrada");
-            }
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, ex);
-        }
-        
-        return false;
-    }
 
     public int getIdDoCadastro(String nome, String sobrenome){
         DataSource data1 = new DataSource();
@@ -141,7 +119,8 @@ public class UsuarioDAO {
     }
 
     public boolean excluirCadastro(int id){
-        conn = data.getConnection();
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
 
         String SQL = "DELETE FROM usuario WHERE id_user = ?";
 
@@ -162,24 +141,21 @@ public class UsuarioDAO {
         return false;
     }
 
-    public boolean atualizaCadastroCompleto(String nome, String sobrenome, String email, String senha, Blob perfil, int id){
-        conn = data.getConnection();
+    public boolean atualizaNome(String nome, int id){
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
 
-        String SQL = "UPDATE usuario SET nome_user = ?, sobrenome_user = ?, email_user = ?, senha_user = ?, imagem_user = ? WHERE id_user = ?";
+        String SQL = "UPDATE usuario SET nome_user = ? WHERE id_user = ?";
 
         try {
             pst = (PreparedStatement)conn.prepareStatement(SQL);
             pst.setString(1, nome);
-            pst.setString(2, sobrenome);
-            pst.setString(3, email);
-            pst.setString(4, senha);
-            pst.setBlob(5, perfil);
-            pst.setInt(6, id);
+            pst.setInt(2, id);
             result = pst.executeUpdate();
 
             if(result == 1){
                 data.closeDataSource();
-                System.out.println("Cadastro atualizado com sucesso!");
+                System.out.println("Nome atualizado com sucesso!");
             }
             return true;
 
@@ -188,5 +164,100 @@ public class UsuarioDAO {
         }
         return false;
     }
-   
+
+    public boolean atualizaSobrenome(String sobrenome, int id){
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+
+        String SQL = "UPDATE usuario SET sobrenome_user = ? WHERE id_user = ?";
+
+        try {
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setString(1, sobrenome);
+            pst.setInt(2, id);
+            result = pst.executeUpdate();
+
+            if(result == 1){
+                data.closeDataSource();
+                System.out.println("Sobrenome atualizado com sucesso!");
+            }
+            return true;
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return false;
+    }
+
+    public boolean atualizaEmail(String email, int id){
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+
+        String SQL = "UPDATE usuario SET email_user = ? WHERE id_user = ?";
+
+        try {
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setString(1, email);
+            pst.setInt(2, id);
+            result = pst.executeUpdate();
+
+            if(result == 1){
+                data.closeDataSource();
+                System.out.println("Email atualizado com sucesso!");
+            }
+            return true;
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return false;
+    }
+
+    public boolean atualizaSenha(String senha, int id){
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+
+        String SQL = "UPDATE usuario SET senha_user = ? WHERE id_user = ?";
+
+        try {
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setString(1, senha);
+            pst.setInt(2, id);
+            result = pst.executeUpdate();
+
+            if(result == 1){
+                data.closeDataSource();
+                System.out.println("Senha atualizado com sucesso!");
+            }
+            return true;
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return false;
+    }
+
+    public boolean adicionaImagemUsuario(FileInputStream fis, int id) throws FileNotFoundException{
+        DataSource data2 = new DataSource();
+        conn = data2.getConnection();
+        String SQL = "UPDATE usuario SET imagem_user=? WHERE id_user=?";
+        try {
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setBinaryStream(1, fis);
+            pst.setInt(2,id);
+            result = pst.executeUpdate();
+            data.closeDataSource();
+            
+            if(result == 1){
+                return true;
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Imagem não cadastrada");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        
+        return false;
+    }
 }

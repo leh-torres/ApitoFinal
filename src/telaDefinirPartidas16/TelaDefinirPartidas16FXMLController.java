@@ -5,9 +5,28 @@
  */
 package telaDefinirPartidas16;
 
+import classes.Partida;
+import classes.Time;
+import dao.BarraDeMenuDAO;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import javax.swing.JOptionPane;
+import selecaocampeonato.SelecaoCampeonato;
+import telaDefinirPartida.TelaDefinirPartida;
 
 /**
  * FXML Controller class
@@ -19,9 +38,333 @@ public class TelaDefinirPartidas16FXMLController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+    @FXML
+    private ImageView imagem_user;
+    
+    @FXML
+    private Label nome_user;
+    
+    @FXML
+    private ImageView time1;
+    
+    @FXML
+    private ImageView time2;
+    
+    @FXML
+    private ImageView time3;
+    
+    @FXML
+    private ImageView time4;
+    
+    @FXML
+    private ImageView time5;
+    
+    @FXML
+    private ImageView time6;
+    
+    @FXML
+    private ImageView time7;
+    
+    @FXML
+    private ImageView time8;
+    
+    @FXML
+    private ImageView time9;
+    
+    @FXML
+    private ImageView time10;
+    
+    @FXML
+    private ImageView time11;
+    
+    @FXML
+    private ImageView time12;
+    
+    @FXML
+    private ImageView time13;
+    
+    @FXML
+    private ImageView time14;
+    
+    @FXML
+    private ImageView time15;
+    
+    @FXML
+    private ImageView time16;
+    
+    @FXML
+    private Button part1;
+    
+    @FXML
+    private Button part2;
+    
+    @FXML
+    private Button part3;
+    
+    @FXML
+    private Button part4;
+    
+    @FXML
+    private Button part5;
+    
+    @FXML
+    private Button part6;
+    
+    @FXML
+    private Button part7;
+    
+    @FXML
+    private Button part8;
+    
+    @FXML
+    private Button part9;
+    
+    @FXML
+    private Button part10;
+    
+    @FXML
+    private Button part11;
+    
+    @FXML
+    private Button part12;
+    
+    @FXML
+    private Button part13;
+    
+    @FXML
+    private Button part14;
+    
+    @FXML
+    private Button part15;
+    
+    @FXML
+    private ImageView concluir;
+    
+    private int[] id_sorteado = new int[9];
+    ArrayList<Time> times = new ArrayList<>();
+    Partida partida = new Partida();
+    Time time = new Time();
+    private int i;
+    @FXML
+    private Button bt_concluir;
+    @FXML
+    private Label nome_campeonato;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        times = time.getArrayTimes();
+        id_sorteado = time.getId_sorteado();
+        BarraDeMenuDAO barra = new BarraDeMenuDAO();
+        BarraDeMenuDAO barra1 = new BarraDeMenuDAO();
+        nome_user.setText(barra.Nome());
+        imagem_user.setImage(barra1.Imagem());
+        InputStream imageFile = null;
+        
+        for(i=0;i<17;i++){ 
+            try {    
+                imageFile = times.get(id_sorteado[i]).getImagem_time().getBinaryStream();
+                Image image = new Image(imageFile);
+                if(i == 0){
+                    time1.setImage(image);
+                }
+                else if(i == 1){
+                    time2.setImage(image);
+                }
+                else if(i == 2){
+                    time3.setImage(image);
+                }
+                else if(i == 3){
+                    time4.setImage(image);
+                }
+                else if(i == 4){
+                    time5.setImage(image);
+                }
+                else if(i == 5){
+                    time6.setImage(image);
+                }
+                else if(i == 6){
+                    time7.setImage(image);
+                }
+                else if(i == 7){
+                    time8.setImage(image);
+                }
+                else if(i == 8){
+                    time9.setImage(image);
+                }
+                else if(i == 9){
+                    time10.setImage(image);
+                }
+                else if(i == 10){
+                    time11.setImage(image);
+                }
+                else if(i == 11){
+                    time12.setImage(image);
+                }
+                else if(i == 12){
+                    time13.setImage(image);
+                }
+                else if(i == 13){
+                    time14.setImage(image);
+                }
+                else if(i == 14){
+                    time15.setImage(image);
+                }
+                else if(i == 15){
+                    time16.setImage(image);
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(TelaDefinirPartidas16FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    imageFile.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(TelaDefinirPartidas16FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }   
+    
+    @FXML
+    public void acaoPart1(ActionEvent event) throws IOException{
+        TelaDefinirPartida tela = new TelaDefinirPartida();
+        partida.setId_time1(times.get(id_sorteado[0]).getId_time());
+        partida.setId_time2(times.get(id_sorteado[1]).getId_time());
+        JOptionPane.showMessageDialog(null, times.get(id_sorteado[0]).getId_time());
+        JOptionPane.showMessageDialog(null, times.get(id_sorteado[1]).getId_time());
+        tela.start(new Stage());
+        part1.setDisable(true);
+    }
+    
+    @FXML
+    public void acaoPart2(ActionEvent event) throws IOException{
+        TelaDefinirPartida tela = new TelaDefinirPartida();
+        partida.setId_time1(times.get(id_sorteado[2]).getId_time());
+        partida.setId_time2(times.get(id_sorteado[3]).getId_time());
+        tela.start(new Stage());
+        part2.setDisable(true);    
+    }
+    
+    @FXML
+    public void acaoPart3(ActionEvent event) throws IOException{
+        TelaDefinirPartida tela = new TelaDefinirPartida();
+        partida.setId_time1(times.get(id_sorteado[4]).getId_time());
+        partida.setId_time2(times.get(id_sorteado[5]).getId_time());
+        tela.start(new Stage());
+        part3.setDisable(true);  
+    }
+    
+    @FXML
+    public void acaoPart4(ActionEvent event) throws IOException{
+        TelaDefinirPartida tela = new TelaDefinirPartida();
+        partida.setId_time1(times.get(id_sorteado[6]).getId_time());
+        partida.setId_time2(times.get(id_sorteado[7]).getId_time());
+        tela.start(new Stage());
+        part4.setDisable(true);  
+    }
+    
+    @FXML
+    public void acaoPart5(ActionEvent event) throws IOException{
+        TelaDefinirPartida tela = new TelaDefinirPartida();
+        partida.setId_time1(times.get(id_sorteado[8]).getId_time());
+        partida.setId_time2(times.get(id_sorteado[9]).getId_time());
+        tela.start(new Stage());
+        part5.setDisable(true);
+    }
+    
+    @FXML
+    public void acaoPart6(ActionEvent event) throws IOException{
+        TelaDefinirPartida tela = new TelaDefinirPartida();
+        partida.setId_time1(times.get(id_sorteado[10]).getId_time());
+        partida.setId_time2(times.get(id_sorteado[11]).getId_time());
+        tela.start(new Stage());
+        part6.setDisable(true);
+    }
+    
+    @FXML
+    public void acaoPart7(ActionEvent event) throws IOException{
+        TelaDefinirPartida tela = new TelaDefinirPartida();
+        partida.setId_time1(times.get(id_sorteado[12]).getId_time());
+        partida.setId_time2(times.get(id_sorteado[13]).getId_time());
+        tela.start(new Stage());
+        part7.setDisable(true);
+    }
+    
+    @FXML
+    public void acaoPart8(ActionEvent event) throws IOException{
+        TelaDefinirPartida tela = new TelaDefinirPartida();
+        partida.setId_time1(times.get(id_sorteado[14]).getId_time());
+        partida.setId_time2(times.get(id_sorteado[15]).getId_time());
+        tela.start(new Stage());
+        part7.setDisable(true);
+    }
+    
+    @FXML
+    public void acaoPart9(ActionEvent event) throws IOException{
+        TelaDefinirPartida tela = new TelaDefinirPartida();
+        partida.setId_time1(0);
+        partida.setId_time2(0);
+        tela.start(new Stage());
+        part7.setDisable(true);
+    }
+    
+    @FXML
+    public void acaoPart10(ActionEvent event) throws IOException{
+        TelaDefinirPartida tela = new TelaDefinirPartida();
+        partida.setId_time1(0);
+        partida.setId_time2(0);
+        tela.start(new Stage());
+        part7.setDisable(true);
+    }
+    
+    @FXML
+    public void acaoPart11(ActionEvent event) throws IOException{
+        TelaDefinirPartida tela = new TelaDefinirPartida();
+        partida.setId_time1(0);
+        partida.setId_time2(0);
+        tela.start(new Stage());
+        part7.setDisable(true);
+    }
+    
+    @FXML
+    public void acaoPart12(ActionEvent event) throws IOException{
+        TelaDefinirPartida tela = new TelaDefinirPartida();
+        partida.setId_time1(0);
+        partida.setId_time2(0);
+        tela.start(new Stage());
+        part7.setDisable(true);
+    }
+    
+    @FXML
+    public void acaoPart13(ActionEvent event) throws IOException{
+        TelaDefinirPartida tela = new TelaDefinirPartida();
+        partida.setId_time1(0);
+        partida.setId_time2(0);
+        tela.start(new Stage());
+        part7.setDisable(true);
+    }
+    
+    @FXML
+    public void acaoPart14(ActionEvent event) throws IOException{
+        TelaDefinirPartida tela = new TelaDefinirPartida();
+        partida.setId_time1(0);
+        partida.setId_time2(0);
+        tela.start(new Stage());
+        part7.setDisable(true);
+    }
+    
+    @FXML
+    public void acaoPart15(ActionEvent event) throws IOException{
+        TelaDefinirPartida tela = new TelaDefinirPartida();
+        partida.setId_time1(0);
+        partida.setId_time2(0);
+        tela.start(new Stage());
+        part7.setDisable(true);
+    }
+    
+    public void acaoConcluir(ActionEvent event) throws Exception{
+        SelecaoCampeonato tela1 = new SelecaoCampeonato();
+        tela1.start(new Stage());
+    }
     
 }

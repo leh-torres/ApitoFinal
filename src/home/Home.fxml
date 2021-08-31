@@ -30,7 +30,7 @@
             <Font name="Segoe UI" size="18.0" />
          </font>
       </Label>
-      <ImageView fx:id="imagePerfil" fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" onMouseClicked="#abreTelaUsuario" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagePerfil" fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
          </image>
@@ -77,22 +77,22 @@
                   <Font name="Segoe UI Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="descricaoLabel" alignment="TOP_LEFT" layoutX="358.0" layoutY="442.0" prefHeight="44.0" prefWidth="363.0" text="Campeonato Cearense de Futebol 2021">
+            <Label fx:id="descricaoLabel" alignment="TOP_LEFT" layoutX="358.0" layoutY="442.0" prefHeight="44.0" prefWidth="268.0" text="Campeonato Cearense de Futebol 2021">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="997.0" layoutY="416.0" text="Prêmio:">
+            <Label layoutX="925.0" layoutY="416.0" text="Prêmio:">
                <font>
                   <Font name="Segoe UI Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="labelPremio" layoutX="1005.0" layoutY="442.0" text="R$ 500,00">
+            <Label fx:id="labelPremio" layoutX="928.0" layoutY="440.0" text="R$ 500,00">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button layoutX="132.0" layoutY="510.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="200.0" style="-fx-background-color: #ff8e3c;" text="Editar Campeonato" textFill="WHITE">
+            <Button fx:id="btnEditarCamp" layoutX="132.0" layoutY="510.0" mnemonicParsing="false" onAction="#telaEditCamp" prefHeight="29.0" prefWidth="200.0" style="-fx-background-color: #ff8e3c;" text="Editar Campeonato" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="15.0" />
                </font>
@@ -102,11 +102,41 @@
                   <Font name="Segoe UI Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="871.0" layoutY="510.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="200.0" style="-fx-background-color: #ff8e3c;" text="Placar das Partidas" textFill="WHITE">
+            <Button fx:id="btnPlacarPartidas" layoutX="871.0" layoutY="510.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="200.0" style="-fx-background-color: #ff8e3c;" text="Placar das Partidas" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="15.0" />
                </font>
             </Button>
+            <Label layoutX="642.0" layoutY="416.0" text="Data de Inicio:">
+               <font>
+                  <Font name="Segoe UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelDataInicio" alignment="TOP_LEFT" layoutX="643.0" layoutY="441.0" prefHeight="44.0" prefWidth="101.0" text="Data">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="777.0" layoutY="416.0" text="Data de Teminio:">
+               <font>
+                  <Font name="Segoe UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelDataTerm" alignment="TOP_LEFT" layoutX="777.0" layoutY="441.0" prefHeight="44.0" prefWidth="101.0" text="Data">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="1023.0" layoutY="416.0" text="Situação:">
+               <font>
+                  <Font name="Segoe UI Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelSituacao" layoutX="1023.0" layoutY="440.0" prefHeight="21.0" prefWidth="72.0" text="situação">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children></Pane>
    </children>
 </AnchorPane>

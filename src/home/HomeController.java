@@ -18,11 +18,13 @@ import dao.CompeticaoDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import selecaocampeonato.SelecaoCampeonato;
+import telaEditCampeonato.TelaEditCampeonato;
 import telaUsuario.TelaUsuario;
 
 /**
@@ -84,6 +86,22 @@ public class HomeController implements Initializable {
 
     @FXML
     private Label labelNome;
+
+    @FXML
+    private Label labelDataInicio;
+
+    @FXML
+    private Label labelDataTerm;
+
+    @FXML
+    private Label labelSituacao;
+
+    @FXML
+    private Button btnEditarCamp;
+
+    @FXML
+    private Button btnPlacarPartidas;
+
     
     private Competicao competicao = new Competicao();
     private CompeticaoDAO competicaoDAO = new CompeticaoDAO();
@@ -94,12 +112,19 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         competicao = competicaoDAO.gCompeticao(competicao.getIdSelecionaCampeonato());
-        JOptionPane.showMessageDialog(null,"Nome:" + competicao.getNomeCompeticao() + " Premiacao:" + competicao.getPremiacao() + " Descricao:" + competicao.getDescricao());
+
 
 
         labelPremio.setText(competicao.getPremiacao());
         descricaoLabel.setText(competicao.getDescricao());   
- 
+        labelDataInicio.setText(competicao.getData_inicio());
+        labelDataTerm.setText(competicao.getData_terminio());
+        labelSituacao.setText(competicao.getSituacao());
+
+        if(competicao.getSituacao() != "iniciado"){
+            btnEditarCamp.setDisable(true);
+            btnPlacarPartidas.setDisable(true);
+        }
         
     }    
 
@@ -133,18 +158,19 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void abreTelaUsuario(MouseEvent event){
-        TelaUsuario telaUser = new TelaUsuario();
-
+    private void telaEditCamp(ActionEvent event){
+        TelaEditCampeonato edit = new TelaEditCampeonato();
+        fecha();
         try {
-            telaUser.start(new Stage());
+            edit.start(new Stage());
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
 
-    public void fecha(){
+    private void fecha(){
         Home.getStage().close();
     }
+
 }

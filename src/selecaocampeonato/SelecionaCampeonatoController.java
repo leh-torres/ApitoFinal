@@ -24,7 +24,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import telaUsuario.TelaUsuario;
 import telacadcampeonato.TelaCadCampeonato;
 
 /**
@@ -866,10 +868,21 @@ public class SelecionaCampeonatoController implements Initializable {
         }
     }    
     
-    private void fecha(){
+    public void fecha(){
         SelecaoCampeonato.getStage().close();
     }
     
+    @FXML
+    private void abreTelaUsuario(MouseEvent event){
+        TelaUsuario telaUser = new TelaUsuario();
+        
+        try {
+            telaUser.start(new Stage());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
     
 }

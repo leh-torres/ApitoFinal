@@ -10,12 +10,12 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="529.0" prefWidth="462.0" style="-fx-background-color: #eff0f3;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telaUsuario.TelaUsuarioFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="485.0" prefWidth="462.0" style="-fx-background-color: #eff0f3;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telaUsuario.TelaUsuarioFXMLController">
     <stylesheets>
         <URL value="@telausuariofxml.css" />
     </stylesheets>
    <children>
-      <Pane layoutX="34.0" layoutY="21.0" prefHeight="485.0" prefWidth="394.0" style="-fx-background-color: white;">
+      <Pane layoutX="34.0" layoutY="21.0" prefHeight="444.0" prefWidth="394.0" style="-fx-background-color: white;">
          <children>
             <ImageView fx:id="avatar_user" fitHeight="120.0" fitWidth="120.0" layoutX="137.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                <cursor>
@@ -25,7 +25,7 @@
             <Line endX="111.0" layoutX="146.0" layoutY="31.0" startX="-9.0" stroke="#ff8e3c" strokeWidth="2.0" />
             <Line endX="111.0" layoutX="207.0" layoutY="91.0" rotate="90.0" startX="-9.0" stroke="#ff8e3c" strokeWidth="2.0" />
             <Line endX="111.0" layoutX="85.0" layoutY="91.0" rotate="90.0" startX="-9.0" stroke="#ff8e3c" strokeWidth="2.0" />
-            <Button fx:id="botao_voltar" layoutY="9.0" mnemonicParsing="false" onAction="#voltar" prefHeight="48.0" prefWidth="61.0" rotate="180.0" style="-fx-background-color: white;" text="➔" textFill="#ff8e3c">
+            <Button fx:id="botao_voltar" layoutY="9.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="61.0" rotate="180.0" style="-fx-background-color: white;" text="➔" textFill="#ff8e3c">
                <font>
                   <Font name="Segoe UI Bold" size="25.0" />
                </font>
@@ -33,21 +33,21 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label layoutX="45.0" layoutY="24.0" onMouseClicked="#voltar" text="Voltar" textFill="#ff8e3c" underline="true">
+            <Label layoutX="45.0" layoutY="24.0" text="Voltar" textFill="#ff8e3c">
                <font>
                   <Font name="Segoe UI Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="nome_usuario" layoutX="88.0" layoutY="165.0" prefHeight="32.0" prefWidth="151.0" text="Nome do Usuário" textAlignment="RIGHT">
+            <Label fx:id="nome_usuario" layoutX="86.0" layoutY="165.0" text="Nome do Usuário">
                <font>
                   <Font name="Eras Demi ITC" size="27.0" />
                </font></Label>
-            <Label fx:id="email_usuario" layoutX="100.0" layoutY="236.0" prefHeight="26.0" prefWidth="196.0" text="Email do usuário" textAlignment="CENTER" underline="true">
+            <Label fx:id="email_usuario" layoutX="129.0" layoutY="236.0" prefHeight="26.0" prefWidth="136.0" text="Email do usuário" textAlignment="CENTER" underline="true">
                <font>
                   <Font name="Segoe UI Semibold" size="17.0" />
                </font>
             </Label>
-            <Button fx:id="bt_editar" layoutX="105.0" layoutY="318.0" mnemonicParsing="false" onAction="#editarPerfil" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: #ff8e3c;" text="📝 Editar perfil" textFill="WHITE">
+            <Button fx:id="bt_editar" layoutX="105.0" layoutY="312.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="184.0" style="-fx-background-color: #ff8e3c;" text="📝 Editar perfil" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="16.0" />
                </font>
@@ -55,9 +55,9 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="bt_excluir" layoutX="105.0" layoutY="371.0" mnemonicParsing="false" onAction="#excluirCadastro" prefHeight="34.0" prefWidth="184.0" style="-fx-background-color: white;" text="🗑 Excluir perfil" textFill="#ff8e3c">
+            <Button fx:id="bt_sair" layoutX="105.0" layoutY="371.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="184.0" style="-fx-background-color: white;" text="Sair do Apito Final" textFill="#ff8e3c">
                <font>
-                  <Font name="Segoe UI Bold" size="16.0" />
+                  <Font name="Eras Demi ITC" size="18.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -67,19 +67,6 @@
             <Line endX="83.0" layoutX="206.0" layoutY="406.0" startX="-100.0" stroke="#ff8e3c" strokeWidth="2.0" />
             <Line endX="83.0" layoutX="223.0" layoutY="388.0" rotate="90.0" startX="52.0" stroke="#ff8e3c" strokeWidth="2.0" />
             <Line endX="83.0" layoutX="38.0" layoutY="388.0" rotate="90.0" startX="52.0" stroke="#ff8e3c" strokeWidth="2.0" />
-            <Button fx:id="bt_sair" layoutX="105.0" layoutY="423.0" mnemonicParsing="false" onAction="#sair" prefHeight="34.0" prefWidth="185.0" style="-fx-background-color: #eff0f3;" text="Sair da conta" textFill="#727272" underline="true">
-               <font>
-                  <Font name="Eras Bold ITC" size="15.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Button>
-            <Label fx:id="sobrenomeUsuario" layoutX="215.0" layoutY="165.0" prefHeight="32.0" prefWidth="151.0" text="Sobrenome do Usuário" textAlignment="CENTER">
-               <font>
-                  <Font name="Eras Demi ITC" size="27.0" />
-               </font>
-            </Label>
          </children>
       </Pane>
    </children>

@@ -4,9 +4,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -15,7 +14,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telaEditCampeonato.TelaEditCampeonatoFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telacadcampeonato.TelaCadCampeonatoController">
    <stylesheets>
       <URL value="@../telacadcampeonato/telacadcampeonato.css" />
    </stylesheets>
@@ -64,11 +63,21 @@
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="73.0" layoutY="254.0" text="Situação">
+            <Label layoutX="73.0" layoutY="254.0" text="Quantidades de Times">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </Label>
+            <RadioButton fx:id="radQtd8" layoutX="73.0" layoutY="278.0" mnemonicParsing="false" text="8 Times" textFill="#8a8a8a">
+               <font>
+                  <Font name="Segoe UI Semibold" size="14.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="radQtd16" layoutX="197.0" layoutY="278.0" mnemonicParsing="false" text="16 Times" textFill="#8a8a8a">
+               <font>
+                  <Font name="Segoe UI Semibold" size="14.0" />
+               </font>
+            </RadioButton>
             <Label layoutX="383.0" layoutY="247.0" text="Premiação">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
@@ -81,12 +90,12 @@
                <cursor>
                   <Cursor fx:constant="TEXT" />
                </cursor></TextField>
-            <Label layoutX="75.0" layoutY="325.0" text="Descrição">
+            <Label layoutX="73.0" layoutY="388.0" text="Descrição">
                <font>
                   <Font name="Segoe UI Semibold" size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnSalvar" layoutX="253.0" layoutY="471.0" mnemonicParsing="false" onAction="#BotaoAtualizar" prefHeight="33.0" prefWidth="148.0" style="-fx-background-color: #ff8e3c;" text="📝 Salvar" textFill="#fffffe">
+            <Button fx:id="btnSalvar" layoutX="253.0" layoutY="523.0" mnemonicParsing="false" onAction="#acaoDoBotao" prefHeight="33.0" prefWidth="148.0" style="-fx-background-color: #ff8e3c;" text="📝 Salvar" textFill="#fffffe">
                <font>
                   <Font name="Segoe UI Bold" size="14.0" />
                </font>
@@ -94,7 +103,31 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TextField fx:id="txtDesc" layoutX="73.0" layoutY="358.0" prefHeight="86.0" prefWidth="511.0" promptText="Descrição" style="-fx-background-color: #eff0f3;">
+            <Label layoutX="73.0" layoutY="331.0" text="Data de início">
+               <font>
+                  <Font name="Segoe UI Semibold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="383.0" layoutY="330.0" text="Data de término">
+               <font>
+                  <Font name="Segoe UI Semibold" size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtDesc" layoutX="73.0" layoutY="410.0" prefHeight="86.0" prefWidth="511.0" promptText="Descrição" style="-fx-background-color: #eff0f3;">
+               <font>
+                  <Font name="Segoe UI Semibold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+            <TextField fx:id="txtDataInicio" layoutX="73.0" layoutY="352.0" prefHeight="25.0" prefWidth="200.0" promptText="--/--/----" style="-fx-background-color: #eff0f3;">
+               <font>
+                  <Font name="Segoe UI Semibold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+            <TextField fx:id="txtDataTerminio" layoutX="383.0" layoutY="352.0" prefHeight="25.0" prefWidth="200.0" promptText="--/--/----" style="-fx-background-color: #eff0f3;">
                <font>
                   <Font name="Segoe UI Semibold" size="14.0" />
                </font>
@@ -102,7 +135,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor></TextField>
             <Line endX="258.0" layoutX="328.0" layoutY="161.0" startX="-261.0" stroke="#eff0f3" strokeWidth="3.0" />
-            <Button fx:id="bt_voltar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#voltar" style="-fx-background-color: white;" text="◀ Voltar" textFill="#ff8e3c" underline="true">
+            <Button fx:id="bt_voltar" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: white;" text="◀ Voltar" textFill="#ff8e3c" underline="true">
                <font>
                   <Font name="Segoe UI Bold" size="15.0" />
                </font>
@@ -110,11 +143,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ChoiceBox fx:id="choiceSituacao" layoutX="75.0" layoutY="279.0" prefHeight="25.0" prefWidth="166.0" />
-            <CheckBox fx:id="checkNome" layoutX="237.0" layoutY="189.0" mnemonicParsing="false" onAction="#acaoDoCheck" />
-            <CheckBox fx:id="checkSituacao" layoutX="142.0" layoutY="258.0" mnemonicParsing="false" onAction="#acaoDoCheck" />
-            <CheckBox fx:id="checkDescricao" layoutX="150.0" layoutY="327.0" mnemonicParsing="false" onAction="#acaoDoCheck" />
-            <CheckBox fx:id="checkPremiacao" layoutX="461.0" layoutY="249.0" mnemonicParsing="false" onAction="#acaoDoCheck" />
          </children>
       </Pane>
    </children>

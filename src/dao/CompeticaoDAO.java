@@ -27,6 +27,7 @@ public class CompeticaoDAO {
     DataSource data = new DataSource(); 
     private int retUpdate;
     private String nome;
+    private int resultado;
     Usuario usuario = new Usuario();
     ArrayList<Competicao> listaComp = new ArrayList<>();
     
@@ -216,6 +217,125 @@ public class CompeticaoDAO {
         }
 
         return null;
+    }
+    
+    public int recuperaId(String nome_comp,int id_usuario){
+        Connection conn = null;
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        String SQL = "SELECT id_comp FROM competicao WHERE nome_comp = ? and fk_usuario = ?";
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setString(1, nome_comp);
+            ps.setInt(2, id_usuario);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                resultado = rs.getInt("id_comp");
+            }
+            data1.closeDataSource();
+            return resultado;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return 0;
+    }
+
+    public boolean atualizaNome(String nome, int id){
+        Connection conn = null;
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        String SQL = "UPDATE competicao SET nome_comp = ? WHERE id_comp = ?";
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setString(1, nome);
+            ps.setInt(2, id);
+            resultado = ps.executeUpdate();
+
+            if(resultado == 1){
+                System.out.println("Nome atualizado com sucesso!");
+                data1.closeDataSource();
+            }
+
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return false;
+    }
+
+    public boolean atualizaDescricao(String descricao, int id){
+        Connection conn = null;
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        String SQL = "UPDATE competicao SET descricao_comp = ? WHERE id_comp = ?";
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setString(1, descricao);
+            ps.setInt(2, id);
+            resultado = ps.executeUpdate();
+
+            if(resultado == 1){
+                System.out.println("Descrição atualizada com sucesso!");
+                data1.closeDataSource();
+            }
+
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return false;
+    }
+
+    public boolean atualizaPremiacao(String prem, int id){
+        Connection conn = null;
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        String SQL = "UPDATE competicao SET premiacao_comp = ? WHERE id_comp = ?";
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setString(1, prem);
+            ps.setInt(2, id);
+            resultado = ps.executeUpdate();
+
+            if(resultado == 1){
+                System.out.println("Descrição atualizada com sucesso!");
+                data1.closeDataSource();
+            }
+
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return false;
+    }
+
+    public boolean atualizaSituacao(String situacao, int id){
+        Connection conn = null;
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        String SQL = "UPDATE competicao SET situacao_comp = ? WHERE id_comp = ?";
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setString(1, situacao);
+            ps.setInt(2, id);
+            resultado = ps.executeUpdate();
+
+            if(resultado == 1){
+                System.out.println("Descrição atualizada com sucesso!");
+                data1.closeDataSource();
+            }
+
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return false;
     }
     
 }

@@ -92,12 +92,12 @@
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="selecionaImagem" layoutX="401.0" layoutY="327.0" mnemonicParsing="false" onAction="#Button1Action" prefHeight="30.0" prefWidth="225.0" text="Selecionar Imagem">
+            <Button fx:id="selecionaImagem" layoutX="401.0" layoutY="327.0" mnemonicParsing="false" onAction="#getNewImage" prefHeight="30.0" prefWidth="225.0" text="Selecionar Imagem">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="261.0" layoutY="411.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="230.0" style="-fx-background-color: fe8e3c;" text="Salvar Dados" textFill="WHITE">
+            <Button layoutX="261.0" layoutY="411.0" mnemonicParsing="false" onAction="#BotaoAtualizar" prefHeight="38.0" prefWidth="230.0" style="-fx-background-color: fe8e3c;" text="Salvar Dados" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="20.0" />
                </font>

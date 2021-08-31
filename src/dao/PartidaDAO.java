@@ -65,18 +65,19 @@ public class PartidaDAO {
         return false;
     }
     
-    public boolean cadastrarComp(Partida partida){
-
-        String SQL = "SELECT * FROM partida WHERE fk_comp = ? and fk_time1 = ? and fk_time2 =? ";
+    public boolean cadastrarPart(String data_part,String hora_part, String local_part, int fk_comp,int fk_time1,int fk_time2){
+        conexao = data.getConnection();
+        String SQL = "SELECT * FROM partida WHERE local_part = ? and fk_comp = ? and fk_time1 = ? and fk_time2 =? ";
         try {
             ps = (PreparedStatement)conexao.prepareStatement(SQL);
-            ps.setInt(1, partida.getFk_comp());
-            ps.setInt(1, partida.getFk_time1());
-            ps.setInt(1, partida.getFk_time2());
+            ps.setString(1, local_part);
+            ps.setInt(2, fk_comp);
+            ps.setInt(3, fk_time1);
+            ps.setInt(4, fk_time2);
             rs = ps.executeQuery();
 
             if(rs.next()){
-                JOptionPane.showMessageDialog(null, "Campeonato já cadastrado");
+                JOptionPane.showMessageDialog(null, "Partida já cadastrado");
                 data.closeDataSource();
 
                 return true;
@@ -85,12 +86,12 @@ public class PartidaDAO {
 
                 try {
                     ps = (PreparedStatement)conexao.prepareStatement(SQL);
-                    ps.setString(1, partida.getData_part());
-                    ps.setTime(2, partida.getHora_part());
-                    ps.setString(3, partida.getLoacl_part());
-                    ps.setInt(4, partida.getFk_comp());
-                    ps.setInt(5, partida.getFk_time1());
-                    ps.setInt(6, partida.getFk_time2());
+                    ps.setString(1, data_part);
+                    ps.setString(2, hora_part);
+                    ps.setString(3, local_part);
+                    ps.setInt(4, fk_comp);
+                    ps.setInt(5, fk_time1);
+                    ps.setInt(6, fk_time2);
                     retUpdate = ps.executeUpdate();
 
 

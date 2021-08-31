@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telaDefinirPartidas16.TelaDefinirPartidas16FXMLController">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telaDefinirPartidas16.TelaDefinirPartidas16FXMLController">
    <stylesheets>
       <URL value="@../telabase2/fxml.css" />
    </stylesheets>
@@ -65,7 +65,7 @@
             <ImageView fx:id="time14" fitHeight="48.0" fitWidth="48.0" layoutX="904.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="time15" fitHeight="48.0" fitWidth="48.0" layoutX="904.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="time16" fitHeight="48.0" fitWidth="48.0" layoutX="904.0" layoutY="483.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="bt_concluir" alignment="BOTTOM_CENTER" layoutX="450.0" layoutY="426.0" mnemonicParsing="false" prefHeight="118.0" prefWidth="118.0" style="-fx-background-color: #ff8e3c;" text="Concluir" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS">
+            <Button fx:id="bt_concluir" alignment="BOTTOM_CENTER" layoutX="450.0" layoutY="426.0" mnemonicParsing="false" onAction="#acaoConcluir" prefHeight="118.0" prefWidth="118.0" style="-fx-background-color: #ff8e3c;" text="Concluir" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS">
                <font>
                   <Font name="Segoe UI Bold" size="13.0" />
                </font>
@@ -73,7 +73,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <ImageView fitHeight="87.0" fitWidth="83.0" layoutX="471.0" layoutY="431.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="87.0" fitWidth="83.0" layoutX="471.0" layoutY="431.0" onMouseClicked="#acaoConcluir" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/Logotype2.png" />
                </image>
@@ -81,7 +81,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Button fx:id="part1" layoutX="137.0" layoutY="122.0" mnemonicParsing="false" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
+            <Button fx:id="part1" layoutX="137.0" layoutY="122.0" mnemonicParsing="false" onAction="#acaoPart1" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>
@@ -89,7 +89,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="part2" layoutX="137.0" layoutY="236.0" mnemonicParsing="false" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
+            <Button fx:id="part2" layoutX="137.0" layoutY="236.0" mnemonicParsing="false" onAction="#acaoPart2" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>
@@ -97,7 +97,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="part3" layoutX="137.0" layoutY="346.0" mnemonicParsing="false" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
+            <Button fx:id="part3" layoutX="137.0" layoutY="346.0" mnemonicParsing="false" onAction="#acaoPart3" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>
@@ -105,7 +105,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="part4" layoutX="137.0" layoutY="463.0" mnemonicParsing="false" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
+            <Button fx:id="part4" layoutX="137.0" layoutY="463.0" mnemonicParsing="false" onAction="#acaoPart4" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>
@@ -113,7 +113,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="part5" layoutX="789.0" layoutY="122.0" mnemonicParsing="false" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
+            <Button fx:id="part5" layoutX="789.0" layoutY="122.0" mnemonicParsing="false" onAction="#acaoPart5" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>
@@ -121,7 +121,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="part6" layoutX="789.0" layoutY="236.0" mnemonicParsing="false" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
+            <Button fx:id="part6" layoutX="789.0" layoutY="236.0" mnemonicParsing="false" onAction="#acaoPart6" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>
@@ -129,7 +129,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="part8" layoutX="789.0" layoutY="463.0" mnemonicParsing="false" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
+            <Button fx:id="part8" layoutX="789.0" layoutY="463.0" mnemonicParsing="false" onAction="#acaoPart8" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>
@@ -137,7 +137,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="part7" layoutX="789.0" layoutY="346.0" mnemonicParsing="false" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
+            <Button fx:id="part7" layoutX="789.0" layoutY="346.0" mnemonicParsing="false" onAction="#acaoPart7" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>
@@ -145,7 +145,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="part9" layoutX="249.0" layoutY="181.0" mnemonicParsing="false" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
+            <Button fx:id="part9" layoutX="249.0" layoutY="181.0" mnemonicParsing="false" onAction="#acaoPart9" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>
@@ -153,7 +153,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="part10" layoutX="249.0" layoutY="404.0" mnemonicParsing="false" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
+            <Button fx:id="part10" layoutX="249.0" layoutY="404.0" mnemonicParsing="false" onAction="#acaoPart10" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>
@@ -161,7 +161,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="part11" layoutX="657.0" layoutY="181.0" mnemonicParsing="false" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
+            <Button fx:id="part11" layoutX="657.0" layoutY="181.0" mnemonicParsing="false" onAction="#acaoPart11" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>
@@ -169,7 +169,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="part12" layoutX="657.0" layoutY="404.0" mnemonicParsing="false" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
+            <Button fx:id="part12" layoutX="657.0" layoutY="404.0" mnemonicParsing="false" onAction="#acaoPart12" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>
@@ -178,7 +178,7 @@
                </cursor>
             </Button>
             <Line endX="-45.0" layoutX="582.0" layoutY="277.0" rotate="90.0" startX="-100.0" strokeWidth="3.0" />
-            <Button fx:id="part14" layoutX="540.0" layoutY="295.0" mnemonicParsing="false" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
+            <Button fx:id="part14" layoutX="540.0" layoutY="295.0" mnemonicParsing="false" onAction="#acaoPart14" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>
@@ -186,7 +186,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="part13" layoutX="381.0" layoutY="295.0" mnemonicParsing="false" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
+            <Button fx:id="part13" layoutX="381.0" layoutY="295.0" mnemonicParsing="false" onAction="#acaoPart13" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>
@@ -194,7 +194,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="part15" layoutX="460.0" layoutY="229.0" mnemonicParsing="false" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
+            <Button fx:id="part15" layoutX="460.0" layoutY="229.0" mnemonicParsing="false" onAction="#acaoPart15" style="-fx-background-color: #ff8e3c;" text="Definir partida" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="12.0" />
                </font>

@@ -11,7 +11,7 @@ public class Time {
     private int fk_usuario;
     private int fk_comp;
     private static ArrayList<Time> arrayTimes = new ArrayList<>();
-    private int[] id_sorteado = new int[8];
+    private static int[] id_sorteado = new int[17];
     
     public Time(){
         

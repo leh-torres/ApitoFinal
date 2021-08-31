@@ -1,10 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-package telabase2;
+package telaUsuario;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -16,17 +10,30 @@ import javafx.stage.Stage;
  *
  * @author Zairo Bastos
  */
-public class TelaBase2 extends Application {
 
+public class TelaUsuario extends Application {
+
+    private static Stage stage;
+    
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("telaUsuarioFXML.fxml"));
         
         Scene scene = new Scene(root);
-
+        
         stage.setScene(scene);
         stage.show();
+        setStage(stage);
     }
+
+    public static Stage getStage() {
+        return stage;
+    }
+
+    public static void setStage(Stage stage) {
+        TelaUsuario.stage = stage;
+    }  
+
 
     /**
      * @param args the command line arguments
@@ -34,5 +41,5 @@ public class TelaBase2 extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
+    
 }

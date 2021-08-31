@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+
+import classes.Competicao;
 import classes.Usuario;
 import java.io.InputStream;
 import java.sql.Blob;
@@ -80,8 +82,9 @@ public class BarraDeMenuDAO {
     }
     
     public Image Imagem(){
-        
+        Competicao comp = new Competicao();
         conn = data.getConnection();
+        id = comp.getFk_user();
         
         String SQL = "SELECT * FROM usuario WHERE id_user=?";
         try {

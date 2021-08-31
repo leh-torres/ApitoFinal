@@ -3,6 +3,7 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.Separator?>
@@ -51,7 +52,7 @@
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="126.0" layoutY="183.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="225.0">
+            <TextField fx:id="txtNome" layoutX="126.0" layoutY="183.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="225.0">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
@@ -61,7 +62,7 @@
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="401.0" layoutY="183.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="225.0">
+            <TextField fx:id="txtSobrenome" layoutX="401.0" layoutY="183.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="225.0">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
@@ -71,7 +72,7 @@
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="126.0" layoutY="255.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="500.0">
+            <TextField fx:id="txtEmail" layoutX="126.0" layoutY="255.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="500.0">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
@@ -81,7 +82,7 @@
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </Label>
-            <PasswordField layoutX="126.0" layoutY="327.0" prefHeight="30.0" prefWidth="225.0">
+            <PasswordField fx:id="passSenha" layoutX="126.0" layoutY="327.0" prefHeight="30.0" prefWidth="225.0">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
@@ -91,12 +92,12 @@
                   <Font name="Segoe UI" size="20.0" />
                </font>
             </Label>
-            <Button fx:id="btn1" layoutX="401.0" layoutY="327.0" mnemonicParsing="false" onAction="#Button1Action" prefHeight="30.0" prefWidth="225.0" text="Selecionar Imagem">
+            <Button fx:id="selecionaImagem" layoutX="401.0" layoutY="327.0" mnemonicParsing="false" onAction="#getNewImage" prefHeight="30.0" prefWidth="225.0" text="Selecionar Imagem">
                <font>
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="261.0" layoutY="411.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="230.0" style="-fx-background-color: fe8e3c;" text="Salvar Dados" textFill="WHITE">
+            <Button layoutX="261.0" layoutY="411.0" mnemonicParsing="false" onAction="#BotaoAtualizar" prefHeight="38.0" prefWidth="230.0" style="-fx-background-color: fe8e3c;" text="Salvar Dados" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="20.0" />
                </font>
@@ -111,6 +112,11 @@
                   <Font name="Segoe UI" size="23.0" />
                </font>
             </Button>
+            <CheckBox fx:id="checkNome" layoutX="188.0" layoutY="159.0" mnemonicParsing="false" onAction="#acaoDoCheck" />
+            <CheckBox fx:id="checkSobrenome" layoutX="506.0" layoutY="159.0" mnemonicParsing="false" onAction="#acaoDoCheck" />
+            <CheckBox fx:id="checkEmail" layoutX="180.0" layoutY="231.0" mnemonicParsing="false" onAction="#acaoDoCheck" />
+            <CheckBox fx:id="checkSenha" layoutX="188.0" layoutY="303.0" mnemonicParsing="false" onAction="#acaoDoCheck" />
+            <CheckBox fx:id="checkPerfil" layoutX="522.0" layoutY="303.0" mnemonicParsing="false" onAction="#acaoDoCheck" />
          </children>
       </Pane>
    </children>

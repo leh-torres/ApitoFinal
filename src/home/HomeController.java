@@ -5,20 +5,27 @@
  */
 package home;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import javax.swing.JOptionPane;
 
 import classes.Competicao;
+import classes.Usuario;
+import dao.BarraDeMenuDAO;
 import dao.CompeticaoDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import selecaocampeonato.SelecaoCampeonato;
+import telaEditCampeonato.TelaEditCampeonato;
+import telaUsuario.TelaUsuario;
 
 /**
  *
@@ -75,17 +82,60 @@ public class HomeController implements Initializable {
     private Label labelPremio;
 
     @FXML
-    private Label labelDescricao;
+    private Label descricaoLabel;
 
     @FXML
     private Label labelNome;
+
+    @FXML
+    private Label labelDataInicio;
+
+    @FXML
+    private Label labelDataTerm;
+
+    @FXML
+    private Label labelSituacao;
+
+    @FXML
+    private Button btnEditarCamp;
+
+    @FXML
+    private Button btnPlacarPartidas;
+
     
     private Competicao competicao = new Competicao();
     private CompeticaoDAO competicaoDAO = new CompeticaoDAO();
+    private BarraDeMenuDAO barra = new BarraDeMenuDAO();
     
 
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        competicao = competicaoDAO.gCompeticao(competicao.getIdSelecionaCampeonato());
+
+        labelPremio.setText(competicao.getPremiacao());
+        descricaoLabel.setText(competicao.getDescricao());   
+        labelDataInicio.setText(competicao.getData_inicio());
+        labelDataTerm.setText(competicao.getData_terminio());
+        labelSituacao.setText(competicao.getSituacao());
+        
+    }    
+
     @FXML
-    public void deletaComp(ActionEvent event) {
+    private void voltar(ActionEvent event){
+        SelecaoCampeonato selecao = new SelecaoCampeonato();
+        fecha();
+
+        try {
+            selecao.start(new Stage());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void deletaComp(ActionEvent event) {
         boolean retorno = competicaoDAO.excluirCompeticao(competicao.getId_competicao());
         if(retorno == true){
             JOptionPane.showMessageDialog(null, "Campeonato excluido com sucesso!");
@@ -99,52 +149,21 @@ public class HomeController implements Initializable {
         }
 
     }
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        //labelPremio.setText(competicao.getPremiacao());
-        //labelDescricao.setText(competicao.getDescricao());
-
-        /**COMPETICAO */
-        System.out.println("COMPETICAO");
-        System.out.println(competicao.getId_competicao());
-        System.out.println(competicao.getNomeCompeticao());
-        System.out.println(competicao.getPremiacao());
-        System.out.println(competicao.getDescricao());
-        
-    }    
 
     @FXML
-    public void setComp(Competicao comp){
-        competicao.setId_competicao(comp.getId_competicao());
-        competicao.setNomeCompeticao(comp.getNomeCompeticao());
-        competicao.setPremiacao(comp.getPremiacao());
-        competicao.setDescricao(comp.getDescricao());
-        competicao.setSituacao(comp.getSituacao());
-        competicao.setData_inicio(comp.getData_inicio());
-        competicao.setData_terminio(comp.getData_terminio());
-        competicao.setFk_user(comp.getFk_user());
-
-        /**COMP */
-        System.out.println("COMP");
-        System.out.println(comp.getId_competicao());
-        System.out.println(comp.getNomeCompeticao());
-        System.out.println(comp.getPremiacao());
-        System.out.println(comp.getDescricao());
-
-        /**COMPETICAO */
-        System.out.println("COMPETICAO");
-        System.out.println(competicao.getId_competicao());
-        System.out.println(competicao.getNomeCompeticao());
-        System.out.println(competicao.getPremiacao());
-        System.out.println(competicao.getDescricao());
-    }
-
-    private void getCom(){
-
+    private void telaEditCamp(ActionEvent event){
+        TelaEditCampeonato edit = new TelaEditCampeonato();
+        fecha();
+        try {
+            edit.start(new Stage());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     private void fecha(){
         Home.getStage().close();
     }
+
 }

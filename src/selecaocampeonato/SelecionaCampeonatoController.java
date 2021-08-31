@@ -1,7 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * 
+ * 
+ * @author Raylander Marques
+ * @author Leticia Torres
  */
 package selecaocampeonato;
 
@@ -10,7 +11,6 @@ import classes.Competicao;
 import dao.BarraDeMenuDAO;
 import dao.CompeticaoDAO;
 import home.Home;
-import home.HomeController;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -23,7 +23,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import telaUsuario.TelaUsuario;
 import telacadcampeonato.TelaCadCampeonato;
 
 /**
@@ -120,219 +122,184 @@ public class SelecionaCampeonatoController implements Initializable {
     
     @FXML
     public void funcaoBtn1(ActionEvent event){
-        System.out.println("Botão");
-        System.out.println(comp1.getId_competicao());
-        System.out.println(comp1.getNomeCompeticao());
-        System.out.println(comp1.getDescricao());
-        System.out.println(comp1.getPremiacao());
 
-        if(Integer.parseInt(comp1.getQtd_times()) == 8){
-            Home h = new Home();
-            HomeController hc = new HomeController();
-            hc.setComp(comp1);
-            fecha();
-            try {
-
-                h.start(new Stage());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } // TODO else if para a tela de 16
+        comp1.setIdSelecionaCampeonato(listaComp.get(0).getId_competicao());
+        Home h = new Home();
+        fecha();
+        try {
+            h.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     @FXML
     public void funcaoBtn2(ActionEvent event){
-        if(Integer.parseInt(comp2.getQtd_times()) == 8){
-            Home h = new Home();
-            HomeController hc = new HomeController();
-            hc.setComp(comp2);
-            fecha();
-            try {
-                h.start(new Stage());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } // TODO else if para a tela de 16
+        comp2.setIdSelecionaCampeonato(listaComp.get(1).getId_competicao());
+        Home h = new Home();
+        fecha();
+        try {
+            h.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    
     }
     
     @FXML
     public void funcaoBtn3(ActionEvent event){
-        if(Integer.parseInt(comp3.getQtd_times()) == 8){
-            Home h = new Home();
-            HomeController hc = new HomeController();
-            hc.setComp(comp3);
-            fecha();
-            try {
-                h.start(new Stage());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } // TODO else if para a tela de 16
+
+        Home h = new Home();
+        comp3.setIdSelecionaCampeonato(listaComp.get(2).getId_competicao());
+        fecha();
+        try {
+            h.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
     
     @FXML
     public void funcaoBtn4(ActionEvent event){
-        if(Integer.parseInt(comp4.getQtd_times()) == 8){
-            Home h = new Home();
-            HomeController hc = new HomeController();
-            hc.setComp(comp4);
-            fecha();
-            try {
-                h.start(new Stage());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } // TODO else if para a tela de 16
+        Home h = new Home();
+        comp4.setIdSelecionaCampeonato(listaComp.get(3).getId_competicao());
+        fecha();
+        try {
+            h.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
     
     @FXML
     public void funcaoBtn5(ActionEvent event){
-        if(Integer.parseInt(comp5.getQtd_times()) == 8){
-            Home h = new Home();
-            HomeController hc = new HomeController();
-            hc.setComp(comp5);
-            fecha();
-            try {
-                h.start(new Stage());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } // TODO else if para a tela de 16
+        
+        Home h = new Home();
+        comp5.setIdSelecionaCampeonato(listaComp.get(4).getId_competicao());
+        fecha();
+        try {
+            h.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
     
     @FXML
     public void funcaoBtn6(ActionEvent event){
-        if(Integer.parseInt(comp6.getQtd_times()) == 8){
-            Home h = new Home();
-            HomeController hc = new HomeController();
-            hc.setComp(comp6);
-            fecha();
-            try {
-                h.start(new Stage());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } // TODO else if para a tela de 16
+        Home h = new Home();
+        comp6.setIdSelecionaCampeonato(listaComp.get(5).getId_competicao());
+        fecha();
+        try {
+            h.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
     
     @FXML
     public void funcaoBtn7(ActionEvent event){
-        if(Integer.parseInt(comp7.getQtd_times()) == 8){
-            Home h = new Home();
-            HomeController hc = new HomeController();
-            hc.setComp(comp7);
-            fecha();
-            try {
-                h.start(new Stage());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } // TODO else if para a tela de 16
+        Home h = new Home();
+        comp7.setIdSelecionaCampeonato(listaComp.get(6).getId_competicao());
+        fecha();
+        try {
+            h.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
     
     @FXML
     public void funcaoBtn8(ActionEvent event){
-        if(Integer.parseInt(comp8.getQtd_times()) == 8){
-            Home h = new Home();
-            HomeController hc = new HomeController();
-            hc.setComp(comp8);
-            fecha();
-            try {
-                h.start(new Stage());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } // TODO else if para a tela de 16
+        Home h = new Home();
+        comp8.setIdSelecionaCampeonato(listaComp.get(7).getId_competicao());
+        fecha();
+        try {
+            h.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
     
     @FXML
     public void funcaoBtn9(ActionEvent event){
-        if(Integer.parseInt(comp9.getQtd_times()) == 8){
-            Home h = new Home();
-            HomeController hc = new HomeController();
-            hc.setComp(comp9);
-            fecha();
-            try {
-                h.start(new Stage());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } // TODO else if para a tela de 16
+        Home h = new Home();
+        comp9.setIdSelecionaCampeonato(listaComp.get(8).getId_competicao());
+        fecha();
+        try {
+            h.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
     }
     
     @FXML
     public void funcaoBtn10(ActionEvent event){
-        if(Integer.parseInt(comp10.getQtd_times()) == 8){
-            Home h = new Home();
-            HomeController hc = new HomeController();
-            hc.setComp(comp10);
-            fecha();
-            try {
-                h.start(new Stage());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } // TODO else if para a tela de 16
+        Home h = new Home();
+        comp10.setIdSelecionaCampeonato(listaComp.get(9).getId_competicao());
+        fecha();
+        try {
+            h.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
     }
     
     @FXML
     public void funcaoBtn11(ActionEvent event){
-        if(Integer.parseInt(comp11.getQtd_times()) == 8){
-            Home h = new Home();
-            HomeController hc = new HomeController();
-            hc.setComp(comp11);
-            fecha();
-            try {
-                h.start(new Stage());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } // TODO else if para a tela de 16
+        
+        Home h = new Home();
+        comp11.setIdSelecionaCampeonato(listaComp.get(10).getId_competicao());
+        fecha();
+        try {
+            h.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+         }
+        
     }
     
     @FXML
     public void funcaoBtn12(ActionEvent event){
-        if(Integer.parseInt(comp12.getQtd_times()) == 8){
-            Home h = new Home();
-            HomeController hc = new HomeController();
-            hc.setComp(comp12);
-            fecha();
-            try {
-                h.start(new Stage());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } // TODO else if para a tela de 16
+        Home h = new Home();
+        comp12.setIdSelecionaCampeonato(listaComp.get(11).getId_competicao());
+        fecha();
+        try {
+            h.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+         
     }
     
     @FXML
     public void funcaoBtn13(ActionEvent event){
-        if(Integer.parseInt(comp13.getQtd_times()) == 8){
-            Home h = new Home();
-            HomeController hc = new HomeController();
-            hc.setComp(comp13);
-            fecha();
-            try {
-                h.start(new Stage());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } // TODO else if para a tela de 16
+        Home h = new Home();
+        comp13.setIdSelecionaCampeonato(listaComp.get(12).getId_competicao());
+        fecha();
+        try {
+            h.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+         
     }
     
     @FXML
     public void funcaoBtn14(ActionEvent event){
-        if(Integer.parseInt(comp14.getQtd_times()) == 8){
-            Home h = new Home();
-            HomeController hc = new HomeController();
-            hc.setComp(comp14);
-            fecha();
-            try {
-                h.start(new Stage());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        } // TODO else if para a tela de 16
+        Home h = new Home();
+        comp14.setIdSelecionaCampeonato(listaComp.get(13).getId_competicao());
+        fecha();
+        try {
+            h.start(new Stage());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
     
     @FXML
@@ -744,10 +711,21 @@ public class SelecionaCampeonatoController implements Initializable {
         }
     }    
     
-    private void fecha(){
+    public void fecha(){
         SelecaoCampeonato.getStage().close();
     }
     
+    @FXML
+    private void abreTelaUsuario(MouseEvent event){
+        TelaUsuario telaUser = new TelaUsuario();
+        
+        try {
+            telaUser.start(new Stage());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
 
     
 }

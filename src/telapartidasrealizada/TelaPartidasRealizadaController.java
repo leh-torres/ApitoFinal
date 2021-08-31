@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package home16times;
+package telapartidasrealizada;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,7 +16,7 @@ import javafx.scene.control.Label;
  *
  * @author Zairo Bastos
  */
-public class FXMLDocumentController implements Initializable {
+public class TelaPartidasRealizadaController implements Initializable {
     
     @FXML
     private Label label;

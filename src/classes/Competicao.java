@@ -10,7 +10,7 @@ public class Competicao {
     private String data_inicio;
     private String data_terminio;
     private String situacao;
-    private String qtd_times;
+    private int qtd_times;
     private static int fk_user;
     private static int idSelecionaCampeonato;
 
@@ -114,14 +114,14 @@ public class Competicao {
     /**
      * @return String return the qtd_times
      */
-    public String getQtd_times() {
+    public int getQtd_times() {
         return qtd_times;
     }
 
     /**
      * @param qtd_times the qtd_times to set
      */
-    public void setQtd_times(String qtd_times) {
+    public void setQtd_times(int qtd_times) {
         this.qtd_times = qtd_times;
     }
 

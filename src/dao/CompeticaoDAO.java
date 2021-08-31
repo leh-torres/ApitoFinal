@@ -71,7 +71,7 @@ public class CompeticaoDAO {
 
                 return true;
             } else{
-                SQL = "INSERT INTO competicao (nome_comp, descricao_comp, premiacao_comp, data_ini_comp, data_termi_comp, situacao_comp, quantidade_times_comp, fk_usuario) VALUES (?,?,?,?,?,?,?,?)";
+                SQL = "INSERT INTO competicao (nome_comp, descricao_comp, premiacao_comp, data_ini_comp, data_termi_comp, situacao_comp, fk_usuario) VALUES (?,?,?,?,?,?,?)";
 
                 try {
                     ps = (PreparedStatement)conexao.prepareStatement(SQL);
@@ -81,13 +81,11 @@ public class CompeticaoDAO {
                     ps.setString(4, competicao.getData_inicio());
                     ps.setString(5, competicao.getData_terminio());
                     ps.setString(6, competicao.getSituacao());
-                    ps.setString(7, competicao.getQtd_times());
-                    ps.setInt(8, competicao.getFk_user());
+                    ps.setInt(7, competicao.getFk_user());
                     retUpdate = ps.executeUpdate();
 
 
                     if(retUpdate == 1){
-                        JOptionPane.showMessageDialog(null, "Cadastro Realizado com sucesso!");
                         data.closeDataSource();
     
                         return true;
@@ -128,7 +126,7 @@ public class CompeticaoDAO {
                 competicao.setData_inicio(rs.getString("data_ini_comp"));
                 competicao.setData_terminio(rs.getString("data_termi_comp"));
                 competicao.setSituacao(rs.getString("situacao_comp"));
-                competicao.setQtd_times(rs.getString("quantidade_times_comp"));
+                competicao.setQtd_times(rs.getInt("quantidade_times_comp"));
                 competicao.setFk_user(rs.getInt("fk_usuario"));
                 listaComp.add(competicao);
                 }
@@ -203,7 +201,7 @@ public class CompeticaoDAO {
                 comp.setData_inicio(rs.getString("data_ini_comp"));
                 comp.setData_terminio(rs.getString("data_termi_comp"));
                 comp.setSituacao(rs.getString("situacao_comp"));
-                comp.setQtd_times(rs.getString("quantidade_times_comp"));
+                comp.setQtd_times(rs.getInt("quantidade_times_comp"));
                 comp.setFk_user(rs.getInt("fk_usuario"));
 
                 data1.closeDataSource();

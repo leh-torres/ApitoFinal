@@ -7,15 +7,10 @@
 package telacadcampeonato;
 
 import dao.CompeticaoDAO;
-import dao.UsuarioDAO;
-import javax.swing.JOptionPane;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import java.net.URL;
 
 import java.util.ResourceBundle;
 
-import apitofinal.FXMLDocumentController;
 import dao.BarraDeMenuDAO;
 import classes.Competicao;
 import classes.Partida;
@@ -25,7 +20,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -60,12 +54,6 @@ public class TelaCadCampeonatoController implements Initializable {
     private TextField txtDataTerminio;
 
     @FXML
-    private RadioButton radQtd8;
-
-    @FXML
-    private RadioButton radQtd16;
-
-    @FXML
     private Button btnAvancar;
     
     @FXML
@@ -96,12 +84,6 @@ public class TelaCadCampeonatoController implements Initializable {
        competicao.setData_inicio(txtDataInicio.getText());
        competicao.setData_terminio(txtDataTerminio.getText());
        competicao.setSituacao("iniciada");
-       if(radQtd16.isSelected()){
-           competicao.setQtd_times("16");
-       }
-       if(radQtd8.isSelected()){
-           competicao.setQtd_times("8");
-       }
        competicao.setFk_user(usuario.getId_user());
       
        compDAO.cadastrarComp(competicao);

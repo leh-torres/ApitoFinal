@@ -17,8 +17,6 @@ import classes.Usuario;
 import dao.UsuarioDAO;
 import home.Home;
 import home.HomeController;
-import home16times.FXMLDocumentController;
-import home16times.Home16Times;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

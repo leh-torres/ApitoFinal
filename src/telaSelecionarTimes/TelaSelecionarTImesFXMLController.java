@@ -5,7 +5,7 @@
  */
 package telaSelecionarTimes;
 
-import TelaSorteio16.TelaSorteio16;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -37,7 +37,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import telaDefinirPartidas16.TelaDefinirPartidas16Main;
 import telaDefinirPartidas8.TelaDefinirPartidas8;
 import telaSorteio8.TelaSorteio8;
 
@@ -179,18 +178,7 @@ public class TelaSelecionarTImesFXMLController implements Initializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else if(timeAux.getArrayTimes().size() == 16){
-            TelaSorteio16 tela16 = new TelaSorteio16();
-            close();
-
-            try {
-                tela16.start(new Stage());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } else{
-            JOptionPane.showMessageDialog(null, "8 ou 16 times precisam ser selecionados!");
-        }
+        } 
     }
 
     @FXML

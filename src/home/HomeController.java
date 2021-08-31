@@ -113,18 +113,11 @@ public class HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         competicao = competicaoDAO.gCompeticao(competicao.getIdSelecionaCampeonato());
 
-
-
         labelPremio.setText(competicao.getPremiacao());
         descricaoLabel.setText(competicao.getDescricao());   
         labelDataInicio.setText(competicao.getData_inicio());
         labelDataTerm.setText(competicao.getData_terminio());
         labelSituacao.setText(competicao.getSituacao());
-
-        if(competicao.getSituacao() != "iniciado"){
-            btnEditarCamp.setDisable(true);
-            btnPlacarPartidas.setDisable(true);
-        }
         
     }    
 

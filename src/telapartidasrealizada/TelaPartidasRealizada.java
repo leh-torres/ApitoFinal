@@ -17,6 +17,8 @@ import javafx.stage.Stage;
  */
 public class TelaPartidasRealizada extends Application {
     
+    private static Stage stage;
+    
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("TelaPartidasRealizada.fxml"));
@@ -25,8 +27,17 @@ public class TelaPartidasRealizada extends Application {
         
         stage.setScene(scene);
         stage.show();
+        setStage(stage);
     }
 
+    public static Stage getStage() {
+        return stage;
+    }
+
+    public static void setStage(Stage stage) {
+        TelaPartidasRealizada.stage = stage;
+    }
+    
     /**
      * @param args the command line arguments
      */

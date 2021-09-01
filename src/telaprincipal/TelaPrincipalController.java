@@ -44,7 +44,7 @@ public class TelaPrincipalController implements Initializable {
         BarraDeMenuDAO barra = new BarraDeMenuDAO();
         BarraDeMenuDAO barra1 = new BarraDeMenuDAO();
         nome_user.setText(barra.Nome());
-        //imagem_user.setImage(barra1.Imagem());
+        imagem_user.setImage(barra1.Imagem());
     }
     
     @FXML

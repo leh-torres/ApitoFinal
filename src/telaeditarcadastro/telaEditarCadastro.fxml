@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telaeditarcadastro.telaEditarCadastroController">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="telaeditarcadastro.telaEditarCadastroController">
     <stylesheets>
         <URL value="@fxml.css" />
     </stylesheets>
@@ -97,7 +97,7 @@
                   <Font name="Segoe UI" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="261.0" layoutY="411.0" mnemonicParsing="false" onAction="#BotaoAtualizar" prefHeight="38.0" prefWidth="230.0" style="-fx-background-color: fe8e3c;" text="Salvar Dados" textFill="WHITE">
+            <Button fx:id="salvar_dados" layoutX="261.0" layoutY="411.0" mnemonicParsing="false" onAction="#BotaoAtualizar" prefHeight="38.0" prefWidth="230.0" style="-fx-background-color: fe8e3c;" text="Salvar Dados" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="20.0" />
                </font>
@@ -107,7 +107,7 @@
                   <Image url="@../TelaInicial/images/icons8-voltar-90.png" />
                </image>
             </ImageView>
-            <Button layoutX="46.0" layoutY="17.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="93.0" style="-fx-background-color: transparent;" text="Voltar" textFill="#ff8e3c">
+            <Button fx:id="voltar" layoutX="46.0" layoutY="17.0" mnemonicParsing="false" onAction="#voltar" prefHeight="44.0" prefWidth="93.0" style="-fx-background-color: transparent;" text="Voltar" textFill="#ff8e3c">
                <font>
                   <Font name="Segoe UI" size="23.0" />
                </font>

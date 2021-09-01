@@ -7,6 +7,7 @@ import java.sql.Date;
 
 public class Partida {
     private static int id_part;
+    private static int id_part1;
     private String data_part;
     private Time hora_part;
     private String loacl_part;
@@ -22,6 +23,15 @@ public class Partida {
         
     }
 
+    public int getId_part1() {
+        return id_part1;
+    }
+
+    public void setId_part1(int id_part1) {
+        Partida.id_part1 = id_part1;
+    }
+
+    
 
     /**
      * @return int return the id_part

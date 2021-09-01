@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tela.estatisticas.TelaEstatisticaController">
+<AnchorPane id="AnchorPane" prefHeight="706.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tela.estatisticas.TelaEstatisticaController">
     <stylesheets>
         <URL value="@fxml.css" />
       <URL value="@selecaocampeonato.css" />
@@ -27,24 +27,24 @@
             <Font name="Eras Demi ITC" size="36.0" />
          </font>
       </Label>
-      <Label layoutX="1136.0" prefHeight="58.0" prefWidth="101.0" text="Zairo Bastos" textFill="#333333">
+      <Label fx:id="nome_user" layoutX="1136.0" prefHeight="58.0" prefWidth="101.0" text="Zairo Bastos" textFill="#333333">
          <font>
             <Font name="Segoe UI" size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagem_user" fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
          </image>
       </ImageView>
       <Pane layoutX="283.0" layoutY="170.0" prefHeight="406.0" prefWidth="800.0" style="-fx-background-color: #fffffe;">
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="227.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logo1" fitHeight="150.0" fitWidth="200.0" layoutX="227.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Imagens/ceara.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="467.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logo2" fitHeight="150.0" fitWidth="200.0" layoutX="467.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Imagens/fortaleza.png" />
                </image>
@@ -54,12 +54,12 @@
                   <Font name="Segoe UI Bold" size="52.0" />
                </font>
             </Label>
-            <Label layoutX="616.0" layoutY="108.0" text="FEC">
+            <Label fx:id="abrev2" layoutX="616.0" layoutY="108.0" text="FEC">
                <font>
                   <Font name="Segoe UI Bold" size="55.0" />
                </font>
             </Label>
-            <Label layoutX="92.0" layoutY="102.0" text="CSC">
+            <Label fx:id="abrev1" layoutX="92.0" layoutY="102.0" text="CSC">
                <font>
                   <Font name="System Bold" size="55.0" />
                </font>

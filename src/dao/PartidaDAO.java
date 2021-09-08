@@ -28,7 +28,7 @@ public class PartidaDAO {
     private int id;
     private String resultado;
     DataSource data = new DataSource();
-    public  static int[] id_selecionado = new int[8];
+    public  static int[] id_selecionado = new int[16];
 
     public PartidaDAO(){
     
@@ -675,18 +675,20 @@ public class PartidaDAO {
         return 0;
     }   
      
-     public boolean adicionaImagemUsuario(int id,int escolhe,int valor) throws FileNotFoundException{
+     public boolean adicionaImagemUsuario(int id_part, int id_time, int escolhe) throws FileNotFoundException{
         DataSource data2 = new DataSource();
         conexao = data2.getConnection();
         if(escolhe == 1){
         String SQL = "UPDATE partida SET fk_time1 = ? WHERE id_part=?";
         try {
             ps = (PreparedStatement)conexao.prepareStatement(SQL);
-            ps.setInt(1,id);
+            ps.setInt(1,id_time);
+            ps.setInt(2,id_part);
             retUpdate = ps.executeUpdate();
             data.closeDataSource();
             
             if(retUpdate == 1){
+                JOptionPane.showMessageDialog(null,"Imagem cadastrada");
                 return true;
             }
             else{
@@ -700,11 +702,13 @@ public class PartidaDAO {
         String SQL = "UPDATE partida SET fk_time2 = ? WHERE id_part=?";
         try {
             ps = (PreparedStatement)conexao.prepareStatement(SQL);
-            ps.setInt(1,id);
+            ps.setInt(1,id_time);
+            ps.setInt(2,id_part);
             retUpdate = ps.executeUpdate();
             data.closeDataSource();
             
             if(retUpdate == 1){
+                JOptionPane.showMessageDialog(null,"Imagem cadastrada");
                 return true;
             }
             else{

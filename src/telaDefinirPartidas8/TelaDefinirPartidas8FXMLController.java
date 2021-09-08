@@ -159,8 +159,6 @@ public class TelaDefinirPartidas8FXMLController implements Initializable {
         TelaDefinirPartida tela = new TelaDefinirPartida();
         partida.setId_time1(times.get(id_sorteado[0]).getId_time());
         partida.setId_time2(times.get(id_sorteado[1]).getId_time());
-        JOptionPane.showMessageDialog(null, times.get(id_sorteado[0]).getId_time());
-        JOptionPane.showMessageDialog(null, times.get(id_sorteado[1]).getId_time());
         tela.start(new Stage());
         part1.setDisable(true);
     }

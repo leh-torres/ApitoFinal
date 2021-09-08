@@ -42,8 +42,6 @@ import telaUsuario.TelaUsuario;
  */
 public class HomeController implements Initializable {
     
-    @FXML
-    private Label label;
 
     @FXML
     private ImageView image1;
@@ -96,8 +94,6 @@ public class HomeController implements Initializable {
     @FXML
     private Label descricaoLabel;
 
-    @FXML
-    private Label labelNome;
     
     @FXML
     private Label nome_user;
@@ -138,8 +134,11 @@ public class HomeController implements Initializable {
     private Competicao competicao = new Competicao();
     private CompeticaoDAO competicaoDAO = new CompeticaoDAO();
     private BarraDeMenuDAO barra = new BarraDeMenuDAO();
-    private int[] id_selecionado = new int[7];
+    private int[] id_selecionado = new int[16];
     private int[] id_ganhador = new int[8];
+    PartidaDAO part = new PartidaDAO();
+    @FXML
+    private ImageView image15;
 
     
     @Override
@@ -163,7 +162,7 @@ public class HomeController implements Initializable {
         labelDataTerm.setText(competicao.getData_terminio());
         labelSituacao.setText(competicao.getSituacao());
         
-        gol1.setDisable(true);
+        /*gol1.setDisable(true);
         gol1.setVisible(false);
         gol2.setDisable(true);
         gol2.setVisible(false);
@@ -176,21 +175,20 @@ public class HomeController implements Initializable {
         gol6.setDisable(true);
         gol6.setVisible(false);
         gol7.setDisable(true);
-        gol7.setVisible(false);
+        gol7.setVisible(false);*/
         
-        PartidaDAO part = new PartidaDAO();
         TimeDAO time1 = new TimeDAO();
         
         image1.setImage(part.Imagem(1));
         image2.setImage(part.Imagem(2));
         image3.setImage(part.Imagem(3));
         image4.setImage(part.Imagem(4));
-        image5.setImage(time1.buscaImagem(id_ganhador[0]));
-        image6.setImage(time1.buscaImagem(id_ganhador[1]));
-        image7.setImage(time1.buscaImagem(id_ganhador[2]));
-        image8.setImage(time1.buscaImagem(id_ganhador[3]));
-        image9.setImage(time1.buscaImagem(id_ganhador[4]));
-        image10.setImage(time1.buscaImagem(id_ganhador[5]));
+        image5.setImage(part.Imagem(10));
+        image6.setImage(part.Imagem(9));
+        image7.setImage(part.Imagem(12));
+        image8.setImage(part.Imagem(14));
+        image9.setImage(part.Imagem(11));
+        image10.setImage(part.Imagem(13));
         image11.setImage(part.Imagem(5));
         image12.setImage(part.Imagem(6));
         image13.setImage(part.Imagem(7));
@@ -200,92 +198,106 @@ public class HomeController implements Initializable {
         String horaFormatada = dateFormat1.format(dataAtual);
         
         
-        if(dataFormatada.compareTo(part.getData(1)) > 0){
-            if(horaFormatada.compareTo(part.getHora(1)) > 0){
+        /*if(dataFormatada.compareTo(part.getData(1)) < 0){
+            if(horaFormatada.compareTo(part.getHora(1)) >0){
                 gol1.setVisible(true);
                 gol1.setDisable(false);
             }
         }
-        if(dataFormatada.compareTo(part.getData(2)) > 0){
+        if(dataFormatada.compareTo(part.getData(2)) < 0){
             if(horaFormatada.compareTo(part.getHora(2)) > 0){
                 gol2.setVisible(true);
                 gol2.setDisable(false);
             }
         }
-        if(dataFormatada.compareTo(part.getData(3)) > 0){
+        if(dataFormatada.compareTo(part.getData(3)) < 0){
             if(horaFormatada.compareTo(part.getHora(3)) > 0){
                 gol3.setVisible(true);
                 gol3.setDisable(false);
             }
         }
-        if(dataFormatada.compareTo(part.getData(4)) > 0){
+        if(dataFormatada.compareTo(part.getData(4)) < 0){
             if(horaFormatada.compareTo(part.getHora(4)) > 0){
                 gol4.setVisible(true);
                 gol4.setDisable(false);
             }
-        }
+        }*/
         
     }    
     
     @FXML
     private void acaoGol1() throws Exception{
-        Partida part = new Partida();
-        part.setId_part(id_selecionado[0]);
-        part.setId_part1(id_selecionado[1]);
+        Partida part1 = new Partida();
+        part1.setId_part(part.recuperaId(id_selecionado[0]));
+        part1.setId_part1(4+part.recuperaId(id_selecionado[0]));
+        part1.setId_time1(id_selecionado[0]);
+        part1.setId_time2(id_selecionado[1]);
         telaGols();
         fecha();
     }
     
     @FXML
     private void acaoGol2() throws Exception{
-        Partida part = new Partida();
-        part.setId_part(id_selecionado[2]);
-        part.setId_part1(id_selecionado[3]);
+        Partida part1 = new Partida();
+        part1.setId_part(part.recuperaId(id_selecionado[2]));
+        part1.setId_part1(3+part.recuperaId(id_selecionado[2]));
+        part1.setId_time1(id_selecionado[2]);
+        part1.setId_time2(id_selecionado[3]);
         telaGols();
         fecha();
     }
     
     @FXML
     private void acaoGol3() throws Exception{
-        Partida part = new Partida();
-        part.setId_part(id_selecionado[5]);
-        part.setId_part1(id_selecionado[6]);
+        Partida part1 = new Partida();
+        part1.setId_part(part.recuperaId(id_selecionado[4]));
+        part1.setId_part1(4+part.recuperaId(id_selecionado[4]));
+        part1.setId_time1(id_selecionado[4]);
+        part1.setId_time2(id_selecionado[5]);
         telaGols();
         fecha();
     }
     
     @FXML
     private void acaoGol4() throws Exception{
-        Partida part = new Partida();
-        part.setId_part(id_selecionado[7]);
-        part.setId_part1(id_selecionado[8]);
+        Partida part1 = new Partida();
+        part1.setId_part(part.recuperaId(id_selecionado[6]));
+        part1.setId_part1(3+part.recuperaId(id_selecionado[6]));
+        part1.setId_time1(id_selecionado[6]);
+        part1.setId_time2(id_selecionado[7]);
         telaGols();
         fecha();
     }
     
     @FXML
     private void acaoGol5() throws Exception{
-        Partida part = new Partida();
-        part.setId_part(id_selecionado[9]);
-        part.setId_part1(id_selecionado[10]);
+        Partida part1 = new Partida();
+        part1.setId_part(part.recuperaId(id_selecionado[8]));
+        part1.setId_part1(4+part.recuperaId(id_selecionado[8]));
+        part1.setId_time1(id_selecionado[8]);
+        part1.setId_time2(id_selecionado[9]);
         telaGols();
         fecha();
     }
     
     @FXML
     private void acaoGol6() throws Exception{
-        Partida part = new Partida();
-        part.setId_part(id_selecionado[11]);
-        part.setId_part1(id_selecionado[12]);
+        Partida part1 = new Partida();
+        part1.setId_part(part.recuperaId(id_selecionado[10]));
+        part1.setId_part1(3+part.recuperaId(id_selecionado[10]));
+        part1.setId_time1(id_selecionado[10]);
+        part1.setId_time2(id_selecionado[12]);
         telaGols();
         fecha();
     }
     
     @FXML
     private void acaoGol7() throws Exception{
-        Partida part = new Partida();
-        part.setId_part(id_selecionado[13]);
-        part.setId_part1(id_selecionado[14]);
+        Partida part1 = new Partida();
+        part1.setId_part(part.recuperaId(id_selecionado[13]));
+        part1.setId_part1(4+part.recuperaId(id_selecionado[13]));
+        part1.setId_time1(id_selecionado[13]);
+        part1.setId_time2(id_selecionado[14]);
         telaGols();
         fecha();
     }
@@ -340,6 +352,10 @@ public class HomeController implements Initializable {
 
     private void fecha(){
         Home.getStage().close();
+    }
+
+    @FXML
+    private void voltar(MouseEvent event) {
     }
 
 }

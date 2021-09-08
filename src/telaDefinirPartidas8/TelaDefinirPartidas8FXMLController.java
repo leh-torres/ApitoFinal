@@ -219,9 +219,15 @@ public class TelaDefinirPartidas8FXMLController implements Initializable {
         part7.setDisable(true);
     }
     
+    @FXML
     public void acaoConcluir(ActionEvent event) throws Exception{
         SelecaoCampeonato tela1 = new SelecaoCampeonato();
+        fecha();
         tela1.start(new Stage());
+    }
+
+    private void fecha(){
+        TelaDefinirPartidas8.getStage().close();
     }
     
 }

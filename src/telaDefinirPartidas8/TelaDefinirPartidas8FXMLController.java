@@ -224,10 +224,13 @@ public class TelaDefinirPartidas8FXMLController implements Initializable {
         SelecaoCampeonato tela1 = new SelecaoCampeonato();
         fecha();
         tela1.start(new Stage());
+        fecha();
+        
     }
-
-    private void fecha(){
+    
+     public void fecha(){
         TelaDefinirPartidas8.getStage().close();
     }
+
     
 }

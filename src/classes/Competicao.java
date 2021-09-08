@@ -139,11 +139,11 @@ public class Competicao {
         this.fk_user = fk_user;
     }
 
-    public static int getIdSelecionaCampeonato() {
+    public int getIdSelecionaCampeonato() {
         return idSelecionaCampeonato;
     }
 
-    public static void setIdSelecionaCampeonato(int idSelecionaCampeonato) {
+    public void setIdSelecionaCampeonato(int idSelecionaCampeonato) {
         Competicao.idSelecionaCampeonato = idSelecionaCampeonato;
     }
 }

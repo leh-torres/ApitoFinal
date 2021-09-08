@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import classes.Time;
+import java.io.InputStream;
+import javafx.scene.image.Image;
 
 /**
  *
@@ -27,6 +29,7 @@ public class TimeDAO {
     PreparedStatement pst = null;
     ResultSet ps = null;
     DataSource data = new DataSource();
+    private String resultado;
     int rs;
 
     public TimeDAO(){
@@ -91,4 +94,126 @@ public class TimeDAO {
         System.out.println("fora");
         return null;
     }
+    
+    public Image getImagem(int id_time, int variancia){
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        if(variancia == 1){
+        String SQL = "select * from times where id_time = ?";
+
+        try{
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setInt(1, id_time);
+            ps = pst.executeQuery();
+
+            if(ps.next()){
+                if(ps.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = ps.getBinaryStream("imagem_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        System.out.println("fora");
+        }
+        else if(variancia == 2){
+            String SQL = "select * from times where id_time = ?";
+
+        try{
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setInt(1, id_time);
+            ps = pst.executeQuery();
+
+            if(ps.next()){
+                if(ps.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = ps.getBinaryStream("imagem_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+            data.closeDataSource();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        System.out.println("fora");
+        }
+        return null;
+    }
+    
+    public String getAbrev(int id_time, int variancia){
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        if(variancia == 1){
+        String SQL = "select * from times where id_time = ?";
+
+        try{
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setInt(1, id_time);
+            ps = pst.executeQuery();
+
+            if(ps.next()){
+                resultado = ps.getString("abreviacao_time");
+                return resultado;
+                }
+                return null;
+            }
+        catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+            System.out.println("fora");
+        }
+        else if(variancia == 2){
+            String SQL = "select * from times where id_time = ?";
+
+        try{
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setInt(1, id_time);
+            ps = pst.executeQuery();
+
+            if(ps.next()){
+                resultado = ps.getString("abreviacao_time");
+                return resultado;
+            }
+            data.closeDataSource();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        System.out.println("fora");
+        
+        }
+    return null;
+    }
+    
+    public Image buscaImagem(int id_time){
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        String SQL = "select * from times where id_time = ?";
+
+        try{
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setInt(1, id_time);
+            ps = pst.executeQuery();
+
+            if(ps.next()){
+                if(ps.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = ps.getBinaryStream("imagem_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        System.out.println("fora");
+        return null;
+    }
+        
 }

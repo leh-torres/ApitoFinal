@@ -44,21 +44,13 @@
                   <Image url="@../resources/Árvore%208.png" />
                </image>
             </ImageView>
-            <Button fx:id="bt_concluir" alignment="BOTTOM_CENTER" layoutX="402.0" layoutY="431.0" mnemonicParsing="false" onAction="#acaoConcluir" prefHeight="130.0" prefWidth="130.0" style="-fx-background-color: #ff8e3c;" text="Concluir" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS">
+            <Button fx:id="bt_concluir" alignment="BOTTOM_CENTER" layoutX="402.0" layoutY="524.0" mnemonicParsing="false" onAction="#acaoConcluir" prefHeight="37.0" prefWidth="130.0" style="-fx-background-color: #ff8e3c;" text="Concluir" textAlignment="CENTER" textFill="WHITE" textOverrun="LEADING_WORD_ELLIPSIS">
                <font>
-                  <Font name="Segoe UI Bold" size="13.0" />
+                  <Font name="Segoe UI Bold" size="24.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></Button>
-            <ImageView fx:id="concluir" fitHeight="96.0" fitWidth="86.0" layoutX="425.0" layoutY="439.0" onMouseClicked="#acaoConcluir" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../resources/Logotype2.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
             <ImageView fx:id="time1" fitHeight="100.0" fitWidth="100.0" layoutX="24.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true" />
             <Line endX="-1.0" layoutX="125.0" layoutY="22.0" startX="-100.0" stroke="#ff8e3c" strokeWidth="2.0" />
             <Line endX="-1.0" layoutX="125.0" layoutY="122.0" startX="-100.0" stroke="#ff8e3c" strokeWidth="2.0" />

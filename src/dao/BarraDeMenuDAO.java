@@ -82,9 +82,9 @@ public class BarraDeMenuDAO {
     }
     
     public Image Imagem(){
-        Competicao comp = new Competicao();
+        Usuario  usu = new Usuario();
         conn = data.getConnection();
-        id = comp.getFk_user();
+        id = usu.getId_user();
         
         String SQL = "SELECT * FROM usuario WHERE id_user=?";
         try {

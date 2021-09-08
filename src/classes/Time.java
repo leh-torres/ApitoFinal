@@ -12,10 +12,20 @@ public class Time {
     private int fk_comp;
     private static ArrayList<Time> arrayTimes = new ArrayList<>();
     private static int[] id_sorteado = new int[17];
+    private static int[] id_ganhador = new int [8];
     
     public Time(){
         
     }
+
+    public int[] getId_ganhador() {
+        return id_ganhador;
+    }
+
+    public void setId_ganhador(int[] id_ganhador) {
+        Time.id_ganhador = id_ganhador;
+    }
+    
 
     /**
      * @return int return the id_time

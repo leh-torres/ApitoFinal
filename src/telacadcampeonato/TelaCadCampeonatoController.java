@@ -68,7 +68,9 @@ public class TelaCadCampeonatoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         BarraDeMenuDAO barra = new BarraDeMenuDAO();
+        BarraDeMenuDAO barra1 = new BarraDeMenuDAO();
         nome_user.setText(barra.Nome());
+        imagem_user.setImage(barra1.Imagem());
     } 
 
     public void botaoAvancar(){

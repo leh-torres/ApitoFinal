@@ -3,105 +3,100 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package telaSelecionarTimes;
+package telaEditPartidas;
 
-
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import javax.swing.JOptionPane;
-import javax.swing.event.ListDataEvent;
-
 import com.mysql.cj.jdbc.Blob;
 
-import cadequipeesportiva.CadEquipeEsportiva;
 import classes.Competicao;
+import classes.Partida;
 import classes.Time;
 import dao.BarraDeMenuDAO;
-import dao.CompeticaoDAO;
+import dao.PartidaDAO;
 import dao.TimeDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
-import telaDefinirPartidas8.TelaDefinirPartidas8;
-import telaSorteio8.TelaSorteio8;
 
 /**
  * FXML Controller class
  *
  * @author RonaldoMatos
- * @author Leticia Torres
  */
-public class TelaSelecionarTImesFXMLController implements Initializable {
+public class TelaEditPartidasFXMLController implements Initializable {
 
     @FXML
-    private ImageView imageTime;
-    
-    @FXML
-    private ImageView imagem_user;
-    
-    @FXML
-    private Label nome_user;
+    private TextField txtLocalPartida;
 
     @FXML
-    private TextField txtNomeTime;
+    private TextField txtDataPartida;
 
     @FXML
-    private TextField txtAbrev;
+    private TextField txtHorarioPartida;
 
     @FXML
-    private Button btnSelecionarTime;
+    private TextField txtBusca;
 
     @FXML
-    private Button btnConcluir;
+    private CheckBox checkLocalPartida;
 
     @FXML
-    private Button btnCadastrarTime;
+    private CheckBox checkData;
 
     @FXML
-    private ListView<String> listaTimesSelecionados;
+    private CheckBox checkHorario;
 
     @FXML
     private ListView<String> lista_times;
 
     @FXML
-    private TextField txtBusca;
+    private ImageView imageTime1;
 
-    private ArrayList<Time> arrayTimes = new ArrayList<>();
+    @FXML
+    private ImageView imageTime2;
+
+    @FXML
+    private Label nome_user;
+
+    @FXML
+    private ImageView imagem_user;
+
+    private ArrayList<Partida> arrayPartidas = new ArrayList<>();
     private ArrayList<Time> arrayTimesAux = new ArrayList<>();
     private ArrayList<String> arrayAux = new ArrayList<>();
     private ArrayList<String> arrayAux1 = new ArrayList<>();
     private ObservableList<String> observableList;
     private ObservableList<String> observableList1;
-    private Time timeAux = new Time();
-    private TimeDAO timeDAO = new TimeDAO();
+
+    private Partida partida = new Partida();
+    private Time time1 = new Time();
+    private Time time2 = new Time();
     private Competicao comp = new Competicao();
+
+    private TimeDAO timeDAO = new TimeDAO();
+    private PartidaDAO partDAO = new PartidaDAO();
+
     private String auxNome;
     private String auxAbrv;
     private Blob auxImagem;
-    String nome;
+    private String nome;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
         BarraDeMenuDAO barra = new BarraDeMenuDAO();
         BarraDeMenuDAO barra1 = new BarraDeMenuDAO();
         nome_user.setText(barra.Nome());
@@ -109,18 +104,15 @@ public class TelaSelecionarTImesFXMLController implements Initializable {
         System.out.println("Entrou no initialize");
         CarregaTimesCadastrados();
 
-        //TODO implementar barra de tarefa
-
         lista_times.setOnMouseClicked(new EventHandler<MouseEvent>(){
     
             @Override
             public void handle(MouseEvent arg0) {
                 nome = lista_times.getSelectionModel().getSelectedItem();
                 
-                for(int i = 0; i < arrayTimes.size(); i++){
-                    if(nome == arrayTimes.get(i).getNome_time()){
+                for(int i = 0; i < arrayPartidas.size(); i++){
                         Time time = new Time();
-                        auxNome = arrayTimes.get(i).getNome_time();
+                        /*auxNome = arrayTimes.get(i).getNome_time();
                         auxAbrv = arrayTimes.get(i).getAbreviacao_time();
                         auxImagem = (Blob) arrayTimes.get(i).getImagem_time();
 
@@ -142,81 +134,33 @@ public class TelaSelecionarTImesFXMLController implements Initializable {
                             imageTime.setImage(image);
                         } catch (SQLException e) {
                             e.printStackTrace();
-                        }
-                        
-                    }
+                        }*/
                 }
             }
   
         });
-    }
+    } 
     
     private void CarregaTimesCadastrados(){
-        arrayTimes = timeDAO.getTimes(comp.getFk_user());
-        System.out.println(comp.getFk_user());
+        String abrev1, abrev2;
+        //arrayPartidas= partDAO.getListaPartidas(comp.getIdSelecionaCampeonato());
+    
         //Para testes
-        //arrayTimes = timeDAO.getTimes(8);
+        arrayPartidas = partDAO.getListaPartidas(109);
 
-        for(int i = 0; i < arrayTimes.size(); i++){
-            nome = arrayTimes.get(i).getNome_time();
+        for(int i = 0; i < arrayPartidas.size(); i++){
+            abrev1 = timeDAO.getAbrev(arrayPartidas.get(i).getFk_time1(), 1);
+            abrev2 =  timeDAO.getAbrev(arrayPartidas.get(i).getFk_time2(), 2);
+            nome = abrev1 + " X " + abrev2;
+            System.out.println(nome);
             arrayAux.add(nome);
-            System.out.println(arrayTimes.get(i).getNome_time());
+            
         }
         
         observableList = FXCollections.observableArrayList(arrayAux);
 
         lista_times.setItems(observableList);
 
-    }
-
-    @FXML
-    public void acaoBotaoSelecionar(ActionEvent event) {
-        observableList1 = FXCollections.observableArrayList(arrayAux1);
-        listaTimesSelecionados.setItems(observableList1);
-    }
-
-    @FXML
-    public void acaoDoBotaoConcluir(ActionEvent event){
-        timeAux.setArrayTimes(arrayTimesAux);
-        for(int i = 0; i<timeAux.getArrayTimes().size();i++){
-            System.out.println(timeAux.getArrayTimes().get(i).getNome_time());
-        }
-        if(timeAux.getArrayTimes().size() == 8){
-            TelaSorteio8 tela8 = new TelaSorteio8();
-            close();
-
-            try {
-                tela8.start(new Stage());
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        } 
-    }
-
-    @FXML
-    public void acaoDeBusca(ActionEvent event){
-        String busca = txtBusca.getText();
-
-        Boolean ifContains = lista_times.getItems().contains(busca);
-        if(ifContains == true){
-            lista_times.getItems().add(0, busca);
-        }
-    }
-
-    private void close(){
-        telaSelecionarTimes.getStage().close();
-    }
-
-    @FXML
-    public void acaoDoCadastrar(ActionEvent event) throws Exception{
-        CadEquipeEsportiva cadEquipe = new CadEquipeEsportiva();
-        close();
-
-        try {
-            cadEquipe.start(new Stage());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
     
 }

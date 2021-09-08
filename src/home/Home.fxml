@@ -25,12 +25,12 @@
             <Font name="Eras Demi ITC" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="nomeLabel" layoutX="1136.0" prefHeight="58.0" prefWidth="101.0" text="Zairo Bastos" textFill="#333333">
+      <Label fx:id="nome_user" layoutX="1136.0" prefHeight="58.0" prefWidth="101.0" text="Zairo Bastos" textFill="#333333">
          <font>
             <Font name="Segoe UI" size="18.0" />
          </font>
       </Label>
-      <ImageView fx:id="imagePerfil" fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imagem_user" fitHeight="50.0" fitWidth="60.0" layoutX="1247.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../TelaInicial/images/c470cc48-92e2-4678-9243-272b3642cc7a.jpg" />
          </image>
@@ -66,7 +66,7 @@
             <ImageView fx:id="image12" fitHeight="70.0" fitWidth="70.0" layoutX="1050.0" layoutY="127.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="image14" fitHeight="70.0" fitWidth="70.0" layoutX="1050.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true" />
             <ImageView fx:id="image13" fitHeight="70.0" fitWidth="70.0" layoutX="1050.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="70.0" fitWidth="70.0" layoutX="669.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="image15" fitHeight="70.0" fitWidth="70.0" layoutX="669.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" />
             <Label layoutX="664.0" layoutY="62.0" text="Campeão">
                <font>
                   <Font name="Segoe UI" size="19.0" />
@@ -92,17 +92,12 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button fx:id="btnEditarCamp" layoutX="132.0" layoutY="510.0" mnemonicParsing="false" onAction="#telaEditCamp" prefHeight="29.0" prefWidth="200.0" style="-fx-background-color: #ff8e3c;" text="Editar Campeonato" textFill="WHITE">
+            <Button fx:id="btnEditarCamp" layoutX="651.0" layoutY="504.0" mnemonicParsing="false" onAction="#telaEditCamp" prefHeight="29.0" prefWidth="200.0" style="-fx-background-color: #ff8e3c;" text="Editar Campeonato" textFill="WHITE">
                <font>
                   <Font name="Segoe UI Bold" size="15.0" />
                </font>
             </Button>
-            <Button layoutX="360.0" layoutY="510.0" mnemonicParsing="false" onAction="#deletaComp" prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-border-color: #ff8e3c; -fx-border-width: 1; -fx-border-radius: 3;" text="Excluir Campeonato" textFill="#ff8e3c">
-               <font>
-                  <Font name="Segoe UI Bold" size="15.0" />
-               </font>
-            </Button>
-            <Button fx:id="btnPlacarPartidas" layoutX="871.0" layoutY="510.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="200.0" style="-fx-background-color: #ff8e3c;" text="Placar das Partidas" textFill="WHITE">
+            <Button layoutX="884.0" layoutY="503.0" mnemonicParsing="false" onAction="#deletaComp" prefHeight="31.0" prefWidth="200.0" style="-fx-background-color: #fff; -fx-border-color: #ff8e3c; -fx-border-width: 1; -fx-border-radius: 3;" text="Excluir Campeonato" textFill="#ff8e3c">
                <font>
                   <Font name="Segoe UI Bold" size="15.0" />
                </font>
@@ -137,6 +132,51 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <Button fx:id="gol1" layoutX="293.0" layoutY="87.0" mnemonicParsing="false" onAction="#acaoGol1" prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: #ff8e3c;" text="Definir gols" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="gol2" layoutX="293.0" layoutY="329.0" mnemonicParsing="false" onAction="#acaoGol2" prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: #ff8e3c;" text="Definir gols" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="gol3" layoutX="985.0" layoutY="87.0" mnemonicParsing="false" onAction="#acaoGol3" prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: #ff8e3c;" text="Definir gols" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="gol4" layoutX="994.0" layoutY="329.0" mnemonicParsing="false" onAction="#acaoGol4" prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: #ff8e3c;" text="Definir gols" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="gol5" layoutX="419.0" layoutY="208.0" mnemonicParsing="false" onAction="#acaoGol5" prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: #ff8e3c;" text="Definir gols" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="gol6" layoutX="860.0" layoutY="208.0" mnemonicParsing="false" onAction="#acaoGol6" prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: #ff8e3c;" text="Definir gols" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="gol7" layoutX="639.0" layoutY="268.0" mnemonicParsing="false" onAction="#acaoGol7" prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: #ff8e3c;" text="Definir gols" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEditarCamp1" layoutX="350.0" layoutY="504.0" mnemonicParsing="false" onAction="#telaEditCamp" prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: #ff8e3c;" text="Editar Partidas" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnEditarCamp11" layoutX="488.0" layoutY="504.0" mnemonicParsing="false" onAction="#telaEditCamp" prefHeight="29.0" prefWidth="130.0" style="-fx-background-color: #ff8e3c;" text="Editar Times" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="15.0" />
+               </font>
+            </Button>
          </children></Pane>
    </children>
 </AnchorPane>

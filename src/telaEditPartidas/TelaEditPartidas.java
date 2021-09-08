@@ -1,9 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package telapartidasrealizada;
+package telaEditPartidas;
+
+import java.io.IOException;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,17 +8,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Zairo Bastos
- */
-public class TelaPartidasRealizada extends Application {
-    
+public class TelaEditPartidas extends Application {
+
     private static Stage stage;
     
     @Override
-    public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("TelaPartidasRealizada.fxml"));
+    public void start(Stage stage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("TelaEditPartidasFXML.fxml"));
         
         Scene scene = new Scene(root);
         
@@ -35,8 +28,9 @@ public class TelaPartidasRealizada extends Application {
     }
 
     public static void setStage(Stage stage) {
-        TelaPartidasRealizada.stage = stage;
-    }
+        TelaEditPartidas.stage = stage;
+    }   
+    
     
     /**
      * @param args the command line arguments

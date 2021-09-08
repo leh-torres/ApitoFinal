@@ -12,9 +12,17 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 import classes.Competicao;
+import classes.Partida;
+import classes.Time;
+import java.lang.Character;
 import classes.Usuario;
 import dao.BarraDeMenuDAO;
 import dao.CompeticaoDAO;
+import dao.PartidaDAO;
+import dao.TimeDAO;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -24,6 +32,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import selecaocampeonato.SelecaoCampeonato;
+import tela.estatisticas.TelaEstatisticas;
 import telaEditCampeonato.TelaEditCampeonato;
 import telaUsuario.TelaUsuario;
 
@@ -74,9 +83,12 @@ public class HomeController implements Initializable {
 
     @FXML
     private ImageView image13;
+    
+    @FXML
+    private ImageView image14;
 
     @FXML
-    private ImageView imagePerfil;
+    private ImageView imagem_user;
 
     @FXML
     private Label labelPremio;
@@ -86,6 +98,9 @@ public class HomeController implements Initializable {
 
     @FXML
     private Label labelNome;
+    
+    @FXML
+    private Label nome_user;
 
     @FXML
     private Label labelDataInicio;
@@ -100,17 +115,46 @@ public class HomeController implements Initializable {
     private Button btnEditarCamp;
 
     @FXML
-    private Button btnPlacarPartidas;
-
+    private Button gol1;
+    
+    @FXML
+    private Button gol2;
+    
+    @FXML
+    private Button gol3;
+    
+    @FXML
+    private Button gol4;
+    
+    @FXML
+    private Button gol5;
+    
+    @FXML
+    private Button gol6;
+    
+    @FXML
+    private Button gol7;
     
     private Competicao competicao = new Competicao();
     private CompeticaoDAO competicaoDAO = new CompeticaoDAO();
     private BarraDeMenuDAO barra = new BarraDeMenuDAO();
-    
+    private int[] id_selecionado = new int[7];
+    private int[] id_ganhador = new int[8];
 
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Date dataAtual = new Date();
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        DateFormat dateFormat1 = new SimpleDateFormat("HH:mm");
+        BarraDeMenuDAO barra = new BarraDeMenuDAO();
+        BarraDeMenuDAO barra1 = new BarraDeMenuDAO();
+        PartidaDAO partida = new PartidaDAO();
+        Time time = new Time();
+        id_ganhador = time.getId_ganhador();
+        id_selecionado = partida.getId_selecionado();
+        nome_user.setText(barra.Nome());
+        imagem_user.setImage(barra1.Imagem());
         competicao = competicaoDAO.gCompeticao(competicao.getIdSelecionaCampeonato());
 
         labelPremio.setText(competicao.getPremiacao());
@@ -119,7 +163,139 @@ public class HomeController implements Initializable {
         labelDataTerm.setText(competicao.getData_terminio());
         labelSituacao.setText(competicao.getSituacao());
         
+        gol1.setDisable(true);
+        gol1.setVisible(false);
+        gol2.setDisable(true);
+        gol2.setVisible(false);
+        gol3.setDisable(true);
+        gol3.setVisible(false);
+        gol4.setDisable(true);
+        gol4.setVisible(false);
+        gol5.setDisable(true);
+        gol5.setVisible(false);
+        gol6.setDisable(true);
+        gol6.setVisible(false);
+        gol7.setDisable(true);
+        gol7.setVisible(false);
+        
+        PartidaDAO part = new PartidaDAO();
+        TimeDAO time1 = new TimeDAO();
+        
+        image1.setImage(part.Imagem(1));
+        image2.setImage(part.Imagem(2));
+        image3.setImage(part.Imagem(3));
+        image4.setImage(part.Imagem(4));
+        image5.setImage(time1.buscaImagem(id_ganhador[0]));
+        image6.setImage(time1.buscaImagem(id_ganhador[1]));
+        image7.setImage(time1.buscaImagem(id_ganhador[2]));
+        image8.setImage(time1.buscaImagem(id_ganhador[3]));
+        image9.setImage(time1.buscaImagem(id_ganhador[4]));
+        image10.setImage(time1.buscaImagem(id_ganhador[5]));
+        image11.setImage(part.Imagem(5));
+        image12.setImage(part.Imagem(6));
+        image13.setImage(part.Imagem(7));
+        image14.setImage(part.Imagem(8));  
+        
+        String dataFormatada = dateFormat.format(dataAtual);
+        String horaFormatada = dateFormat1.format(dataAtual);
+        
+        
+        if(dataFormatada.compareTo(part.getData(1)) > 0){
+            if(horaFormatada.compareTo(part.getHora(1)) > 0){
+                gol1.setVisible(true);
+                gol1.setDisable(false);
+            }
+        }
+        if(dataFormatada.compareTo(part.getData(2)) > 0){
+            if(horaFormatada.compareTo(part.getHora(2)) > 0){
+                gol2.setVisible(true);
+                gol2.setDisable(false);
+            }
+        }
+        if(dataFormatada.compareTo(part.getData(3)) > 0){
+            if(horaFormatada.compareTo(part.getHora(3)) > 0){
+                gol3.setVisible(true);
+                gol3.setDisable(false);
+            }
+        }
+        if(dataFormatada.compareTo(part.getData(4)) > 0){
+            if(horaFormatada.compareTo(part.getHora(4)) > 0){
+                gol4.setVisible(true);
+                gol4.setDisable(false);
+            }
+        }
+        
     }    
+    
+    @FXML
+    private void acaoGol1() throws Exception{
+        Partida part = new Partida();
+        part.setId_part(id_selecionado[0]);
+        part.setId_part1(id_selecionado[1]);
+        telaGols();
+        fecha();
+    }
+    
+    @FXML
+    private void acaoGol2() throws Exception{
+        Partida part = new Partida();
+        part.setId_part(id_selecionado[2]);
+        part.setId_part1(id_selecionado[3]);
+        telaGols();
+        fecha();
+    }
+    
+    @FXML
+    private void acaoGol3() throws Exception{
+        Partida part = new Partida();
+        part.setId_part(id_selecionado[5]);
+        part.setId_part1(id_selecionado[6]);
+        telaGols();
+        fecha();
+    }
+    
+    @FXML
+    private void acaoGol4() throws Exception{
+        Partida part = new Partida();
+        part.setId_part(id_selecionado[7]);
+        part.setId_part1(id_selecionado[8]);
+        telaGols();
+        fecha();
+    }
+    
+    @FXML
+    private void acaoGol5() throws Exception{
+        Partida part = new Partida();
+        part.setId_part(id_selecionado[9]);
+        part.setId_part1(id_selecionado[10]);
+        telaGols();
+        fecha();
+    }
+    
+    @FXML
+    private void acaoGol6() throws Exception{
+        Partida part = new Partida();
+        part.setId_part(id_selecionado[11]);
+        part.setId_part1(id_selecionado[12]);
+        telaGols();
+        fecha();
+    }
+    
+    @FXML
+    private void acaoGol7() throws Exception{
+        Partida part = new Partida();
+        part.setId_part(id_selecionado[13]);
+        part.setId_part1(id_selecionado[14]);
+        telaGols();
+        fecha();
+    }
+    
+    private void telaGols() throws Exception{
+        TelaEstatisticas tela = new TelaEstatisticas();
+        
+        tela.start(new Stage());
+        fecha();
+    }
 
     @FXML
     private void voltar(ActionEvent event){

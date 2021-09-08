@@ -1,27 +1,44 @@
 package dao;
 
+import classes.Competicao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import com.mysql.cj.xdevapi.PreparableStatement;
 
 import classes.Partida;
+import classes.Time;
+import classes.Usuario;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import javafx.scene.image.Image;
 
 public class PartidaDAO {
 
     Connection conexao = null;
     PreparedStatement ps = null;
     ResultSet rs = null;
-    int retUpdate;
+    private int retUpdate;
+    private int id;
+    private String resultado;
     DataSource data = new DataSource();
+    public  static int[] id_selecionado = new int[8];
 
     public PartidaDAO(){
     
     }
+
+    public int[] getId_selecionado() {
+        return id_selecionado;
+    }
+    
+    
 
     public boolean setPlacar(Partida partida){
         conexao = data.getConnection();
@@ -119,4 +136,622 @@ public class PartidaDAO {
         
     }
     
+    public Image Imagem(int alterna){
+        Competicao comp = new Competicao();
+        conexao = data.getConnection();
+        id = comp.getIdSelecionaCampeonato();
+        if(alterna == 1){
+        String SQL = "SELECT * FROM times WHERE id_time = (SELECT fk_time1 FROM partida WHERE fk_comp = ? AND id_part = (SELECT MIN(id_part) FROM partida WHERE fk_comp = ?))";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.setInt(2, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                if(rs.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = rs.getBinaryStream("imagem_time");
+                id_selecionado[0] = rs.getInt("id_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+            else{
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 2){
+        String SQL = "SELECT * FROM times WHERE id_time = (SELECT fk_time2 FROM partida WHERE fk_comp = ? AND id_part = (SELECT MIN(id_part) FROM partida WHERE fk_comp = ?))";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.setInt(2, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                if(rs.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = rs.getBinaryStream("imagem_time");
+                id_selecionado[1] = rs.getInt("id_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+            else{
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 3){
+        String SQL = "SELECT * FROM times WHERE id_time = (SELECT fk_time1 FROM partida WHERE fk_comp = ? AND id_part = (SELECT MIN(id_part)+1 FROM partida WHERE fk_comp = ?))";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.setInt(2, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                if(rs.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = rs.getBinaryStream("imagem_time");
+                id_selecionado[2] = rs.getInt("id_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+            else{
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 4){
+        String SQL = "SELECT * FROM times WHERE id_time = (SELECT fk_time2 FROM partida WHERE fk_comp = ? AND id_part = (SELECT MIN(id_part)+1 FROM partida WHERE fk_comp = ?))";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.setInt(2, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                if(rs.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = rs.getBinaryStream("imagem_time");
+                id_selecionado[3] = rs.getInt("id_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+            else{
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 5){
+        String SQL = "SELECT * FROM times WHERE id_time = (SELECT fk_time1 FROM partida WHERE fk_comp = ? AND id_part = (SELECT MIN(id_part)+2 FROM partida WHERE fk_comp = ?))";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.setInt(2, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                if(rs.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = rs.getBinaryStream("imagem_time");
+                id_selecionado[4] = rs.getInt("id_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+            else{
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 6){
+        String SQL = "SELECT * FROM times WHERE id_time = (SELECT fk_time2 FROM partida WHERE fk_comp = ? AND id_part = (SELECT MIN(id_part)+2 FROM partida WHERE fk_comp = ?))";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.setInt(2, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                if(rs.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = rs.getBinaryStream("imagem_time");
+                id_selecionado[5] = rs.getInt("id_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+            else{
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 7){
+        String SQL = "SELECT * FROM times WHERE id_time = (SELECT fk_time1 FROM partida WHERE fk_comp = ? AND id_part = (SELECT MIN(id_part)+3 FROM partida WHERE fk_comp = ?))";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.setInt(2, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                if(rs.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = rs.getBinaryStream("imagem_time");
+                id_selecionado[6] = rs.getInt("id_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+            else{
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 8){
+        String SQL = "SELECT * FROM times WHERE id_time = (SELECT fk_time2 FROM partida WHERE fk_comp = ? AND id_part = (SELECT MIN(id_part)+3 FROM partida WHERE fk_comp = ?))";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.setInt(2, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                if(rs.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = rs.getBinaryStream("imagem_time");
+                id_selecionado[7] = rs.getInt("id_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+            else{
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 9){
+        String SQL = "SELECT * FROM times WHERE id_time = (SELECT fk_time1 FROM partida WHERE fk_comp = ? AND id_part = (SELECT MIN(id_part)+4 FROM partida WHERE fk_comp = ?))";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.setInt(2, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                if(rs.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = rs.getBinaryStream("imagem_time");
+                id_selecionado[8] = rs.getInt("id_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+            else{
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 10){
+        String SQL = "SELECT * FROM times WHERE id_time = (SELECT fk_time2 FROM partida WHERE fk_comp = ? AND id_part = (SELECT MIN(id_part)+4 FROM partida WHERE fk_comp = ?))";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.setInt(2, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                if(rs.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = rs.getBinaryStream("imagem_time");
+                id_selecionado[9] = rs.getInt("id_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+            else{
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 11){
+        String SQL = "SELECT * FROM times WHERE id_time = (SELECT fk_time1 FROM partida WHERE fk_comp = ? AND id_part = (SELECT MIN(id_part)+5 FROM partida WHERE fk_comp = ?))";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.setInt(2, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                if(rs.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = rs.getBinaryStream("imagem_time");
+                id_selecionado[10] = rs.getInt("id_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+            else{
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 12){
+        String SQL = "SELECT * FROM times WHERE id_time = (SELECT fk_time2 FROM partida WHERE fk_comp = ? AND id_part = (SELECT MIN(id_part)+5 FROM partida WHERE fk_comp = ?))";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.setInt(2, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                if(rs.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = rs.getBinaryStream("imagem_time");
+                id_selecionado[11] = rs.getInt("id_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+            else{
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }  
+        else if(alterna == 13){
+        String SQL = "SELECT * FROM times WHERE id_time = (SELECT fk_time1 FROM partida WHERE fk_comp = ? AND id_part = (SELECT MIN(id_part)+6 FROM partida WHERE fk_comp = ?))";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.setInt(2, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                if(rs.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = rs.getBinaryStream("imagem_time");
+                id_selecionado[12] = rs.getInt("id_time");
+                Time time = new Time();
+                time.setId_sorteado(id_selecionado);
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+            else{
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        } 
+        else if(alterna == 14){
+        String SQL = "SELECT * FROM times WHERE id_time = (SELECT fk_time2 FROM partida WHERE fk_comp = ? AND id_part = (SELECT MIN(id_part)+6 FROM partida WHERE fk_comp = ?))";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ps.setInt(2, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                if(rs.getBinaryStream("imagem_time") != null){
+                InputStream imageFile = rs.getBinaryStream("imagem_time");
+                id_selecionado[13] = rs.getInt("id_time");
+                Image image = new Image(imageFile);
+                return image;
+                }
+                return null;
+            }
+            else{
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        } 
+        return null;
+    }
+    
+    public String getData(int alterna){
+        DataSource data = new DataSource();
+        Connection conn = null;
+        conn = data.getConnection();
+        Competicao comp = new Competicao();
+        id = comp.getIdSelecionaCampeonato();
+        if(alterna == 1){
+        String SQL = "SELECT MIN(data_part) as data_part FROM partida WHERE fk_comp = ?";
+
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                resultado = rs.getString("data_part");
+                data.closeDataSource();
+            } else{
+                JOptionPane.showMessageDialog(null, "Usuario não encontrado");
+            }
+
+            return resultado;
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 2){
+        String SQL = "SELECT MIN(data_part)+1 as data_part FROM partida WHERE fk_comp = ?";
+
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                resultado = rs.getString("data_part");
+                data.closeDataSource();
+            } else{
+                JOptionPane.showMessageDialog(null, "Usuario não encontrado");
+            }
+
+            return resultado;
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 3){
+        String SQL = "SELECT MIN(data_part)+2 as data_part FROM partida WHERE fk_comp = ?";
+
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                resultado = rs.getString("data_part");
+                data.closeDataSource();
+            } else{
+                JOptionPane.showMessageDialog(null, "Usuario não encontrado");
+            }
+
+            return resultado;
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 4){
+        String SQL = "SELECT MIN(data_part)+3 as data_part FROM partida WHERE fk_comp = ?";
+
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                resultado = rs.getString("data_part");
+                data.closeDataSource();
+            } else{
+                JOptionPane.showMessageDialog(null, "Usuario não encontrado");
+            }
+
+            return resultado;
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        return null;
+    } 
+    
+    public String getHora(int alterna){
+        DataSource data = new DataSource();
+        Connection conn = null;
+        conn = data.getConnection();
+        Competicao comp = new Competicao();
+        id = comp.getIdSelecionaCampeonato();
+        if(alterna == 1){
+        String SQL = "SELECT MIN(horario_part) as horario_part FROM partida WHERE fk_comp = ?";
+
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                resultado = rs.getString("horario_part");
+                data.closeDataSource();
+            } else{
+                JOptionPane.showMessageDialog(null, "Usuario não encontrado");
+            }
+
+            return resultado;
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 2){
+        String SQL = "SELECT MIN(horario_part)+1 as horario_part FROM partida WHERE fk_comp = ?";
+
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                resultado = rs.getString("horario_part");
+                data.closeDataSource();
+            } else{
+                JOptionPane.showMessageDialog(null, "Usuario não encontrado");
+            }
+
+            return resultado;
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 3){
+        String SQL = "SELECT MIN(horario_part)+2 as horario_part FROM partida WHERE fk_comp = ?";
+
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                resultado = rs.getString("horario_part");
+                data.closeDataSource();
+            } else{
+                JOptionPane.showMessageDialog(null, "Usuario não encontrado");
+            }
+
+            return resultado;
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(alterna == 4){
+        String SQL = "SELECT MIN(horario_part)+3 as horario_part FROM partida WHERE fk_comp = ?";
+
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setInt(1, id);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                resultado = rs.getString("horario_part");
+                data.closeDataSource();
+            } else{
+                JOptionPane.showMessageDialog(null, "Usuario não encontrado");
+            }
+
+            return resultado;
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        return null;
+    } 
+    
+     public int recuperaId(int id_time){
+        Connection conn = null;
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        String SQL = "SELECT id_part FROM partida WHERE fk_time1 = ?";
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setInt(1, id_time);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                id = rs.getInt("id_part");
+            }
+            data1.closeDataSource();
+            return id;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return 0;
+    }   
+     
+     public boolean adicionaImagemUsuario(int id,int escolhe,int valor) throws FileNotFoundException{
+        DataSource data2 = new DataSource();
+        conexao = data2.getConnection();
+        if(escolhe == 1){
+        String SQL = "UPDATE partida SET fk_time1 = ? WHERE id_part=?";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1,id);
+            retUpdate = ps.executeUpdate();
+            data.closeDataSource();
+            
+            if(retUpdate == 1){
+                return true;
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Imagem não cadastrada");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+        else if(escolhe == 2){
+        String SQL = "UPDATE partida SET fk_time2 = ? WHERE id_part=?";
+        try {
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1,id);
+            retUpdate = ps.executeUpdate();
+            data.closeDataSource();
+            
+            if(retUpdate == 1){
+                return true;
+            }
+            else{
+                JOptionPane.showMessageDialog(null,"Imagem não cadastrada");
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        }
+       return false;
+    }
+
+
+    public ArrayList getListaPartidas(int id_competicao){
+        System.out.println("ArrayList DAO");
+        conexao = data.getConnection();
+
+        ArrayList<Partida> arrayPartidas = new ArrayList<>();
+
+        String SQL = "SELECT * FROM partida WHERE fk_comp = ?";
+
+        try{
+            System.out.println("try");
+            ps = (PreparedStatement)conexao.prepareStatement(SQL);
+            ps.setInt(1, id_competicao);
+            rs = ps.executeQuery();
+
+            while(rs.next()){
+                Partida partida = new Partida();
+                partida.setId_part(rs.getInt("id_part"));
+                partida.setData_part(rs.getString("data_part"));
+                partida.setHora_part(rs.getString("horario_part"));
+                partida.setLoacl_part(rs.getString("local_part"));
+                partida.setPlacar_part(rs.getString("placar_part"));
+                partida.setFk_comp(rs.getInt("fk_comp"));
+                partida.setFk_time1(rs.getInt("fk_time1"));
+                partida.setFk_time2(rs.getInt("fk_time2"));
+                arrayPartidas.add(partida);
+            }
+            data.closeDataSource();
+            return arrayPartidas;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        System.out.println("fora");
+        return null;
+
+    }
+     
 }

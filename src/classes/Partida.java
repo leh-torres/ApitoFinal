@@ -4,10 +4,10 @@ import java.sql.Time;
 import java.sql.Date;
 
 
-
 public class Partida {
     private static int id_part;
     private static int id_part1;
+    private int idPartidaArray;
     private String data_part;
     private String hora_part;
     private String loacl_part;
@@ -168,7 +168,19 @@ public class Partida {
     public void setId_comp(int id_comp) {
         Partida.id_comp = id_comp;
     }
-    
-    
+
+    /**
+     * @return int return the idPartidaArray
+     */
+    public int getIdPartidaArray() {
+        return idPartidaArray;
+    }
+
+    /**
+     * @param idPartidaArray the idPartidaArray to set
+     */
+    public void setIdPartidaArray(int idPartidaArray) {
+        this.idPartidaArray = idPartidaArray;
+    }
 
 }

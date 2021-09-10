@@ -29,6 +29,7 @@ public class PartidaDAO {
     private String resultado;
     DataSource data = new DataSource();
     public  static int[] id_selecionado = new int[16];
+    private int idPart;
 
     public PartidaDAO(){
     
@@ -721,9 +722,12 @@ public class PartidaDAO {
        return false;
     }
 
+    /**
+     * Retorna um array com todas as partidas cadastradas
+     * @param id_competicao
+     */
 
     public ArrayList getListaPartidas(int id_competicao){
-        System.out.println("ArrayList DAO");
         conexao = data.getConnection();
 
         ArrayList<Partida> arrayPartidas = new ArrayList<>();
@@ -738,7 +742,7 @@ public class PartidaDAO {
 
             while(rs.next()){
                 Partida partida = new Partida();
-                partida.setId_part(rs.getInt("id_part"));
+                partida.setIdPartidaArray(rs.getInt("id_part"));
                 partida.setData_part(rs.getString("data_part"));
                 partida.setHora_part(rs.getString("horario_part"));
                 partida.setLoacl_part(rs.getString("local_part"));
@@ -756,6 +760,221 @@ public class PartidaDAO {
         System.out.println("fora");
         return null;
 
+    }
+
+    /**
+     * Atualiza o local de uma partida e retorna verdadeiro ou falso
+     * @param local
+     * @param idPart
+     */
+
+    public boolean atualizaLocal(String local, int idPart){
+        Connection conn = null;
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        String SQL = "UPDATE partida SET local_part = ? WHERE id_part = ?";
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setString(1, local);
+            ps.setInt(2, idPart);
+            retUpdate = ps.executeUpdate();
+
+            if(retUpdate == 1){
+                System.out.println("Local atualizada com sucesso!");
+                data1.closeDataSource();
+            }
+
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return false;
+    }
+
+    /**
+     * Atualiza o Horario de uma partida e retorna verdadeiro ou falso
+     * @param horario
+     * @param idPart
+     */
+
+    public boolean atualizaHorario(String horario, int idPart){
+        Connection conn = null;
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        String SQL = "UPDATE partida SET horario_part = ? WHERE id_part = ?";
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setString(1, horario);
+            ps.setInt(2, idPart);
+            retUpdate = ps.executeUpdate();
+
+            if(retUpdate == 1){
+                System.out.println("Horario atualizada com sucesso!");
+                data1.closeDataSource();
+            }
+
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return false;
+    }
+
+    /**
+     * Atualiza a data de uma partida e retorna verdadeiro ou falso
+     * @param data
+     * @param idPart
+     */
+
+    public boolean atualizaData(String data, int idPart){
+        Connection conn = null;
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        String SQL = "UPDATE partida SET data_part = ? WHERE id_part = ?";
+        try {
+            ps = (PreparedStatement)conn.prepareStatement(SQL);
+            ps.setString(1, data);
+            ps.setInt(2, idPart);
+            retUpdate = ps.executeUpdate();
+
+            if(retUpdate == 1){
+                System.out.println("Data atualizada com sucesso!");
+                data1.closeDataSource();
+            }
+
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return false;
+    }
+
+    /**
+     * Recupera o id de todas as partidas da competição a medida que forem selecionadas na lista
+     * @param idComp
+     * @param escolha
+     */
+
+    public int getMinIdPart(int idComp, int escolha){
+        Connection conn = null;
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        
+        if(escolha == 0){
+            String SQL = "SELECT min(id_part) as id_part FROM partida WHERE fk_comp = ?";
+            try {
+                ps = (PreparedStatement)conn.prepareStatement(SQL);
+                ps.setInt(1, idComp);
+                rs = ps.executeQuery();
+
+                if(rs.next()){
+                    idPart = rs.getInt("id_part");
+                    data1.closeDataSource();
+                    return idPart;
+                }
+                
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+            return 0;  
+           
+        } else if(escolha == 1){
+            String SQL = "SELECT min(id_part) +1 as id_part FROM partida WHERE fk_comp = ?";
+            try {
+                ps = (PreparedStatement)conn.prepareStatement(SQL);
+                ps.setInt(1, idComp);
+                rs = ps.executeQuery();
+
+                if(rs.next()){
+                    idPart = rs.getInt("id_part");
+                    data1.closeDataSource();
+                }
+                return idPart;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        } else if(escolha == 2){
+            String SQL = "SELECT min(id_part) +2 as id_part FROM partida WHERE fk_comp = ?";
+            try {
+                ps = (PreparedStatement)conn.prepareStatement(SQL);
+                ps.setInt(1, idComp);
+                rs = ps.executeQuery();
+
+                if(rs.next()){
+                    idPart = rs.getInt("id_part");
+                    data1.closeDataSource();
+                }
+                return idPart;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        } else if(escolha == 3){
+            String SQL = "SELECT min(id_part) +3 as id_part FROM partida WHERE fk_comp = ?";
+            try {
+                ps = (PreparedStatement)conn.prepareStatement(SQL);
+                ps.setInt(1, idComp);
+                rs = ps.executeQuery();
+
+                if(rs.next()){
+                    idPart = rs.getInt("id_part");
+                    data1.closeDataSource();
+                }
+                return idPart;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        } else if(escolha == 4){
+            String SQL = "SELECT min(id_part) +4 as id_part FROM partida WHERE fk_comp = ?";
+            try {
+                ps = (PreparedStatement)conn.prepareStatement(SQL);
+                ps.setInt(1, idComp);
+                rs = ps.executeQuery();
+
+                if(rs.next()){
+                    idPart = rs.getInt("id_part");
+                    data1.closeDataSource();
+                }
+                return idPart;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        } else if(escolha == 5){
+            String SQL = "SELECT min(id_part) +5 as id_part FROM partida WHERE fk_comp = ?";
+            try {
+                ps = (PreparedStatement)conn.prepareStatement(SQL);
+                ps.setInt(1, idComp);
+                rs = ps.executeQuery();
+
+                if(rs.next()){
+                    idPart = rs.getInt("id_part");
+                    data1.closeDataSource();
+                }
+                return idPart;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        } else if(escolha == 6){
+            String SQL = "SELECT min(id_part) +6 as id_part FROM partida WHERE fk_comp = ?";
+            try {
+                ps = (PreparedStatement)conn.prepareStatement(SQL);
+                ps.setInt(1, idComp);
+                rs = ps.executeQuery();
+
+                if(rs.next()){
+                    idPart = rs.getInt("id_part");
+                    data1.closeDataSource();
+                }
+                return idPart;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        }
+        return escolha;
+       
     }
      
 }

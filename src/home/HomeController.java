@@ -5,6 +5,7 @@
  */
 package home;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,6 +35,8 @@ import javafx.stage.Stage;
 import selecaocampeonato.SelecaoCampeonato;
 import tela.estatisticas.TelaEstatisticas;
 import telaEditCampeonato.TelaEditCampeonato;
+import telaEditPartidas.TelaEditPartidas;
+import telaEditTimes.TelaEditTimes;
 import telaUsuario.TelaUsuario;
 
 /**
@@ -109,6 +112,9 @@ public class HomeController implements Initializable {
 
     @FXML
     private Button btnEditarCamp;
+
+    @FXML
+    private Button btnVoltar;
 
     @FXML
     private Button gol1;
@@ -356,6 +362,41 @@ public class HomeController implements Initializable {
 
     @FXML
     private void voltar(MouseEvent event) {
+        SelecaoCampeonato camp = new SelecaoCampeonato();
+        fecha();
+
+        try {
+            camp.start(new Stage());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void editarPartida(ActionEvent event){
+        TelaEditPartidas editPart = new TelaEditPartidas();
+        fecha();
+
+        try {
+            editPart.start(new Stage());
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void editarTime(ActionEvent event){
+        TelaEditTimes editTimes = new TelaEditTimes();
+        fecha();
+
+        try {
+            editTimes.start(new Stage());
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
 }

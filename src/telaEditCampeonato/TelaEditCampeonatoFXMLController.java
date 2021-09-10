@@ -5,6 +5,7 @@
  */
 package telaEditCampeonato;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -120,14 +121,7 @@ public class TelaEditCampeonatoFXMLController implements Initializable {
         
         
         JOptionPane.showMessageDialog(null, "Dado(os) atualizado(os) com sucesso!");
-        Home h = new Home();
-        fecha();
-        try {
-            h.start(new Stage());
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+        refreshScreen();
     }
     
 
@@ -145,5 +139,17 @@ public class TelaEditCampeonatoFXMLController implements Initializable {
 
     private void fecha(){
         TelaEditCampeonato.getStage().close();
+    }
+
+    private void refreshScreen(){
+        TelaEditCampeonato tela2 = new TelaEditCampeonato();
+        fecha();
+
+        try {
+            tela2.start(new Stage());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+             e.printStackTrace();
+        }
     }
 }

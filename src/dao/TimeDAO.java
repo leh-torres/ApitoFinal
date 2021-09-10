@@ -215,5 +215,97 @@ public class TimeDAO {
         System.out.println("fora");
         return null;
     }
+
+    public boolean atualizaNomeTime(String nome, int idTime){
+        Connection conn = null;
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        String SQL = "UPDATE times SET nome_time = ? WHERE id_time = ?";
+        try {
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setString(1, nome);
+            pst.setInt(2, idTime);
+            rs = pst.executeUpdate();
+
+            if(rs == 1){
+                data1.closeDataSource();
+            }
+
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return false;
+    }
+
+    public boolean atualizaAbrev(String abrev, int idTime){
+        Connection conn = null;
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        String SQL = "UPDATE times SET abreviacao_time = ? WHERE id_time = ?";
+        try {
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setString(1, abrev);
+            pst.setInt(2, idTime);
+            rs = pst.executeUpdate();
+
+            if(rs == 1){
+                data1.closeDataSource();
+            }
+
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return false;
+    }
+
+    public boolean atualizaImagem(FileInputStream fis, int idTime){
+        Connection conn = null;
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+        
+        String SQL = "UPDATE times SET imagem_time = ? WHERE id_time = ?";
+        try {
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setBinaryStream(1, fis);
+            pst.setInt(2, idTime);
+            rs = pst.executeUpdate();
+
+            if(rs == 1){
+                data1.closeDataSource();
+            }
+
+            return true;
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+        return false;
+    }
+
+    public boolean deletaTime(int idTime){
+        DataSource data1 = new DataSource();
+        conn = data1.getConnection();
+
+        String SQL = "DELETE FROM times WHERE id_time = ?";
+
+        try {
+            pst = (PreparedStatement)conn.prepareStatement(SQL);
+            pst.setInt(1, idTime);
+            rs = pst.executeUpdate();
+
+            if(rs == 1){
+                data.closeDataSource();
+            }
+            return true;
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
+        return false;
+    }
         
 }

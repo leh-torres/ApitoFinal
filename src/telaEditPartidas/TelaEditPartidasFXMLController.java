@@ -5,13 +5,15 @@
  */
 package telaEditPartidas;
 
-import java.io.InputStream;
+
+import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
+
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import com.mysql.cj.jdbc.Blob;
+import javax.swing.JOptionPane;
+
 
 import classes.Competicao;
 import classes.Partida;
@@ -19,8 +21,10 @@ import classes.Time;
 import dao.BarraDeMenuDAO;
 import dao.PartidaDAO;
 import dao.TimeDAO;
+import home.Home;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -28,9 +32,9 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -61,7 +65,7 @@ public class TelaEditPartidasFXMLController implements Initializable {
     private CheckBox checkHorario;
 
     @FXML
-    private ListView<String> lista_times;
+    private ListView<String> lista_partidas;
 
     @FXML
     private ImageView imageTime1;
@@ -76,24 +80,20 @@ public class TelaEditPartidasFXMLController implements Initializable {
     private ImageView imagem_user;
 
     private ArrayList<Partida> arrayPartidas = new ArrayList<>();
-    private ArrayList<Time> arrayTimesAux = new ArrayList<>();
     private ArrayList<String> arrayAux = new ArrayList<>();
-    private ArrayList<String> arrayAux1 = new ArrayList<>();
     private ObservableList<String> observableList;
-    private ObservableList<String> observableList1;
 
     private Partida partida = new Partida();
-    private Time time1 = new Time();
-    private Time time2 = new Time();
+    private Time time = new Time();
     private Competicao comp = new Competicao();
 
     private TimeDAO timeDAO = new TimeDAO();
     private PartidaDAO partDAO = new PartidaDAO();
 
-    private String auxNome;
-    private String auxAbrv;
-    private Blob auxImagem;
+
     private String nome;
+    private int idPartidaSelecionada;
+    private int idPartListView;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -101,52 +101,33 @@ public class TelaEditPartidasFXMLController implements Initializable {
         BarraDeMenuDAO barra1 = new BarraDeMenuDAO();
         nome_user.setText(barra.Nome());
         imagem_user.setImage(barra1.Imagem());
-        System.out.println("Entrou no initialize");
-        CarregaTimesCadastrados();
+        
+        CarregaPartidasCadastrados();
 
-        lista_times.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        lista_partidas.setOnMouseClicked(new EventHandler<MouseEvent>(){
     
             @Override
             public void handle(MouseEvent arg0) {
-                nome = lista_times.getSelectionModel().getSelectedItem();
+                idPartListView = lista_partidas.getSelectionModel().getSelectedIndex();
+                idPartidaSelecionada = partDAO.getMinIdPart(comp.getIdSelecionaCampeonato(), idPartListView);
                 
                 for(int i = 0; i < arrayPartidas.size(); i++){
-                        Time time = new Time();
-                        /*auxNome = arrayTimes.get(i).getNome_time();
-                        auxAbrv = arrayTimes.get(i).getAbreviacao_time();
-                        auxImagem = (Blob) arrayTimes.get(i).getImagem_time();
-
-                        time.setId_time(arrayTimes.get(i).getId_time());
-                        time.setNome_time(auxNome);
-                        time.setAbreviacao_time(auxAbrv);
-                        time.setImagem_time(auxImagem);
-                        time.setFk_usuario(arrayTimes.get(i).getFk_usuario());
-                        time.setFk_comp(comp.getId_competicao());
-
-                        arrayTimesAux.add(time);
-                        arrayAux1.add(auxNome);
-
-                        txtNomeTime.setText(auxNome);
-                        txtAbrev.setText(auxAbrv);
-                        try {
-                            InputStream is = auxImagem.getBinaryStream();
-                            Image image = new Image(is);
-                            imageTime.setImage(image);
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                        }*/
+                    if(idPartidaSelecionada == arrayPartidas.get(i).getIdPartidaArray()){
+                        imageTime1.setImage(timeDAO.buscaImagem(arrayPartidas.get(i).getFk_time1()));
+                        imageTime2.setImage(timeDAO.buscaImagem(arrayPartidas.get(i).getFk_time2()));
+                    }
                 }
             }
   
         });
     } 
     
-    private void CarregaTimesCadastrados(){
+    private void CarregaPartidasCadastrados(){
         String abrev1, abrev2;
-        //arrayPartidas= partDAO.getListaPartidas(comp.getIdSelecionaCampeonato());
+        arrayPartidas= partDAO.getListaPartidas(comp.getIdSelecionaCampeonato());
     
         //Para testes
-        arrayPartidas = partDAO.getListaPartidas(109);
+        //arrayPartidas = partDAO.getListaPartidas(109);
 
         for(int i = 0; i < arrayPartidas.size(); i++){
             abrev1 = timeDAO.getAbrev(arrayPartidas.get(i).getFk_time1(), 1);
@@ -159,8 +140,88 @@ public class TelaEditPartidasFXMLController implements Initializable {
         
         observableList = FXCollections.observableArrayList(arrayAux);
 
-        lista_times.setItems(observableList);
+        lista_partidas.setItems(observableList);
 
     }
-    
+
+    @FXML
+    private void acaoDoCheck(ActionEvent event){
+        if(checkLocalPartida.isSelected()){
+            txtLocalPartida.setEditable(true);
+        } else{
+            txtLocalPartida.setEditable(false);
+        }
+
+        if(checkHorario.isSelected()){
+            txtHorarioPartida.setEditable(true);
+        } else{
+            txtHorarioPartida.setEditable(false);
+        }
+
+        if(checkData.isSelected()){
+            txtDataPartida.setEditable(true);
+        } else{
+            txtDataPartida.setEditable(false);
+        }
+
+    }
+
+    @FXML
+    private void BotaoSalvar(ActionEvent event){
+
+        if(checkLocalPartida.isSelected()){
+            partDAO.atualizaLocal(txtLocalPartida.getText(), idPartidaSelecionada);
+        } 
+        if(checkHorario.isSelected()){
+            partDAO.atualizaHorario(txtHorarioPartida.getText(), idPartidaSelecionada);
+        }
+        if(checkData.isSelected()){
+            partDAO.atualizaData(txtDataPartida.getText(), idPartidaSelecionada);
+        }
+        
+        
+        JOptionPane.showMessageDialog(null, "Dado(os) atualizado(os) com sucesso!");
+        
+        refreshScreen();
+    }
+
+    @FXML
+    public void acaoDeBusca(ActionEvent event){
+        String busca = txtBusca.getText();
+
+        Boolean ifContains = lista_partidas.getItems().contains(busca);
+        if(ifContains == true){
+            lista_partidas.getItems().add(0, busca);
+        }
+    }
+
+    @FXML 
+    private void voltar(ActionEvent event){
+        Home h = new Home();
+        fecha();
+        try {
+            h.start(new Stage());
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
+    private void fecha(){
+        TelaEditPartidas.getStage().close();
+    }
+
+    private void refreshScreen(){
+        TelaEditPartidas tela2 = new TelaEditPartidas() ;
+        fecha();
+
+        
+            try {
+                tela2.start(new Stage());
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        
+    }
 }

@@ -5,6 +5,8 @@
  */
 package classes;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author rayla
@@ -54,7 +56,7 @@ public No removeValorMinimoDaArvore(No node) {
 public void emordem(No no) {
     if(no != null){
       emordem(no.esquerda);
-System.out.print(no.valor + " ");
+        JOptionPane.showMessageDialog(null,no.valor + " ");
       emordem(no.direita);
     }
 }

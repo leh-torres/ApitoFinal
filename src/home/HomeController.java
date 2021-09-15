@@ -5,6 +5,7 @@
  */
 package home;
 
+import classes.ArvoreB;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -13,6 +14,7 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 
 import classes.Competicao;
+import classes.No;
 import classes.Partida;
 import classes.Time;
 import java.lang.Character;
@@ -23,6 +25,7 @@ import dao.PartidaDAO;
 import dao.TimeDAO;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -143,6 +146,8 @@ public class HomeController implements Initializable {
     private int[] id_selecionado = new int[16];
     private int[] id_ganhador = new int[8];
     PartidaDAO part = new PartidaDAO();
+    ArvoreB arvore = new ArvoreB();
+    private No no;
     @FXML
     private ImageView image15;
 
@@ -167,6 +172,12 @@ public class HomeController implements Initializable {
         labelDataInicio.setText(competicao.getData_inicio());
         labelDataTerm.setText(competicao.getData_terminio());
         labelSituacao.setText(competicao.getSituacao());
+        
+        for(int i = 0; i<7 ; i++){
+            arvore.inserir(no, part.getMinIdPart(competicao.getIdSelecionaCampeonato(), i));
+        }
+        
+        arvore.emordem(no);
         
         /*gol1.setDisable(true);
         gol1.setVisible(false);

@@ -972,7 +972,22 @@ public class PartidaDAO {
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, ex);
             }
-        }
+        } else if(escolha == 7){
+            String SQL = "SELECT min(id_part) +7 as id_part FROM partida WHERE fk_comp = ?";
+            try {
+                ps = (PreparedStatement)conn.prepareStatement(SQL);
+                ps.setInt(1, idComp);
+                rs = ps.executeQuery();
+
+                if(rs.next()){
+                    idPart = rs.getInt("id_part");
+                    data1.closeDataSource();
+                }
+                return idPart;
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, ex);
+            }
+        } 
         return escolha;
        
     }
